@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head')%>
+    <title>Bon Habite</title>
+</head>
+
+<%- include('../partials/header')%>
+
+<body>
+
+    <div>
+
+        <div class="nombre_perfil col-12">
+
+            <h1 class="nombre_perfiltext">  Hola, <%=locals.usuario.name%> </h1>
+
+        </div>
+
+        <div class="botones_perfil col-12">
+            <ul class="perfilboton_flex">
+                <a href="/perfil/misdatos">
+                    <li> <strong>Datos de la cuenta</li> </strong> 
+                    <a href="/perfil/miscompras">
+                        <li>Mis compras</li>
+                    </a>
+            </ul>
+        </div>
+
+        <h2 class="col-12 perfil_title m-3 pl-3"> Mi información</h2>
+
+
+        <section class="row">
+
+            <div class="col-lg-6 col-md-6 col-sm-12 pl-3">
+
+                <div class="lineadivisoria">
+                    <div class="flex_contactos">
+                    <h2 class="title_producto"> datos personales</h2> <a href="#">
+                        <h3 class="ediciondatos">EDITAR</h3> </div> </a>
+
+                        <ul>
+                         <!--  <li> <img class="mb-2" src="/img/usuarios/<%=locals.usuario.image%>" height="50px" alt=""></li> --> 
+                            <li> <%=locals.usuario.name%> <%=locals.usuario.last_name%> </li>
+                            <li> <%=locals.usuario.email%>  </li>
+                        </ul>
+                </div>
+           
+
+                <div class="lineadivisoria">
+                    <div class=" flex_contactos">
+                        <h2 class="title_producto"> mi dirección</h2> <a href="#">
+                            <h3 class="ediciondatos">EDITAR</h3>
+                    </div> </a>
+                    <ul>
+                        <li> Calle y número: </li>
+                        <li> Localidad: </li>
+                        <li> Código Postal:</li>
+                    </ul>
+                </div>
+
+                <div class="lineadivisoria">
+                    <div class=" flex_contactos">
+                        <h2 class="title_producto"> mis métodos de pago</h2> <a href="#" class="pt-2">
+                            <h3 class="ediciondatos">EDITAR</h3>
+                    </div> </a>
+                    <ul>
+                        <li> Tarjeta VISA débito terminada en 264</li>
+                        <li>Tarjeta VISA crédito terminada en 685</li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 pt-0 pr-3 ">
+
+                <div class="flex_contactos margenmedia">
+                    <h2 class="title_producto"> tus muebles</h2>
+                    <h3 class="ediciondatos pr-3">SALDO A FAVOR: 1234</h3>
+                </div>
+                <p class="aclaracion_codigo margenmedia">Introducí tu código a la hora de
+                    hacer el Checkout en el Carrito. </p>
+
+ <table class="table m-auto" style="width: 90%;" >
+        <thead>
+            <tr class="cabeza_tabla_datos lineadivisoria">
+                <th > nombre </th>
+                <th>precio</th>
+                <th>codigo</th>
+            </tr>
+        </thead>
+        <tbody>
+          
+                <tr class="lineadivisoria">
+                    <td class="texto_tabla mayus"> MESA RATONA </td>
+                    <td class="texto_tabla" > $10.500 </td>
+                    <td class="texto_tabla" > ESTADO </td>
+                </tr>
+
+                <tr class="lineadivisoria">
+                    <td class="texto_tabla mayus"> MESA RATONA </td>
+                    <td class="texto_tabla" > $10.500 </td>
+                    <td class="texto_tabla" > ESTADO </td>
+                </tr>
+
+                <tr class="lineadivisoria">
+                    <td class="texto_tabla mayus"> MESA RATONA </td>
+                    <td class="texto_tabla" > $10.500 </td>
+                    <td class="texto_tabla" > ESTADO </td>
+                </tr>
+
+ </tbody>
+</table>
+ <a href="/reciclados/cotiza"><button class="btn_cotizamos" style="width: 100%;margin-top: 10px; margin-bottom: 10px;"> COTIZAMOS TU MUEBLE</button></a> 
+
+
+   <p class="aclaracion_codigo margenmedia"> Ves algún error? Encontranos en <a href="/nosotros/contacto" style="color: #454743;;">CONTACTO. </a> </p>
+
+
+        </section>
+
+    </div>
+
+
+
+
+
+    <%- include('../partials/scripts')%>
+
+</body>
+<!-- Footer -->
+
+<%- include('../partials/footer')%>
+
+</html>

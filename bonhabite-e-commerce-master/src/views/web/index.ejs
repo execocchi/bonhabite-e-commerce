@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <%- include('../partials/head')%>
+  <title>Bon Habite</title>
+</head>
+
+<%- include('../partials/header')%>
+
+<body>
+
+  <section class="fotosHome row">
+    <div class="home_rigth col-sm-12 col-md-7 col-lg-7">
+      <div class="textarea">
+        <h4 class="type_product_category">NUEVA COLECCIÓN</h4>
+        <H3 class="title_home">Conocé nuestra <br> nueva colección</H3>
+        <a href="/colecciones/coleccionA"><button class="btn_quiero"> LA QUIERO</button></a> 
+      </div>
+      <img class="homefoto1 responsive" src="img/fotohomeblanca-03.jpg" alt="home">
+    </div>
+
+    <div class="home_left col-sm-12 col-md-5 col-lg-5">
+      <div class="textarea2">
+        <h4 class="type_product_category2"> COMPRÁ VERDE</h4>
+        <H3 class="home_reciclados_text">Tomamos tus
+          muebles <br> gastados
+          como pago, y <br> los transformamos!</H3>
+          <a href="/colecciones/reciclados">  <button class="btn__reciclados"> COMPRA RECICLADOS</button></a>
+      </div>
+      <img class="homefoto2 " src="img/homefoto-02.jpg" alt="home">
+
+      <div class="divfotosale"> <a href="/productos/ofertas"><button class="btn_sale"> Ofertas</button></a> <img class="homefoto3 "
+          src="/img/fotohomesale3-01.jpg" alt="home"></div>
+
+
+    </div>
+
+
+
+  </section>
+
+
+  <div class="container_4products">
+    <h3 class="type_title4products"> Los más vendidos </h3>
+
+    <div class="card-deck">
+      <% for (let i = 0 ; i < productos.length ; i++){ %>
+      <% if (productos[i].masvendido == 1) {  %>
+
+      <div class="card">
+  
+        <img class="card-img-top" src="/img/productos/<%=productos[i].image%>" alt="producto">
+        <div class="card-body">
+          <h5 class="card-title"> <%= productos[i].name %></h5>
+          <p class="card-text"> $ <%= productos[i].price %> </p>
+          <button class="btn_deletecart mb-1"> AÑADIR AL CARRITO </button>
+        </div>
+      </div>
+      <%  } %>
+      <%  } %>
+
+
+    </div>
+  </div>
+
+  <div class="metodosdepago">
+    <article class="article_metododepago ">
+      <h2 class="type_metodosdepago"> nuestros métodos <br> de pago</h3>
+    </article>
+    <article class="article_metododepago">
+      <h3> Tomamos tu mueble como <br> método de pago</h3>
+      <a href="/reciclados/comofunciona">
+        <h4>CÓMO FUNCIONA</h4>
+      </a>
+    </article>
+    <article class="article_metododepago">
+      <h3> Tarjetas y Mercado Pago <br></h3>
+      <img class="tarjetashome" src="img/tarjetas.png" alt="tarjetas">
+    </article>
+    <article class="article_metododepago">
+      <h3> Efectivo</h3>
+      <h4>Rapipago</h4>
+      <h4>Pago Fácil</h4>
+    </article>
+  </div>
+
+  <%- include('../partials/scripts')%>
+
+</body>
+<!-- Footer -->
+
+<%- include('../partials/footer')%>
+
+</html>

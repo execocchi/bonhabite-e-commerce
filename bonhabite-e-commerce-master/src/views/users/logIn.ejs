@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+   
+    <%- include('../partials/head')%> 
+    <title>Ingresá</title>
+    <link rel="stylesheet" href="/css/logIn.css">
+    
+</head>
+
+  
+
+<body class="logIn">
+  <%- include('../partials/header')%> 
+
+    <section class="containersignUp">
+     
+    
+
+    <form class="form-login" action="/login" method="POST">
+        <h1 class="h1 mb-3 font-weight-normal title-form ">Iniciar sesión</h1>
+      
+        <input  type="email" id="inputEmail" class="form-control login" placeholder="Email" name="email" value="<%=typeof old == 'undefined' ? '':old.email %>" >
+       
+       <% if (typeof(errors) != 'undefined' && errors.email) { %>
+        <span > <%=errors.email.msg %> </span>
+      <% } %>
+
+        <input type="password" id="inputPassword" class="form-control login" placeholder="Clave" name="password" value="<%=typeof old == 'undefined' ? '':old.email %>">
+     
+        <% if (typeof(errors) != 'undefined' && errors.password) { %>
+          <span > <%= errors.password.msg %> </span>
+        <% } %>
+       
+        <div class="checkbox mb-3">
+          <label class="remember">
+            <input class="remember" type="checkbox" value="recordarme" name="recordarme"> Recordame
+          </label>
+        </div>
+        <button class="btn_logIn" type="submit">ENTRAR</button>
+        <p class="cuenta"> No tenés cuenta? <a href="/signup">Registrate</a></p>
+      </form>
+    </section>
+    
+  
+    <%- include('../partials/footer')%> 
+    <%- include('../partials/scripts')%> 
+</body>
+<!-- Footer -->
+
+
+
+</html>

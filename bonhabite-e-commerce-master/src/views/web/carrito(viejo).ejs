@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+
+
+<head>
+
+    <%- include('../partials/head')%> 
+    <link rel="stylesheet" href="/css/carrito.css">
+    <title>Mi Carrito</title>
+</head>
+
+    <%- include('../partials/header')%> 
+
+        <body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="title_carrito">
+                    Mi carrito
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+
+                <section class="row ml-2">
+                    <% for (let i = 0 ; i < productos.length ; i++){ %>
+                      <article class="col-xs-12 col-md-6 col-lg-4 card p-1">
+                        <a href="/productDetail"> <img src="/img/productos/<%=productos[i].image %>" class="card-img-top" alt="producto">
+                        <div class="card-body pb-0" >
+                          <h5 class="card-title"> <%= productos[i].name %> </h5>
+                          <p class="card-text"> $<%= productos[i].price %>  </p></a>
+                          <button class="btn_deletecart mb-1 mt-2"> ELIMINAR DEL CARRITO </button>
+                        </div>
+                      </article>
+                    <% } %>
+                  </section>
+            </div>
+
+
+            <div class="col-12 col-md-6 col-sm-12">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 ">
+                        <address>
+                            <strong>BON HABITE</strong>
+                            <br>
+                            Av. El Cano 4742
+                            <br>
+                            Buenos Aires, CP 1428
+                            <br>
+                            <abbr title="Phone">Tel:</abbr> (+5411) 4582-6752
+                        </address>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 text-right datacarrito">
+                        <p>
+                            <em>Fecha: 1ro Marzo, 2020</em>
+                        </p>
+                        <p>
+                            <em>Factura N° 34522677W</em>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="text-center">
+                        <h1 class="title_micarrito">Carrito</h1>
+                    </div>
+                    </span>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>#</th>
+                                <th class="text-center">Precio</th>
+                                <th class="text-center">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-md-9"><em>Mesa nombre mueble</em></h4>
+                                </td>
+                                <td class="col-md-1" style="text-align: center"> 1 </td>
+                                <td class="col-md-1 text-center">$12.000</td>
+                                <td class="col-md-1 text-center">$12.000</td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-9"><em>Mesa nombre mueble</em></h4>
+                                </td>
+                                <td class="col-md-1" style="text-align: center"> 1 </td>
+                                <td class="col-md-1 text-center">$12.000</td>
+                                <td class="col-md-1 text-center">$12.000</td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-9"><em>Mesa nombre mueble</em></h4>
+                                </td>
+                                <td class="col-md-1" style="text-align: center"> 1 </td>
+                                <td class="col-md-1 text-center">$12.000</td>
+                                <td class="col-md-1 text-center">$12.000</td>
+                            <tr>
+                                <td class="col-md-9"><em>Mesa nombre mueble</em></h4>
+                                </td>
+                                <td class="col-md-1" style="text-align: center"> 1 </td>
+                                <td class="col-md-1 text-center">$12.000</td>
+                                <td class="col-md-1 text-center">$12.000</td>
+                            </tr>
+                            </tr>
+                            <tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td class="text-right">
+
+                                    <p>
+                                        <strong>Envío: </strong>
+                                    </p>
+                                </td>
+                                <td class="text-center">
+
+                                    <p>
+                                        <strong>$1.000</strong>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td class="text-right">
+                                    <h4><strong>Total: </strong></h4>
+                                </td>
+                                <td class="text-center ">
+                                    <h4><strong>$49.000</strong></h4>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    
+    <section >
+        <div >
+            <div class="paymentCont col-12 col-md-6 ml-auto col-sm-12">
+
+                <h3 class="title_micarrito">Seleccionar método de pago</h3>
+
+                <div class="paymentWrap col-12 col-md-6 col-sm-12mx-auto">
+                    <div class="btn-group paymentBtnGroup btn-group-justified" data-toggle="buttons">
+                        <label class="btn paymentMethod active">
+                            <div class="method visa"></div>
+                            <input type="radio" name="options" checked>
+                        </label>
+                        <label class="btn paymentMethod">
+                            <div class="method master-card"></div>
+                            <input type="radio" name="options">
+                        </label>
+                        <label class="btn paymentMethod">
+                            <div class="method amex"></div>
+                            <input type="radio" name="options">
+                        </label>
+                        <label class="btn paymentMethod">
+                            <div class="method vishwa"></div>
+                            <input type="radio" name="options">
+                        </label>
+
+                    </div>
+                </div>
+
+
+                <div class="footerNavWrap  d-flex justify-content-between">
+                    <div class="col-6 col-md-6 col-sm-12">
+                        <a href="index.html" class="btn btn_seguircomprando btn-block ">
+                            <span class="glyphicon glyphicon-chevron-left"></span> SEGUIR COMPRANDO</a>
+                    </div>
+                    <div class=" col-6 col-md-6 col-sm-12">
+                        <a href="index.html" class="btn btn_comprar btn-block ">PAGAR<span
+                                class="glyphicon glyphicon-chevron-right"></span></a>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+    </section>
+
+
+    <%- include('../partials/scripts')%> 
+
+</body>
+<!-- Footer -->
+
+<%- include('../partials/footer')%> 
+
+</html>

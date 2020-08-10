@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+
+    <%- include('../partials/head')%> 
+    <title>Agregá tu producto</title>
+    <link rel="stylesheet" href="css/signUp.css">
+</head>
+
+    <%- include('../partials/header')%> 
+
+<body class="body-login">
+
+    <section class="containersignUp">
+    <form class="form-login" action="/create" method="POST" enctype="multipart/form-data">
+        
+        <h1 class="h3 mb-3 font-weight-normal title-form">Añadir producto</h1>
+        
+        <label for="inputName" class="sr-only">Nombre</label>
+        <input type="text" id="inputName" class="form-control signup" name="name" placeholder="Nombre" required="required">
+       
+        <label for="inputPrice" class="sr-only">Precio</label>
+        <input type="number" id="inputPrice" class="form-control signup" name="price" placeholder="Precio" required="required">
+        
+        <label for="inputStock" class="sr-only">Stock</label>
+        <input type="number" id="InputStock" class="form-control signup" name="stock" placeholder="Stock" required="required">
+       
+        <label for="inputDetail" class="sr-only">Detalle</label>
+        <input type="text" id="inputDetail" class="form-control signup" name="description" placeholder="Descripción"
+            required="required">
+
+            <select  name="collection" class="form-control signup " required>
+              <option selected disabled value="#"> Elija su colección </option>
+              <option value="coleccionA" selected> Colección A</option>
+              <option value="coleccionB"> Colección B </option>
+              <option value="coleccionC"> Colección C </option>
+              <option value="reciclados"> Reciclados </option>
+            </select>
+
+            <select  name="category" class="form-control signup " required>
+              <option selected disabled value="#"> Qué categoria es? </option>
+              <option value="mesas" selected> Mesas</option>
+              <option value="iluminación"> Iluminación </option>
+              <option value="camas"> Camas </option>
+              <option value="sillones"> Sillones </option>
+              <option value="escritorios"> Escritorios </option>
+              <option value="bibliotecas"> Bibliotecas </option>
+              <option value="cómodas"> Cómodas </option>
+              <option value="sillas"> Sillas </option>
+              <option value="otras"> Otras </option>
+              <option value="ofertas"> Ofertas </option>
+
+            </select>
+
+
+            <select  name="discount" class="form-control signup " required>
+                  <option selected disabled value="#">Elija su descuento</option>
+                  <option value="Sin descuento" selected>Sin descuento</option>
+                  <option value="15"> 15 </option>
+                  <option value="30"> 30 </option>
+                </select>
+        
+<div class="checkbox mb-3">
+            <div class="form-group">
+                <label for="exampleFormControlFile1"></label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image" required> 
+              </div>
+
+        </div>
+
+        <button class="btn_register" type="submit">Añadir</button>
+        <a class="btn btn_volver mt-0" href="/administrar">Volver</a>
+        
+      </form>
+    </section>
+
+    <%- include('../partials/scripts')%>
+
+</body>
+<!-- Footer -->
+
+<%- include('../partials/footer')%> 
+
+</html>

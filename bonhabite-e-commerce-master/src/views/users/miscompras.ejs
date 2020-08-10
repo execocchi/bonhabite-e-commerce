@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head')%>
+    <title>Bon Habite</title>
+</head>
+
+<%- include('../partials/header')%>
+
+<body>
+
+    <div>
+
+        <div class="nombre_perfil col-12">
+
+            <h1 class="nombre_perfiltext">  Hola, <%=locals.usuario.name%> </h1>
+
+        </div>
+
+        <div class="botones_perfil col-12">
+            <ul class="perfilboton_flex">
+                <a href="/perfil/misdatos"><li>Datos de la cuenta</li>
+                <a href="/perfil/miscompras"> <li> <strong> Mis compras</li> </strong></a> 
+            </ul>
+        </div>
+
+        <h2 class="col-12 perfil_title m-3"> Tu actividad</h2>
+
+
+        <section class="row">
+            <h2 class="col-12 title_producto pl-5"> Nombre producto - estado</h2>
+
+       
+            <ul class="col-lg-6 col-md-g col-sm- 12 listadatos ">
+                <li> Fecha de entrega: </li>
+                <li>Monto Unidad: </li>
+                <li>Total: </li>
+            </ul>
+            <ul class="col-lg-6 col-md-g col-sm- 12 ">
+                <li>Método de pago: </li>
+                <li>Domicilio de entrega:</li>
+                <li> Envío: </li>
+            </ul>
+
+        </section>
+
+        <section class="row">
+            <h2 class="col-12 title_producto pl-5"> Nombre producto - estado</h2>
+
+       
+            <ul class="col-lg-6 col-md-g col-sm- 12 listadatos">
+                <li> Fecha de entrega:</li>
+                <li>Monto Unidad: </li>
+                <li>Total: </li>
+            </ul>
+            <ul class="col-lg-6 col-md-g col-sm- 12 ">
+                <li>Método de pago: </li>
+                <li>Domicilio de entrega:</li>
+                <li> Envío: </li>
+            </ul>
+
+        </section>
+
+    </div>
+
+
+
+
+
+    <%- include('../partials/scripts')%>
+
+</body>
+<!-- Footer -->
+
+<%- include('../partials/footer')%>
+
+</html>

@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Maceta de Madera",
+    "description": "est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum",
+    "price": "1000",
+    "discount": "30",
+    "collection": "coleccionB",
+    "category": "otras",
+    "oldImage": "macetaMadera.jpeg",
+    "id": 2,
+    "image": "macetaMadera.jpeg",
+    "masvendido": 1
+  },
+  {
+    "name": "Silla Negra",
+    "description": "silla negra prueba foto",
+    "price": "123",
+    "discount": "15",
+    "oldImage": "producto-1594399033545.jpg",
+    "id": 3,
+    "image": "producto-1594245097324.jpeg",
+    "masvendido": 1
+  },
+  {
+    "name": "Maceta de Madera",
+    "description": "maceta de mader",
+    "price": "2",
+    "discount": "30",
+    "oldImage": "producto-1594399707088.jpeg",
+    "id": 4,
+    "image": "producto-1594399707088.jpeg",
+    "masvendido": 1
+  } ,
+  {
+    "name": "Maceta de Madera",
+    "description": "maceta de mader",
+    "price": "2",
+    "discount": "30",
+    "oldImage": "producto-1594399707088.jpeg",
+    "id": 4,
+    "image": "photo-1529031748770-4b25f079ee22.jpeg",
+    "masvendido": 1
+  }
+
+  ,
+  {
+    "name": "Maceta de Madera",
+    "description": "maceta de mader",
+    "price": "2",
+    "discount": "30",
+    "oldImage": "producto-1594399707088.jpeg",
+    "id": 4,
+    "image": "macetaMadera.jpeg",
+    "masvendido": 1
+  },
+  {
+    "name": "Silla Negra",
+    "description": "silla negra prueba foto",
+    "price": "123",
+    "discount": "15",
+    "oldImage": "producto-1594399033545.jpg",
+    "id": 3,
+    "image": "producto-1594245097324.jpeg",
+    "masvendido": 1
+  }
+  
+  
+]

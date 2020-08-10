@@ -1,0 +1,201 @@
+*{
+  box-sizing: border-box;
+}
+
+
+html,
+ body {
+   height: 100%;
+ }
+ .containersignUp {
+   display: -ms-flexbox;
+   display: flex;
+   -ms-flex-align: center;
+   align-items: center;
+  height: 80%;
+ }
+
+ body{
+   background-color: #c4a7a7;
+ }
+
+ .form-login {
+   width: 100%;
+   max-width: 330px;
+   padding: 15px;
+   color: white;
+   margin: auto;
+ }
+
+ .form-login h1{
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 40px;
+  color:#F4F4F4;
+  text-decoration: underline;
+}
+
+
+
+ .form-login.checkbox {
+   font-weight: 400;
+ }
+ .form-login .form-control {
+   position: relative;
+   box-sizing: border-box;
+   height: auto;
+   padding: 10px;
+   font-size: 16px;
+   border-color: #F4F4F4;
+   font-family:Roboto;
+ }
+
+ 
+
+
+ .btn_logIn{
+  font-family: Source Code Pro;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: -0.015em;
+  color:#565B55;
+  background-color: #F4F4F4;
+  border: none;
+  padding: 10px 40px;
+  margin: 8px 0px;
+ }
+
+
+
+.form-control {
+    margin-top: 10px;
+    height: 4vh;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+    letter-spacing: -0.015em;
+    color: #F4F4F4;
+    box-shadow: none;
+}
+
+.form-control.login::placeholder {
+  color: white;
+  font-weight: lighter;
+  font-size: 13px;
+}
+
+.cuenta{
+    margin-top: 15px;
+    font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 23px;
+  letter-spacing: -0.015em;
+  color: #565B55;
+}
+
+.cuenta a{
+  color: #F4F4F4;
+}
+
+.registro{
+  margin-top: 10px;
+}
+.titulo{
+  text-align: center;
+}
+.addProduct {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  margin: auto;
+}
+.alto{
+  height: 45px;
+}
+.buttons-add{
+  width: 100px;
+}
+.buttons-position{
+  width: 100%;
+  text-align: center;
+}
+.title-form{
+  color: #b45f06;
+}
+.form-login{
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    margin: auto;
+}
+.btn-block{
+  width: 100px;
+  height: 30px;
+}
+.btn-primary{
+  background-color: #efefef;
+  border-color: #b45f06;
+  font-size: 15px;
+  padding: initial;
+}
+.remember{
+  margin-top: 12px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.015em;
+  text-decoration-line: underline;
+  padding-left: 5px;
+  color: #454743;
+
+}
+.body-login{
+  background-color: #efefef;
+}
+.detail{
+  height: 70px;
+}
+
+.logIn{
+  background-color: #87998B;
+}
+
+.iniciarsesion{
+  color: #F4F4F4;
+}
+
+.login{
+  background-color: #87998B;
+  color:  #F4F4F4;
+
+}
+
+
+
+.login:focus {
+  border-color:  #F4F4F4;
+  outline: 0;
+  background-color: #87998B;
+  box-shadow: none;
+  color: #F4F4F4;
+
+}
+
+.form-control{
+  font-family: 'Playfair Display', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 18px;
+  letter-spacing: -0.015em;
+}
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <%- include('../partials/head')%>
+  <title>Bon Habite</title>
+</head>
+
+<%- include('../partials/header')%>
+<body>
+
+        <section class="bg-home">
+            <div class="container pt-5">
+                <div class="row" style="height: 90vh;" >
+                    <div class="col-lg-5 col-md-5 col-sm-12 contain_image">
+                      <figure class="form-group formfigure">
+                        <img class="w-50 py-3" src="/img/productos/<%= productoMueble.image%>" alt="mueble">
+                    </figure>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-12">
+                        <div class="card">
+                          <article>
+                            <div class="card-body">
+                              <h1 class="title_general p-0 m-0" style="font-size: 25px;">Detalle del producto</h1>
+                            </div>
+                    </article>
+                            <ul class="list-group">
+                               
+                               <li class="list-group-item"> <strong>Nombre:</strong>  <%= productoMueble.name%></li>
+                                <li class="list-group-item"><strong>Descripción: </strong> <%= productoMueble.description%></li>
+                                <li class="list-group-item"><strong>Precio:</strong>  <%= productoMueble.price%></li>
+                                <li class="list-group-item"><strong>Descuento: </strong> <%= productoMueble.discount%></li>
+                            </ul>
+                           
+                        </div> 
+                        <a class="btn btn_volver mb-4" href="/administrar">Volver</a>
+                    </div>                        
+                </div>
+            </div>
+        </section>
+        <%- include('../partials/scripts')%>
+
+</body>
+<!-- Footer -->
+
+<%- include('../partials/footer')%>
+
+</html>

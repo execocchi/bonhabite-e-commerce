@@ -1,0 +1,42 @@
+const path = require('path');
+const fs = require('fs');
+
+
+
+const webController = {
+    index: function(req,res){
+        let productos  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
+        res.render(path.resolve(__dirname, '..','views',"web",'index'), {productos : productos});
+    },
+    nosotros: function (req, res) {
+        res.render(path.resolve(__dirname, '../views/web/nosotros'));
+    },
+    contacto: function (req, res) {
+        res.render(path.resolve(__dirname, '../views/web/contacto'));
+    },
+
+    carrito:function(req,res){
+        let productos  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
+        res.render(path.resolve(__dirname, "../views/web/carrito"), {productos : productos});
+    },
+
+    tyc:function(req,res){
+        let productos  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
+        res.render(path.resolve(__dirname, "../views/web/tyc"));
+    },
+
+    preguntasfrecuentes:function(req,res){
+        let productos  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
+        res.render(path.resolve(__dirname, "../views/web/preguntasfrecuentes"));
+    },
+    comofunciona:function(req,res){
+        let productos  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
+        res.render(path.resolve(__dirname, "../views/web/comofunciona"));
+    },
+    cotiza:function(req,res){
+        let productos  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
+        res.render(path.resolve(__dirname, "../views/web/cotiza"));
+    },
+    
+}
+module.exports = webController;

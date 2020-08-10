@@ -1,0 +1,107 @@
+const {
+    check,
+    validationResult,
+    body
+} = require('express-validator');
+const fs = require('fs');
+const path = require('path');
+let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
+
+
+
+module.exports = {
+   registro: [
+check('name').isLength({
+        min: 1
+    }).withMessage('El campo nombre no puede estar vacío'),
+    check('last_name').isLength({
+        min: 1
+    }).withMessage('El campo apellido no puede estar vacío'),
+    check('email').isEmail().withMessage('Agregar un email válido'),
+
+    // Valido si el usuario ya está registrado en nuestro archivo JSON, esta es una forma
+
+    body('email').custom((value) => {
+        for (let i = 0; i < usuarios.length; i++) {
+            if (usuarios[i].email == value) {
+                return false // si se cumple, muestra el error: ya existe
+            }
+        }
+        return true // no esta el mail, no muestra mensaje de error
+
+    }).withMessage('usuario ya se encuentra registrado'),
+
+    body('checkbox').custom((value, {
+        req
+    }) => {
+        if (req.body.checkbox != undefined) {
+            return true
+        }
+        return false;
+    }).withMessage('Debes aceptar los términos y condiciones'),
+
+    check('password').isLength({
+        min: 6
+    }).withMessage('Su contraseña debe tener un mínimo de 6 caractéres'),
+
+    check('confirm_password').isLength({
+        min: 6
+    }).withMessage('Su contraseña debe tener un mínimo de 6 caractéres'),
+
+    //Aquí valido si las contraseñas son iguales o no
+    //El ( value ) viene a ser el valor que viaje en el name del del input del campo 
+    //El valor { req } corresponde a lo que viene desde el formulario
+
+    body('confirm_password').custom((value, {
+        req
+    }) => {
+        if (req.body.password == value) {
+            return true // Si yo retorno un true  no se muestra el error     
+        } else {
+            return false // Si retorno un false si se muestra el error
+        }
+    }).withMessage('Las contraseñas deben ser iguales'),
+
+    //Aquí obligo a que el usuario seleccione su avatar
+    body('image').custom((value, {
+        req
+    }) => {
+        if (req.file != undefined) {
+            return true
+        }
+        return false;
+    }).withMessage('Elija su imagen de perfil')
+],
+logIn: [
+    
+        check('email').isEmail().withMessage('Ingresar un email válido'),
+        check('password').isLength({
+            min: 6
+        }).withMessage('La contraseña debe tener un mínimo de 6 caractéres'),
+        body('email').custom((value) => { //value: lo que tipea el usuario
+            for (let i = 0; i < usuarios.length; i++) {
+                if (usuarios[i].email == value) {
+                    return true
+                }
+            }
+            return false
+        }).withMessage('El usuario no existe'),
+
+        body('password').custom((value, {
+            req
+        }) => {
+
+            for (let i = 0; i < usuarios.length; i++) {
+                if (usuarios[i].email == req.body.email) {
+                    if (bcrypt.compareSync(value, usuarios[i].password)) {
+                        return true
+                    } else {
+                        return false
+                    }
+                }
+            }
+        }).withMessage('La contraseña es incorrecta')
+
+    ]
+
+};

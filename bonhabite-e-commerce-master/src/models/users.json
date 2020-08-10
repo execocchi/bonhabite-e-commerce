@@ -1,0 +1,53 @@
+[
+  {
+    "name": "Lucia",
+    "last_name": "Posner",
+    "email": "aposner0@oakley.com",
+    "password": "p7JpgM",
+    "oldImage": "user_1.jpg",
+    "id": 1,
+    "image": "usuario-1595372298501.jpg"
+  },
+  {
+    "name": "Lishe",
+    "last_name": "Friett",
+    "email": "lfriett1@craigslist.org",
+    "password": "aDx5sy5P",
+    "oldImage": "user_2.jpg",
+    "id": 2,
+    "image": "usuario-1595705706395.jpg"
+  },
+  {
+    "name": "Starla",
+    "last_name": "Gunston",
+    "email": "sgunston2@ftc.gov",
+    "password": "KLS0DgRXrY",
+    "oldImage": "user_3.jpg",
+    "id": 3,
+    "image": "usuario-1595705762753.jpeg"
+  },
+  {
+    "id": 5,
+    "name": "Juan",
+    "last_name": "Lopez",
+    "email": "juan@gmail.com",
+    "password": "$2b$10$/nBgPjmmnSh/u7I8Ic0GK.IT7.pE0nzgcq8kERJ.2FKsjwG/Jk0dW",
+    "image": "usuario-1595705769376.jpeg"
+  },
+  {
+    "id": 6,
+    "name": "Lucia",
+    "last_name": "Galli",
+    "email": "gallimlucia@gmail.com",
+    "password": "$2b$10$.efZIrMDJu8DeDMZH/bfIOT.aw4VsML3J2bKLI8j3PtIP/krcQ0PC",
+    "image": "usuario-1595965974654.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Exequeil",
+    "last_name": "Cocchi",
+    "email": "execocchi@gmail.com",
+    "password": "$2b$10$qou/SMQBf2w2spRJMlPM.eg8CmYveFzjJSpRYA6FyKwMrGIMc8gTi",
+    "image": "usuario-1595973455078.jpg"
+  }
+]

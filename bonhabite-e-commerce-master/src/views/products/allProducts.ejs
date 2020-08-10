@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include('../partials/head')%>
+    <title>Productos | Todos</title>
+    <link rel="stylesheet" href="css/signUp.css">
+</head>
+
+<%- include('../partials/header')%>
+
+<body>
+
+    <container class="row">
+        <section class="product-list col-3 d-none d-md-block">
+            <h2 class="productlist-title">CATEGORIAS</h2>
+            <h3 class="productlist-title2 mb-4" >TODAS</h3>
+
+            <h4 class="productlist-subtitle">CATEGORIAS</h4>
+            <ul>
+                <li><a class="productlist" href="/productos/todos">Todas</a></li>
+                <li> <a class="productlist" href="/productos/mesas">Mesas</a></li>
+                <li> <a class="productlist" href="/productos/iluminacion">Iluminación</a></li>
+                <li><a class="productlist" href="/productos/camas">Camas</a></li>
+                <li><a class="productlist" href="/productos/sillones">Sillones</a></li>
+                <li> <a class="productlist" href="/productos/escritorios">Escritorios</a></li>
+                <li> <a class="productlist" href="/productos/bibliotecas">Bibliotecas</a></li>
+                <li> <a class="productlist" href="/productos/comodas">Cómodas</a></li>
+                <li><a class="productlist" href="/productos/sillas">Sillas</a></li>
+                <li><a class="productlist" href="/productos/otras">Otras</a></li>
+                <li> <a class="productlist" href="/productos/lomasvendido">Los más vendidos</a></li>
+                <li> <a class="productlist" href="/productos/ofertas">Ofertas</a></li>
+                <li> <a class="productlist" href="/colecciones/reciclados">Comprá reciclado</a></li>
+            </ul>
+
+            <h4 class="productlist-subtitle">COLECCIONES</h4>
+            <ul>
+
+               
+                <li> <a class="productlist" href="/colecciones/coleccionA">Colección A</a></li>
+                <li><a class="productlist" href="/colecciones/coleccionB">Colección B</a></li>
+                <li> <a class="productlist" href="/colecciones/coleccionC">Colección C</a></li>
+                <li> <a class="productlist" href="/colecciones/reciclados">Reciclados</a></li>
+            </ul>
+
+            <h4 class="productlist-subtitle">FILTRÁ POR COLORES</h4>
+            <select class="custom-select custom-select-sm mb-4">
+                <option selected>Blanco</option>
+                <option value="1">Negro</option>
+                <option value="2">Azul</option>
+                <option value="3">Amarillo</option>
+              </select>
+
+              <h4 class="productlist-subtitle"> FILTRÁ POR MATERIAL</h4>
+              <select class="custom-select custom-select-sm mb-4">
+                  <option selected>Madera</option>
+                  <option value="1">Metal</option>
+                  <option value="2">Mármol</option>
+                  <option value="3">Plástico</option>
+                </select>
+
+                <h4 class="productlist-subtitle">ETIQUETAS COMUNES</h4>
+                <select class="custom-select custom-select-sm mb-4">
+                    <option selected>Minimalista</option>
+                    <option value="1">Barroco</option>
+                    <option value="2">Tradicional</option>
+                    <option value="3">Moderno</option>
+                    <option value="3">Rustico</option>
+                  </select>
+
+        </section>
+
+        <section class="product-photos col-9">
+
+        <div class="aclaracionproductos">
+            <div class="sortbycont">
+            <h4 class="productlist-subtitle d-none d-md-block ">Ordenar por:</h4>
+            <select class="custom-select sortby custom-select-sm">
+                <option selected>Popularidad</option>
+                <option value="1">Precio: menor a mayor</option>
+                <option value="2">Precio: mayor a menor</option>
+              </select>
+            </div>
+              <h4 class="numeroproductos"> 102 PRODUCTOS</h4>
+            </div>
+
+           
+          
+              <section class="m-auto" style="display: flex; flex-wrap: wrap;">
+                <% for (let i = 0 ; i < productos.length ; i++){ %>
+                  <article class="col-xs-12 col-md-6 col-lg-4 card p-0.5" >
+                  
+                    <a href="/productDetail"><img src="/img/productos/<%=productos[i].image %>" class="card-img-top" alt="producto">
+                    <div class="card-body">
+                      <h5 class="card-title"> <%= productos[i].name %> </h5>
+                      <p class="card-text"> $<%= productos[i].price %>  </p></a>
+                      <button class="btn_deletecart mb-1 mt-2">  AÑADIR AL CARRITO </button>
+                    </div> 
+                  </article>
+                <% } %>
+              </section>
+        
+
+
+        </section>
+
+           
+
+
+
+
+        </div>
+
+    </container>
+
+
+
+
+
+
+
+    <%- include('../partials/scripts')%>
+</body>
+<!-- Footer -->
+
+<%- include('../partials/footer')%>
+
+</html>

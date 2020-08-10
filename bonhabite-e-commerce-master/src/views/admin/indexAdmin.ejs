@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <%- include('../partials/head')%>
+  <title>Bon Habite</title>
+</head>
+
+<%- include('../partials/header')%>
+<body >
+    <div class="mx-xs-2 mx-md-5" style="min-height: 100vh;">
+    <h1 class="title_general ml-0 pl-0 " style="font-family:Playfair Display;">Administrador de productos</h1>
+    <section class="row">
+      
+         <a class="btn_volver m-0 mb-4 ml-3 text-center" href="/create" style="border-radius: none;"></ion-icon>Agregar</a>
+    </section>
+   
+ 
+    <table class="table" >
+        <thead class="ml-4">
+            <tr>
+                <th >ID</th>
+                <th>Nombre</th>
+                <th>Ver</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% productos.forEach(producto => { %>
+                <tr>
+                    <td><%= producto.id %> </td>
+                    <td><%= producto.name%> </td>
+                    <td><a class="text-muted" href="/admin/detail/<%= producto.id%>"><ion-icon name="eye-outline"></ion-icon></a></td>
+                    <td><a class="text-muted" href="/admin/edit/<%= producto.id%>"><ion-icon name="create-outline"></ion-icon></a></td>
+                    <td><a class="text-muted" href="/admin/delete/<%= producto.id%>"><ion-icon name="trash-outline"></ion-icon></a></td>
+                </tr>
+            <% }) ; %>
+        </tbody>
+     
+    </table>
+</div>
+
+    <%- include('../partials/scripts')%>
+</body>
+
+<!-- Footer -->
+
+<%- include('../partials/footer')%>
+
+</html>

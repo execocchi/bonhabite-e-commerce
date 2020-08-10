@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head')%>
+    <title>Bon Habite</title>
+</head>
+
+<%- include('../partials/header')%>
+
+<body>
+
+
+    <div class="container">
+        <div class="row">
+
+            <section class="row">
+                <div class="col-lg-5 col-md-5 col-sm-12 contain_image">
+                    <figure class="form-group formfigure">
+                        <img class="w-50 py-3" src="/img/productos/<%= productoMueble.image%>" alt="muebles">
+                    </figure>
+
+
+                </div>
+
+                <div class="col-lg-7 col-md-7 col-sm-12">
+
+                    <article>
+
+                        <div class="card-body">
+                            <h1 class="title_general p-0 m-0" style="font-size: 25px;">Editar el producto</h1>
+                        </div>
+                    </article>
+
+                    <div class="signup-form">
+                        <form action="/admin/edit/<%= productoMueble.id%>?_method=PUT" method="POST"
+                            enctype="multipart/form-data">
+                            <div class="form-group">
+                                <input type="text" class="form-control edit" name="name" placeholder="Nombre"
+                                    required="required" value="<%= productoMueble.name%>">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control edit" name="description"
+                                    placeholder="Descripción" required="required"
+                                    value="<%= productoMueble.description%>">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control edit" name="price"
+                                    placeholder="Indique el precio" required="required"
+                                    value="<%= productoMueble.price%>">
+                            </div>
+                            <div class="form-group">
+                                <select name="discount" class="custom-select" required>
+                                    <option selected disabled value="#">Elija su descuento</option>
+                                    <option value="<%= productoMueble.discount == 0 ? 0 :productoMueble.discount %>"
+                                        selected> Sin descuento</option>
+                                    <option value="<%= productoMueble.discount == 15 ? 15 :productoMueble.discount %>">
+                                        15%
+                                    </option>
+                                    <option value="<%= productoMueble.discount == 30 ? 30 :productoMueble.discount %>">
+                                        30%
+                                    </option>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group">
+                                <select name="collection" class="custom-select" required>
+                                    <option selected disabled value="#">Colección</option>
+                                    <option value="<%= productoMueble.collection %>"> Colección A
+                                    </option>
+                                    <option value="<%= productoMueble.collection %>"> Colección B
+                                    </option>
+                                    <option value="<%= productoMueble.collection %>"> Colección C
+                                    </option>
+                                    <option value="<%= productoMueble.collection %>"> Reciclados
+                                    </option>
+                                </select>
+                            </div>
+
+                            <!--De esta forma logro conservar y que viaje la imagen anterior de esta forma evito que el usuario seleccione una imagen nuevamente, ( si no lo desea) -->
+                            <input type="hidden" name="oldImage" value="<%= productoMueble.image%>">
+                            <!-- hidden: esta pero no se ve en el form. -->
+
+                            <label for="exampleFormControlFile1">Eligí una nueva imagen</label>
+
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image"
+                                placeholder="Seleccione una imagen">
+
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn btn_comprar">Actualizar</button>
+                        <a class="btn btn btn_volver" href="/administrar">Volver</a>
+                    </div>
+
+                    </form>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    </div>
+
+    <%- include('../partials/scripts')%>
+
+</body>
+<!-- Footer -->
+
+<%- include('../partials/footer')%>
+
+</html>
