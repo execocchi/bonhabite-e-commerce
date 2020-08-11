@@ -16,8 +16,8 @@ module.exports = function (sequelize, dataTypes) {
             }
         }
     
-    let materialsProducts = sequelize.define(alias, cols);
+    let materialProduct = sequelize.define(alias, cols);
 
 
-    return materialsProducts;
+    return materialProduct;
 }

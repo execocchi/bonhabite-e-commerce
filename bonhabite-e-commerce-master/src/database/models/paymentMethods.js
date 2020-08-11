@@ -13,16 +13,16 @@ module.exports = function (sequelize, dataTypes) {
         }
     };
 
-    let paymentMethods = sequelize.define(alias, cols);
+    let PaymentMethod = sequelize.define(alias, cols);
 
-    paymentMethods.associate = function (models) {
-        paymentMethods.belongsTo(models.orders, {
+    PaymentMethod.associate = function (models) {
+        PaymentMethod.belongsTo(models.orders, {
             as: "Order",
             foreignKey: "paymentId"
         })
     }
 
-    return paymentMethods;
+    return PaymentMethod;
 
 
 }

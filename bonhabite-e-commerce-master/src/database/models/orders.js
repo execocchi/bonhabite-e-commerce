@@ -22,36 +22,36 @@ module.exports = function (sequelize, dataTypes) {
         }
     }
 
-    let orders = sequelize.define(alias, cols);
+    let Order = sequelize.define(alias, cols);
 
-    orders.associate = function (models) {
-        orders.hasMany(models.carts, {
+    Order.associate = function (models) {
+        Order.hasMany(models.carts, {
             as: "Cart",
             foreignKey: "cartId"
         })
     }
 
-    orders.associate = function (models) {
-        orders.hasMany(models.paymentMethods, {
+    Order.associate = function (models) {
+        Order.hasMany(models.paymentMethods, {
             as: "Payment",
             foreignKey: "paymentId"
         })
     }
 
-    orders.associate = function (models) {
-        orders.hasMany(models.shipments, {
+    Order.associate = function (models) {
+        Order.hasMany(models.shipments, {
             as: "Shipment",
             foreignKey: "shipmentId"
         })
     }
 
-    orders.associate = function (models) {
-        orders.hasMany(models.status, {
+    Order.associate = function (models) {
+        Order.hasMany(models.status, {
             as: "Status",
             foreignKey: "statusId"
         })
     }
 
 
-    return orders;
+    return Order;
 }

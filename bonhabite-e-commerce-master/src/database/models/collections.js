@@ -13,16 +13,16 @@ module.exports = function (sequelize, dataTypes) {
         }
     };
 
-    let collections = sequelize.define(alias, cols);
+    let Collection = sequelize.define(alias, cols);
 
-    collections.associate = function (models) {
-        collections.hasMany(models.products, {
+    Collection.associate = function (models) {
+        Collection.hasMany(models.products, {
             as: "Product",
             foreignKey: "collectionId"
         })
     }
 
-    return collections;
+    return Collection;
 
 
 }

@@ -28,25 +28,25 @@ module.exports = function (sequelize, dataTypes) {
         }
     }
 
-    let cartsProducts = sequelize.define(alias, cols);
+    let cartProduct = sequelize.define(alias, cols);
 
 
-    cartsProducts.associate = function (models) {
-        cartsProducts.hasMany(models.status, {
+    cartProduct.associate = function (models) {
+        cartProduct.hasMany(models.status, {
             as: "cartsProduct",
             foreignKey: "statusId"
         })
     }
 
-    cartsProducts.associate = function (models) {
-        cartsProducts.hasMany(models.products, {
+    cartProduct.associate = function (models) {
+        cartProduct.hasMany(models.products, {
             as: "cartsProduct",
             foreignKey: "productId"
         })
     }
 
-    carts.associate = function (models) {
-        carts.belongsToMany(models.products, {
+    cartProduct.associate = function (models) {
+        cartProduct.belongsToMany(models.products, {
             as: "cartProduct",
             through: "cartProduct",
             foreignKey: "productId",
@@ -55,5 +55,5 @@ module.exports = function (sequelize, dataTypes) {
     }
 
 
-    return cartsProducts;
+    return cartProduct;
 }

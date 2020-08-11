@@ -1,6 +1,6 @@
 module.exports = function (sequelize, dataTypes) {
 
-    let alias = "colorProduct";
+    let alias = "imageProduct";
    
         let cols = {
             id: {
@@ -11,13 +11,13 @@ module.exports = function (sequelize, dataTypes) {
             productId: {
                 type: dataTypes.INTEGER
             },
-            colorId: {
+            imageId: {
                 type: dataTypes.INTEGER
             }
         }
     
-    let colorsProducts = sequelize.define(alias, cols);
+    let imageProduct = sequelize.define(alias, cols);
 
 
-    return colorsProducts;
+    return imageProduct;
 }

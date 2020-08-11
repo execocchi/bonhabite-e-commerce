@@ -29,17 +29,17 @@ module.exports = function (sequelize, dataTypes) {
         }
     }
 
-    let adresses = sequelize.define(alias, cols);
+    let Adress = sequelize.define(alias, cols);
 
-    adresses.associate = function (models) {
-        adresses.belongsTo(models.shipments, {
+    Adress.associate = function (models) {
+        Adress.belongsTo(models.shipments, {
             as: "Shipment",
             foreignKey: "adressId"
         })
     }
 
-    adresses.associate = function (models) {
-        adresses.belongsToMany(models.users, {
+    Adress.associate = function (models) {
+        Adress.belongsToMany(models.users, {
             as: "User",
             through: "adressUser",
             foreignKey: "adressId",
@@ -48,5 +48,5 @@ module.exports = function (sequelize, dataTypes) {
     }
 
 
-    return adresses;
+    return Adress;
 }

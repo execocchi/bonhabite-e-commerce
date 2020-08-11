@@ -16,10 +16,10 @@ module.exports = function (sequelize, dataTypes) {
             }
         }
     
-    let carts = sequelize.define(alias, cols);
+    let Cart = sequelize.define(alias, cols);
 
-    carts.associate = function (models) {
-        carts.belongsToMany(models.products, {
+    Cart.associate = function (models) {
+        Cart.belongsToMany(models.products, {
             as: "Product",
             through: "cartProduct",
             foreignKey: "cartId",
@@ -27,22 +27,22 @@ module.exports = function (sequelize, dataTypes) {
         })
     }
 
-    carts.associate = function (models) {
-        carts.belongsTo(models.users, {
+    Cart.associate = function (models) {
+        Cart.belongsTo(models.users, {
             as: "User",
             foreignKey: "cartId"
         })
     }
 
-    carts.associate = function (models) {
-        carts.belongsTo(models.orders, {
+    Cart.associate = function (models) {
+        Cart.belongsTo(models.orders, {
             as: "Order",
             foreignKey: "cartId"
         })
     }
 
-    carts.associate = function (models) {
-        carts.belongsTo(models.products, {
+    Cart.associate = function (models) {
+        Cart.belongsTo(models.products, {
             as: "Product",
             foreignKey: "cartId"
         })
@@ -50,5 +50,5 @@ module.exports = function (sequelize, dataTypes) {
 
 
 
-    return carts;
+    return Cart;
 }

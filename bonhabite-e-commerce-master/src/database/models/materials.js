@@ -13,11 +13,11 @@ module.exports = function (sequelize, dataTypes) {
             }
         }
     
-    let materials = sequelize.define(alias, cols);
+    let Material = sequelize.define(alias, cols);
 
 
-    products.associate = function (models) {
-        products.belongsToMany(models.products, {
+    Material.associate = function (models) {
+        Material.belongsToMany(models.products, {
             as: "Product",
             through: "materialProduct",
             foreignKey: "materialId",
@@ -26,5 +26,5 @@ module.exports = function (sequelize, dataTypes) {
     }
 
 
-    return materials;
+    return Material;
 }

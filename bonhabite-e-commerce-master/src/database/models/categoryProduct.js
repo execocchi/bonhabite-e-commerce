@@ -16,8 +16,8 @@ module.exports = function (sequelize, dataTypes) {
             }
         }
     
-    let categoriesProducts = sequelize.define(alias, cols);
+    let categoryProduct = sequelize.define(alias, cols);
 
 
-    return categoriesProducts;
+    return categoryProduct;
 }

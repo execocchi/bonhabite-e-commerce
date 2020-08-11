@@ -13,7 +13,7 @@ module.exports = function (sequelize, dataTypes) {
             }
         }
     
-    let roles = sequelize.define(alias, cols);
+    let Role = sequelize.define(alias, cols);
 
     users.associate = function (models) {
         users.hasMany(models.users, {
@@ -24,5 +24,5 @@ module.exports = function (sequelize, dataTypes) {
 
 
 
-    return roles;
+    return Role;
 }
