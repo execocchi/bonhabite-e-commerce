@@ -6,22 +6,25 @@
     <title>Bon Habite</title>
 </head>
 
-<%- include('../partials/header')%>
+
 
 <body>
-
+    <%- include('../partials/header')%>
     <div>
 
         <div class="nombre_perfil col-12">
 
-            <h1 class="nombre_perfiltext">  Hola, <%=locals.usuario.name%> </h1>
+            <h1 class="nombre_perfiltext"> Hola, <%=locals.usuario.name%> </h1>
 
         </div>
 
         <div class="botones_perfil col-12">
             <ul class="perfilboton_flex">
-                <a href="/perfil/misdatos"><li>Datos de la cuenta</li>
-                <a href="/perfil/miscompras"> <li> <strong> Mis compras</li> </strong></a> 
+                <a href="/perfil/misdatos">
+                    <li>Datos de la cuenta</li>
+                    <a href="/perfil/miscompras">
+                        <li> <strong> Mis compras</li> </strong>
+                    </a>
             </ul>
         </div>
 
@@ -31,7 +34,7 @@
         <section class="row">
             <h2 class="col-12 title_producto pl-5"> Nombre producto - estado</h2>
 
-       
+
             <ul class="col-lg-6 col-md-g col-sm- 12 listadatos ">
                 <li> Fecha de entrega: </li>
                 <li>Monto Unidad: </li>
@@ -48,7 +51,7 @@
         <section class="row">
             <h2 class="col-12 title_producto pl-5"> Nombre producto - estado</h2>
 
-       
+
             <ul class="col-lg-6 col-md-g col-sm- 12 listadatos">
                 <li> Fecha de entrega:</li>
                 <li>Monto Unidad: </li>
@@ -64,15 +67,10 @@
 
     </div>
 
-
-
-
-
+    <%- include('../partials/footer')%>
     <%- include('../partials/scripts')%>
 
 </body>
-<!-- Footer -->
 
-<%- include('../partials/footer')%>
 
 </html>

@@ -6,22 +6,22 @@
     <title>Bon Habite</title>
 </head>
 
-<%- include('../partials/header')%>
+
 
 <body>
-
+    <%- include('../partials/header')%>
     <div>
 
         <div class="nombre_perfil col-12">
 
-            <h1 class="nombre_perfiltext">  Hola, <%=locals.usuario.name%> </h1>
+            <h1 class="nombre_perfiltext"> Hola, <%=locals.usuario.name%> </h1>
 
         </div>
 
         <div class="botones_perfil col-12">
             <ul class="perfilboton_flex">
                 <a href="/perfil/misdatos">
-                    <li> <strong>Datos de la cuenta</li> </strong> 
+                    <li> <strong>Datos de la cuenta</li> </strong>
                     <a href="/perfil/miscompras">
                         <li>Mis compras</li>
                     </a>
@@ -37,16 +37,17 @@
 
                 <div class="lineadivisoria">
                     <div class="flex_contactos">
-                    <h2 class="title_producto"> datos personales</h2> <a href="#">
-                        <h3 class="ediciondatos">EDITAR</h3> </div> </a>
+                        <h2 class="title_producto"> datos personales</h2> <a href="#">
+                            <h3 class="ediciondatos">EDITAR</h3>
+                    </div> </a>
 
-                        <ul>
-                         <!--  <li> <img class="mb-2" src="/img/usuarios/<%=locals.usuario.image%>" height="50px" alt=""></li> --> 
-                            <li> <%=locals.usuario.name%> <%=locals.usuario.last_name%> </li>
-                            <li> <%=locals.usuario.email%>  </li>
-                        </ul>
+                    <ul>
+                        <!--  <li> <img class="mb-2" src="/img/usuarios/<%=locals.usuario.image%>" height="50px" alt=""></li> -->
+                        <li> <%=locals.usuario.name%> <%=locals.usuario.last_name%> </li>
+                        <li> <%=locals.usuario.email%> </li>
+                    </ul>
                 </div>
-           
+
 
                 <div class="lineadivisoria">
                     <div class=" flex_contactos">
@@ -83,40 +84,42 @@
                 <p class="aclaracion_codigo margenmedia">Introducí tu código a la hora de
                     hacer el Checkout en el Carrito. </p>
 
- <table class="table m-auto" style="width: 90%;" >
-        <thead>
-            <tr class="cabeza_tabla_datos lineadivisoria">
-                <th > nombre </th>
-                <th>precio</th>
-                <th>codigo</th>
-            </tr>
-        </thead>
-        <tbody>
-          
-                <tr class="lineadivisoria">
-                    <td class="texto_tabla mayus"> MESA RATONA </td>
-                    <td class="texto_tabla" > $10.500 </td>
-                    <td class="texto_tabla" > ESTADO </td>
-                </tr>
+                <table class="table m-auto" style="width: 90%;">
+                    <thead>
+                        <tr class="cabeza_tabla_datos lineadivisoria">
+                            <th> nombre </th>
+                            <th>precio</th>
+                            <th>codigo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                <tr class="lineadivisoria">
-                    <td class="texto_tabla mayus"> MESA RATONA </td>
-                    <td class="texto_tabla" > $10.500 </td>
-                    <td class="texto_tabla" > ESTADO </td>
-                </tr>
+                        <tr class="lineadivisoria">
+                            <td class="texto_tabla mayus"> MESA RATONA </td>
+                            <td class="texto_tabla"> $10.500 </td>
+                            <td class="texto_tabla"> ESTADO </td>
+                        </tr>
 
-                <tr class="lineadivisoria">
-                    <td class="texto_tabla mayus"> MESA RATONA </td>
-                    <td class="texto_tabla" > $10.500 </td>
-                    <td class="texto_tabla" > ESTADO </td>
-                </tr>
+                        <tr class="lineadivisoria">
+                            <td class="texto_tabla mayus"> MESA RATONA </td>
+                            <td class="texto_tabla"> $10.500 </td>
+                            <td class="texto_tabla"> ESTADO </td>
+                        </tr>
 
- </tbody>
-</table>
- <a href="/reciclados/cotiza"><button class="btn_cotizamos" style="width: 100%;margin-top: 10px; margin-bottom: 10px;"> COTIZAMOS TU MUEBLE</button></a> 
+                        <tr class="lineadivisoria">
+                            <td class="texto_tabla mayus"> MESA RATONA </td>
+                            <td class="texto_tabla"> $10.500 </td>
+                            <td class="texto_tabla"> ESTADO </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <a href="/reciclados/cotiza"><button class="btn_cotizamos"
+                        style="width: 100%;margin-top: 10px; margin-bottom: 10px;"> COTIZAMOS TU MUEBLE</button></a>
 
 
-   <p class="aclaracion_codigo margenmedia"> Ves algún error? Encontranos en <a href="/nosotros/contacto" style="color: #454743;;">CONTACTO. </a> </p>
+                <p class="aclaracion_codigo margenmedia"> Ves algún error? Encontranos en <a href="/nosotros/contacto"
+                        style="color: #454743;;">CONTACTO. </a> </p>
 
 
         </section>
@@ -126,12 +129,9 @@
 
 
 
-
+    <%- include('../partials/footer')%>
     <%- include('../partials/scripts')%>
 
 </body>
-<!-- Footer -->
-
-<%- include('../partials/footer')%>
 
 </html>

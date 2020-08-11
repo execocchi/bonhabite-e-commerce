@@ -45,6 +45,15 @@ module.exports = function (sequelize, dataTypes) {
         })
     }
 
+    users.associate = function (models) {
+        users.belongsToMany(models.adresses, {
+            as: "Adress",
+            through: "adressUser",
+            foreignKey: "userId",
+            otherKey: "adressId"
+        })
+    }
+
 
     return users;
 }

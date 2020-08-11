@@ -41,7 +41,8 @@
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse mx-n3 px-4 pb-2" id="navbarTogglerDemo02" style="background-color: #FFFFFF;">
+        <div class="collapse navbar-collapse mx-n3 px-4 pb-2" id="navbarTogglerDemo02"
+            style="background-color: #FFFFFF;">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -112,21 +113,21 @@
 
             </ul>
 
-             <!-- Estoy logueado veo esto -->
+            <!-- Estoy logueado veo esto -->
 
-             <% if(locals.usuario) { %>
-                <img src="/img/usuarios/<%=locals.usuario.image%>" width="30" height="30px" alt="imagen"> 
+            <% if(locals.usuario) { %>
+            <img src="/img/usuarios/<%=locals.usuario.image%>" width="30" height="30px" alt="imagen">
             <li class="nav-item dropdown">
                 <!--   <img src="/img/usuarios/<%=locals.usuario.image%>" width="30" style="border-radius: 50%;" alt="imagen"> -->
-  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  MI PERFIL
+                    MI PERFIL
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="/perfil/miscompras"> Mis compras</a>
                     <a class="dropdown-item" href="/perfil/misdatos"> Mis datos</a>
                     <a class="dropdown-item" href="/logout">Cerrar sesión</a>
-                </div>    
+                </div>
             </li>
 
             <%    } else { %>

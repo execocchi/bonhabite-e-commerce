@@ -6,44 +6,45 @@
   <title>Bon Habite</title>
 </head>
 
-<%- include('../partials/header')%>
+
 <body>
+  <%- include('../partials/header')%>
+  <section class="bg-home">
+    <div class="container pt-5">
+      <div class="row" style="height: 90vh;">
+        <div class="col-lg-5 col-md-5 col-sm-12">
+          <figure class="form-group formfigure">
+            <img class="w-50 py-3" src="/img/usuarios/<%= usuarioDetalle.image%>" alt="avatar">
+          </figure>
+        </div>
+        <div class="col-lg-7 col-md-7 col-sm-12">
+          <div class="card">
+            <article>
+              <div class="card-body">
+                <h1 class="title_general p-0 m-0" style="font-size: 25px;">Detalle del usuario</h1>
+              </div>
+            </article>
+            <ul class="list-group">
 
-        <section class="bg-home">
-            <div class="container pt-5">
-                <div class="row" style="height: 90vh;" >
-                  <div class="col-lg-5 col-md-5 col-sm-12">
-                    <figure class="form-group formfigure">
-                      <img class="w-50 py-3" src="/img/usuarios/<%= usuarioDetalle.image%>" alt="avatar">
-                  </figure>
-                </div>         
-                    <div class="col-lg-7 col-md-7 col-sm-12">
-                        <div class="card">
-                          <article >
-                            <div class="card-body">
-                              <h1 class="title_general p-0 m-0" style="font-size: 25px;">Detalle del usuario</h1>
-                            </div>
-                    </article>
-                            <ul class="list-group">
-                               
-                               <li class="list-group-item"> <strong>Nombre:</strong>  <%= usuarioDetalle.name%></li>
-                               <li class="list-group-item"> <strong>Apellido:</strong>  <%= usuarioDetalle.last_name%></li>
+              <li class="list-group-item"> <strong>Nombre:</strong> <%= usuarioDetalle.name%></li>
+              <li class="list-group-item"> <strong>Apellido:</strong> <%= usuarioDetalle.last_name%></li>
 
-                                <li class="list-group-item"><strong>Email: </strong> <%= usuarioDetalle.email%></li>
-                            </ul>
-                            <a class="btn btn_volver mb-4" href="/userAdmin">Volver</a>
-                           
-                        </div> 
-      
-                                
-                </div>
-            </div>
-        </section>
-        <%- include('../partials/scripts')%>
+              <li class="list-group-item"><strong>Email: </strong> <%= usuarioDetalle.email%></li>
+            </ul>
+            <a class="btn btn_volver mb-4" href="/userAdmin">Volver</a>
+
+          </div>
+
+
+        </div>
+      </div>
+  </section>
+  <%- include('../partials/footer')%>
+  <%- include('../partials/scripts')%>
 
 </body>
-<!-- Footer -->
 
-<%- include('../partials/footer')%>
+
+
 
 </html>

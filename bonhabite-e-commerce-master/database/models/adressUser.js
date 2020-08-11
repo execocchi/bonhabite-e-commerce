@@ -1,6 +1,6 @@
 module.exports = function (sequelize, dataTypes) {
 
-    let alias = "categoryProduct";
+    let alias = "adressUser";
    
         let cols = {
             id: {
@@ -8,16 +8,16 @@ module.exports = function (sequelize, dataTypes) {
                 primaryKey: true,
                 autoIncrement: true
             },
-            productId: {
+            userId: {
                 type: dataTypes.INTEGER
             },
-            categoryId: {
+            adressId: {
                 type: dataTypes.INTEGER
             }
         }
     
-    let categoriesProducts = sequelize.define(alias, cols);
+    let materialsProducts = sequelize.define(alias, cols);
 
 
-    return categoriesProducts;
+    return materialsProducts;
 }

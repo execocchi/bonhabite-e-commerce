@@ -6,30 +6,34 @@
   <title>Bon Habite</title>
 </head>
 
-<%- include('../partials/header')%>
+
 
 <body>
+  <%- include('../partials/header')%>
 
   <div class="row">
-    <div  class="col-12">
+    <div class="col-12">
       <h1 class="title_cotiza text-center">Cotizamos tu mueble!</h1>
     </div>
 
     <div class="col-12">
-      <p class="p_cotiza"> Llena el formulario y a la brevedad te contamos si tu <br> mueble tiene las condiciones para ser parte del pago de <br> nuestros productos Bon Habite!  </p>
+      <p class="p_cotiza"> Llena el formulario y a la brevedad te contamos si tu <br> mueble tiene las condiciones para
+        ser parte del pago de <br> nuestros productos Bon Habite! </p>
     </div>
 
     <div class="col-12">
-     <a href="/reciclados/comofunciona"><h4 class="ediciondatos text-center mb-3" >COMO FUNCIONA</h4></a> 
+      <a href="/reciclados/comofunciona">
+        <h4 class="ediciondatos text-center mb-3">COMO FUNCIONA</h4>
+      </a>
     </div>
 
     <div class="row contenedor_cotiza" style="width: 80%;; margin: auto; margin-bottom: 20px;">
 
-    
+
       <div class="col-xl-4 col-md-4 col-sm-12 contenedor_formcotiza">
         <h2 class="subtitle_cotiza mb-3">tu mueble</h2>
 
-        <form  class="form-login" action="" method="POST" enctype="multipart/form-data">
+        <form class="form-login" action="" method="POST" enctype="multipart/form-data">
           <input type="text" id="inputAsunto" class="form-control cotiza" placeholder="Tipo de mueble" required>
           <input type="date" id="inputAsunto" class="form-control cotiza" placeholder="Fecha de elaboración">
           <input type="text" id="inputAsunto" class="form-control cotiza" placeholder="Marca">
@@ -42,54 +46,55 @@
       <div class="col-xl-4 col-md-4 col-sm-12 contenedor_formcotiza">
         <h2 class="subtitle_cotiza mb-3">descripción</h2>
 
-        <form  class="form-login" action="" method="POST" enctype="multipart/form-data">
+        <form class="form-login" action="" method="POST" enctype="multipart/form-data">
           <input type="text" id="inputAsunto" class="form-control cotiza" placeholder="Medidas" required>
           <input type="text" id="inputAsunto" class="form-control cotiza" placeholder="Material" required>
           <input type="text" id="inputAsunto" class="form-control cotiza" placeholder="Colores" required>
-            <select name="status" type="text" id="inputAsunto" class="form-control cotiza" placeholder="Seleccione estado" required>
-            <option value="A"> En excelente estado </option> 
-              <option value="B"> Se nota cierto uso </option> 
-            <option value="C"> Necesita reparación </option> 
-              </select>
-              <select name="status" type="text" id="inputAsunto" class="form-control cotiza" placeholder="Seleccione uso" required>
-                <option value="A"> Nunca usado </option> 
-                  <option value="B"> Usado poco </option> 
-                <option value="C"> Uso frecuente </option> 
-                  </select>
-          
-            
+          <select name="status" type="text" id="inputAsunto" class="form-control cotiza" placeholder="Seleccione estado"
+            required>
+            <option value="A"> En excelente estado </option>
+            <option value="B"> Se nota cierto uso </option>
+            <option value="C"> Necesita reparación </option>
+          </select>
+          <select name="status" type="text" id="inputAsunto" class="form-control cotiza" placeholder="Seleccione uso"
+            required>
+            <option value="A"> Nunca usado </option>
+            <option value="B"> Usado poco </option>
+            <option value="C"> Uso frecuente </option>
+          </select>
+
+
       </div>
 
-      <div class="col-xl-4 col-md-4 col-sm-12 contenedor_formcotiza"> 
+      <div class="col-xl-4 col-md-4 col-sm-12 contenedor_formcotiza">
         <h2 class="subtitle_cotiza mb-3">fotos</h2>
         <p class="subifotos">Subí fotos que muestren el estado real del mueble! De arriba y todos los costados. </p>
         <div class="checkbox mb-3 fondoimagencotiza">
 
           <ion-icon class="iconupload" name="images-outline"></ion-icon>
           <div class="form-group">
-              <label for="exampleFormControlFile1"></label>
-              <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image" required> 
-            </div>
+            <label for="exampleFormControlFile1"></label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image" required>
+          </div>
 
+        </div>
       </div>
-      </div>
-      
+
     </div>
 
 
-      <div class="col-12 mb-3">
-        
+    <div class="col-12 mb-3">
+
 
       <a href=""> <button class="btn btn_comprar btn-block m-auto" type="submit">ENVIAR FORMULARIO</button> </a>
     </div>
 
 
-
-  <%- include('../partials/scripts')%>
+    <%- include('../partials/footer')%>
+    <%- include('../partials/scripts')%>
 
 </body>
-<!-- Footer -->
 
-<%- include('../partials/footer')%>
+
 
 </html>

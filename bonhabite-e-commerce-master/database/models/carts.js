@@ -11,11 +11,7 @@ module.exports = function (sequelize, dataTypes) {
             userId: {
                 type: dataTypes.INTEGER
             },
-            orderNumber: {
-                type: dataTypes.STRING,
-                allowNull: false
-            },
-            cartId: {
+            total: {
                 type: dataTypes.INTEGER
             }
         }
@@ -32,14 +28,21 @@ module.exports = function (sequelize, dataTypes) {
     }
 
     carts.associate = function (models) {
-        carts.belongsTo(models.user, {
+        carts.belongsTo(models.users, {
             as: "User",
             foreignKey: "cartId"
         })
     }
 
     carts.associate = function (models) {
-        carts.belongsTo(models.product, {
+        carts.belongsTo(models.orders, {
+            as: "Order",
+            foreignKey: "cartId"
+        })
+    }
+
+    carts.associate = function (models) {
+        carts.belongsTo(models.products, {
             as: "Product",
             foreignKey: "cartId"
         })

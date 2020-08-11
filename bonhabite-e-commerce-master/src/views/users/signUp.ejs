@@ -1,86 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
 
-    <%- include('../partials/head')%> 
-    <title>Registrate</title>
-    <link rel="stylesheet" href="/css/signUp.css">
+<head>
+
+  <%- include('../partials/head')%>
+  <title>Registrate</title>
+  <link rel="stylesheet" href="/css/signUp.css">
 </head>
 
-    <%- include('../partials/header')%> 
-
-    <body class="body-login">
-        <section class="containersignUp">
-            <form class="form-login" action="/signup" method="POST" enctype="multipart/form-data">
-            
-            <form class="form-login">
-
-                <h1 class="h3 mb-3 font-weight-normal title-form">Registrarse</h1>
-    
-                <input type="name" id="inputEmail" class="form-control signup" name="name" placeholder="Nombre" value="<%=typeof old == 'undefined' ? '':old.name %>">
-
-                <% if (typeof(errors) != 'undefined' && errors.name) { %>
-                    <span class="text-danger"> <%=errors.name.msg %> </span>
-                  <% } %>
-            
-                <input type="name"  class="form-control signup" name="last_name" placeholder="Apellido" value="<%=typeof old == 'undefined' ? '':old.last_name %>">
- 
-                <% if (typeof(errors) != 'undefined' && errors.last_name) { %>
-                    <span class="text-danger"> <%= errors.last_name.msg %> </span>
-                  <% } %>
-                
-                <input type="email" class="form-control signup" name="email" placeholder="Email" value="<%=typeof old == 'undefined' ? '':old.email %>">
-
-                <% if (typeof(errors) != 'undefined' && errors.email) { %>
-                    <span class="text-danger"> <%=errors.email.msg %> </span>
-                  <% } %>
-
-                <input type="password" class="form-control signup" name="password" placeholder="Clave" value="<%=typeof old == 'undefined' ? '':old.password %>">
-             
-                <% if (typeof(errors) != 'undefined' && errors.password) { %>
-                    <span class="text-danger"><%= errors.password.msg %> </span>
-                  <% } %>
-
-                <input type="password" class="form-control signup" name="confirm_password" placeholder="Repetir clave" value="<%=typeof old == 'undefined' ? '':old.confirm_password %>">
-
-                <% if (typeof(errors) != 'undefined' && errors.confirm_password) { %>
-                    <span class="text-danger"> <%= errors.confirm_password.msg %> </span>
-                  <% } %>
-
-                <div class="form-group">
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image" value="<%=typeof old == 'undefined' ? '':old.image%>"> 
-                  </div>
-
-                  <% if (typeof(errors) != 'undefined' && errors.image) { %>
-                    <span class="text-danger"> <%= errors.image.msg %> </span>
-                  <% } %>
-                  
-                <input class="cuenta" type="checkbox" name="checkbox" value="check" id="agree"> He leido y
-                aceptado los <a href="/tyc" style="color:grey;"> Términos <br>y condiciones </a> de Bon Habite Deco.<br>
-               
-                <% if (typeof(errors) != 'undefined' && errors.checkbox) { %>
-                    <span class="text-danger"> <%= errors.checkbox.msg %> </span>
-                  <% } %>
-               
-                <p class="cuenta mb-2">Ya tenés cuenta?
-                    <a href="/logIn">Ingresá.</a>
-                </p>
-    
-                <button class="btn_register " type="submit">REGISTRARSE</button>
-              
-    
-            </form>
-        </section>
 
 
+<body class="body-login">
+
+  <%- include('../partials/header')%>
+  <section class="containersignUp">
+    <form class="form-login" action="/signup" method="POST" enctype="multipart/form-data">
+
+      <form class="form-login">
+
+        <h1 class="h3 mb-3 font-weight-normal title-form">Registrarse</h1>
+
+        <input type="name" id="inputEmail" class="form-control signup" name="name" placeholder="Nombre"
+          value="<%=typeof old == 'undefined' ? '':old.name %>">
+
+        <% if (typeof(errors) != 'undefined' && errors.name) { %>
+        <span class="text-danger"> <%=errors.name.msg %> </span>
+        <% } %>
+
+        <input type="name" class="form-control signup" name="last_name" placeholder="Apellido"
+          value="<%=typeof old == 'undefined' ? '':old.last_name %>">
+
+        <% if (typeof(errors) != 'undefined' && errors.last_name) { %>
+        <span class="text-danger"> <%= errors.last_name.msg %> </span>
+        <% } %>
+
+        <input type="email" class="form-control signup" name="email" placeholder="Email"
+          value="<%=typeof old == 'undefined' ? '':old.email %>">
+
+        <% if (typeof(errors) != 'undefined' && errors.email) { %>
+        <span class="text-danger"> <%=errors.email.msg %> </span>
+        <% } %>
+
+        <input type="password" class="form-control signup" name="password" placeholder="Clave"
+          value="<%=typeof old == 'undefined' ? '':old.password %>">
+
+        <% if (typeof(errors) != 'undefined' && errors.password) { %>
+        <span class="text-danger"><%= errors.password.msg %> </span>
+        <% } %>
+
+        <input type="password" class="form-control signup" name="confirm_password" placeholder="Repetir clave"
+          value="<%=typeof old == 'undefined' ? '':old.confirm_password %>">
+
+        <% if (typeof(errors) != 'undefined' && errors.confirm_password) { %>
+        <span class="text-danger"> <%= errors.confirm_password.msg %> </span>
+        <% } %>
+
+        <div class="form-group">
+          <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image"
+            value="<%=typeof old == 'undefined' ? '':old.image%>">
+        </div>
+
+        <% if (typeof(errors) != 'undefined' && errors.image) { %>
+        <span class="text-danger"> <%= errors.image.msg %> </span>
+        <% } %>
+
+        <input class="cuenta" type="checkbox" name="checkbox" value="check" id="agree"> He leido y
+        aceptado los <a href="/tyc" style="color:grey;"> Términos <br>y condiciones </a> de Bon Habite Deco.<br>
+
+        <% if (typeof(errors) != 'undefined' && errors.checkbox) { %>
+        <span class="text-danger"> <%= errors.checkbox.msg %> </span>
+        <% } %>
+
+        <p class="cuenta mb-2">Ya tenés cuenta?
+          <a href="/logIn">Ingresá.</a>
+        </p>
+
+        <button class="btn_register " type="submit">REGISTRARSE</button>
+
+
+      </form>
+  </section>
 
 
 
-    <%- include('../partials/scripts')%>
+
+  <%- include('../partials/footer')%>
+  <%- include('../partials/scripts')%>
 
 </body>
-<!-- Footer -->
 
-<%- include('../partials/footer')%> 
 
 </html>

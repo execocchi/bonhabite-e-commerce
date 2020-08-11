@@ -6,10 +6,10 @@
   <title>Bon Habite</title>
 </head>
 
-<%- include('../partials/header')%>
+
 
 <body>
-
+  <%- include('../partials/header')%>
 
   <div class="flex_contactos" style="justify-content: start; align-items: center; ">
     <h2 class="ml-5 perfil_title"> Mi carrito</h2>
@@ -19,25 +19,26 @@
   <div class="row">
 
     <section class="col-lg-6 col-md-6 col-sm-12 pl-5 container_productos">
-    
 
-        <% for (let i = 0 ; i < productos.length ; i++){ %>
-            <% if (productos[i].masvendido == 1) {  %>
- 
-       
-           <div class="flex_column containers">
 
-          <figure class="figure_contenedor"> <a href="/productDetail"> <img class="img_productos" src="/img/productos/<%=productos[i].image %>" class="card-img-top" alt="producto"></figure></a>
-          <div class="card-body pr-0 py-3">
-            <h5 class="card-title"><%= productos[i].name %></h5>
-            <p class="card-text"> $ <%= productos[i].price %> </p>  
-            <button class="btn_deletecart mb-1 mt-2"> ELIMINAR DEL CARRITO </button>
-         
-          </div>
+      <% for (let i = 0 ; i < productos.length ; i++){ %>
+      <% if (productos[i].masvendido == 1) {  %>
+
+
+      <div class="flex_column containers">
+
+        <figure class="figure_contenedor"> <a href="/productDetail"> <img class="img_productos"
+              src="/img/productos/<%=productos[i].image %>" class="card-img-top" alt="producto"></figure></a>
+        <div class="card-body pr-0 py-3">
+          <h5 class="card-title"><%= productos[i].name %></h5>
+          <p class="card-text"> $ <%= productos[i].price %> </p>
+          <button class="btn_deletecart mb-1 mt-2"> ELIMINAR DEL CARRITO </button>
+
         </div>
-          <%  } %>
+      </div>
       <%  } %>
-     
+      <%  } %>
+
 
 
     </section>
@@ -46,25 +47,25 @@
     <section class="col-lg-6 col-md-6 col-sm-12">
 
       <div class="mr-4" style="display: flex; justify-content: space-between;">
-      <address>
-        <strong>BON HABITE</strong>
-        <br>
-        Av. El Cano 4742
-        <br>
-        Buenos Aires, CP 1428
-        <br>
-        <abbr title="Phone">Tel:</abbr> (+5411) 4582-6752
-      </address>
+        <address>
+          <strong>BON HABITE</strong>
+          <br>
+          Av. El Cano 4742
+          <br>
+          Buenos Aires, CP 1428
+          <br>
+          <abbr title="Phone">Tel:</abbr> (+5411) 4582-6752
+        </address>
 
-      <div class="pr-4">
-        <p class="text-right mb-1">
+        <div class="pr-4">
+          <p class="text-right mb-1">
             <em>Fecha: 1ro Marzo, 2020</em>
-        </p>
-        <p class="text-right mt-0">
+          </p>
+          <p class="text-right mt-0">
             <em>Factura N° 34522677W</em>
-        </p>
+          </p>
+        </div>
       </div>
-    </div>
 
       <div class="mr-4 pb-4 mb-3" style="background-color: #F4F4F4; ">
 
@@ -82,25 +83,27 @@
         </div>
 
         <div class="flex_contactos carritotabla lineadivisoria mb-2">
-          <div class="flex_column"><h2> CÓDIGO PROMOCIONAL</h2>
-          <p class="psecundario mb-1">Mirá su estado en <u> <a href="/misdatos" style="color: #000000;"> Datos de la Cuenta  </a> </u></p>
-        </div>
           <div class="flex_column">
-          <h2 class="text-right">WJZLS</h2>
-          <h2> - $ 2.000</h2>
+            <h2> CÓDIGO PROMOCIONAL</h2>
+            <p class="psecundario mb-1">Mirá su estado en <u> <a href="/misdatos" style="color: #000000;"> Datos de la
+                  Cuenta </a> </u></p>
+          </div>
+          <div class="flex_column">
+            <h2 class="text-right">WJZLS</h2>
+            <h2> - $ 2.000</h2>
+          </div>
         </div>
-      </div>
 
         <div class="flex_contactos carritotabla" style="padding-bottom:8px;
         margin: 5px 35px; ">
           <h2 id="totalcarrito"> TOTAL </h2>
           <h2 id="totalcarrito"> $ 30.000</h2>
         </div>
-  </div>
+      </div>
 
-<div class="mb-3" style="width: 100%;">
-  <a href="./checkout" class="btn btn_comprar btn-block ">CONTINUAR CON LA COMPRA </a>
-  </div>
+      <div class="mb-3" style="width: 100%;">
+        <a href="./checkout" class="btn btn_comprar btn-block ">CONTINUAR CON LA COMPRA </a>
+      </div>
 
   </div>
 
@@ -131,12 +134,10 @@
   </div>
 
 
-
+  <%- include('../partials/footer')%>
   <%- include('../partials/scripts')%>
 
 </body>
-<!-- Footer -->
 
-<%- include('../partials/footer')%>
 
 </html>

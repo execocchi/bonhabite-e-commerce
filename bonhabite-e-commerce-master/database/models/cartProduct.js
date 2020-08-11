@@ -17,7 +17,7 @@ module.exports = function (sequelize, dataTypes) {
         statusId: {
             type: dataTypes.INTEGER
         },
-        subTotal: {
+        subtotal: {
             type: dataTypes.INTEGER
         },
         quantity: {
