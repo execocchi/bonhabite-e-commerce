@@ -31,7 +31,6 @@
         <li><a class="productlist" href="/productos/otras">Otras</a></li>
         <li> <a class="productlist" href="/productos/lomasvendido">Los más vendidos</a></li>
         <li> <a class="productlist" href="/productos/ofertas">Ofertas</a></li>
-        <li> <a class="productlist" href="/colecciones/reciclados">Comprá reciclado</a></li>
       </ul>
 
       <h4 class="productlist-subtitle">COLECCIONES</h4>
@@ -82,25 +81,24 @@
             <option value="2">Precio: mayor a menor</option>
           </select>
         </div>
-        <h4 class="numeroproductos"> 102 PRODUCTOS</h4>
+        <h4 class="numeroproductos"> <%= productos.length%> PRODUCTOS</h4>
       </div>
 
+    
 
-
-      <section class="m-auto" style="display: flex; flex-wrap: wrap;">
-        <% for (let i = 0 ; i < productos.length ; i++){ %>
+      <section class="mr-4 sm-mg-auto" style="display: flex; flex-wrap: wrap;">
+        <% productos.forEach(producto => { %>
         <article class="col-xs-12 col-md-6 col-lg-4 card p-0.5">
-
-          <a href="/productDetail"><img src="/img/productos/<%=productos[i].image %>" class="card-img-top"
+          <a href="/products/detail/<%=producto.id%>"><img src="/img/productos/<%=producto.image %>" class="card-img-top"
               alt="producto">
             <div class="card-body">
-              <h5 class="card-title"> <%= productos[i].name %> </h5>
-              <p class="card-text"> $<%= productos[i].price %> </p>
+              <h5 class="card-title"> <%= producto.name %> </h5>
+              <p class="card-text"> $<%= producto.price %> </p>
           </a>
           <button class="btn_deletecart mb-1 mt-2"> AÑADIR AL CARRITO </button>
           </div>
         </article>
-        <% } %>
+        <% }) %>
       </section>
 
     </section>

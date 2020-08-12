@@ -6,10 +6,9 @@
   <title>Bon Habite</title>
 </head>
 
-
-
 <body>
   <%- include('../partials/header')%>
+
   <div class="contenedor_contacto">
 
 
@@ -24,18 +23,11 @@
           <li> Querés algo diseñado a medida? </li>
         </ul>
       </div>
-      <div class="col-6 frases-contacto left">
-        <ul>
-          <li>buscas inspiración? </li>
-          <li> tuviste algún problema? </li>
-          <li id="preguntanos">preguntanos! </li>
-        </ul>
-      </div>
     </div>
 
     <div class="row form_contact">
-      <div class="col-lg-6 col-md-7 col-xs-12">
 
+      <div class="col-lg-7 col-md-7 col-xs-12">
         <form class="form-login form-contacto" action="" method="POST" enctype="multipart/form-data">
           <input type="email" id="inputEmail" class="form-control contacto " placeholder="Email" required>
           <input type="text" id="inputAsunto" class="form-control contacto" placeholder="Asunto" required>
@@ -43,24 +35,17 @@
             class="form-control contacto"></textarea>
           <button class="btn_enviar mt-2" type="submit">ENVIAR</button>
         </form>
-
       </div>
-      <div class="col-lg-6 col-md-5 col-xs-12">
 
+      <div class="col-lg-5 col-md-5 col-xs-12">
         <div class="flex-contact">
           <h2 class="font-contacto">contacto</h2>
           <p class="p-contacto"> Por consultas podes comunicarte <br> al 011-5908-2061 o por mail a: <br>
             <i>hola!@bonhabitedeco.com </i></p>
         </div>
-
       </div>
 
     </div>
-
-
-
-
-
     <%- include('../partials/footer')%>
     <%- include('../partials/scripts')%>
 

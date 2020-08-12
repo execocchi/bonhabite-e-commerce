@@ -24,24 +24,24 @@ module.exports = {
 
     save: (req, res) => {
         const _body = req.body;
-        //return res.send(_body);
+        // return res.send(_body);
             _body.name = req.body.name,
-            _body.description = req.body.descripcion,
+            _body.description = req.body.description,
             _body.price = req.body.price,
             _body.stock = req.body.stock,
             _body.discount = req.body.discount,
             _body.category = req.body.category,
             _body.collection = req.body.collection,
+            _body.measurements = req.body.measurements,
+            _body.weigth = req.body.weigth,
             _body.image = req.file ? req.file.filename : ''    // if ternario       
 
         Product
             .create(_body)
             .then(producto => {
                 res.redirect('/administrar');
-            })
-
-
-
+            }) 
+            .catch(error => res.send(error));  
     },
     show: (req, res) => {
         Product
@@ -49,8 +49,8 @@ module.exports = {
             .then(productoMueble => {
                 res.render(path.resolve(__dirname, '..', 'views', 'admin', 'detail'), { productoMueble });
             })
-
     },
+    
     destroy: (req, res) => {
         Product
             .destroy({

@@ -10,6 +10,9 @@ module.exports = function (sequelize, dataTypes) {
         },
         name: {
             type: dataTypes.STRING
+        },
+        image: {
+            type: dataTypes.STRING
         }
     }
 

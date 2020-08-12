@@ -8,7 +8,7 @@ module.exports = function (sequelize, dataTypes) {
                 primaryKey: true,
                 autoIncrement: true
             },
-            fileName: {
+            image: {
                 type: dataTypes.STRING
             }
         }

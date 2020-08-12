@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <%- include('../partials/head')%>
+  <title>Detalle Producto</title>
+</head>
+
+<body>
+
+  <%- include('../partials/header')%>
+
+  <container class="product_detail">
+
+    <div class="image_productdetail">
+
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+           <figure style="height: 50%;"><img style="object-fit: cover;"class="main_image d-block w-100" style="object-fit: cover; max-height: 80%;" src="/img/productos/<%= producto.image%>" alt="producto"></figure> 
+          </div>
+          <div class="carousel-item">
+            <figure style="height: 80%;"><img style="object-fit: cover;"class="main_image d-block w-100" style="object-fit: cover; max-height: 80%;" src="/img/productos/<%= producto.image%>" alt="producto"></figure> 
+          </div>
+          <div class="carousel-item">
+            <figure style="height: 80%;"><img style="object-fit: cover;"class="main_image d-block w-100" style="object-fit: cover; max-height: 80%;" src="/img/productos/<%= producto.image%>" alt="producto"></figure> 
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+    <section class="description_product">
+      <a href="/productos/todos">
+      <p class="flecha-atras"> <ion-icon name="arrow-back-outline" ></ion-icon> Volver</p>
+      </a>
+
+    
+      <h4 class="type_product_category"> CATEGORIAS |  <%= producto.categoryProduct %> </h3>
+        <H1 class="type_productname">  <%= producto.name %>  </H1>
+        <div class="container_price">
+          <p class="type_price_description"> $ <%= producto.price %> </p>
+        </div>
+
+        <div class="container_buttons">
+          <button class="add_cart">AÑADIR AL CARRITO</button>
+        </div>
+
+        <h3 class="type_titledescription">Colores disponibles</h3>
+        <ul class="coloresdisponibles">
+          <li class="color1"></li>
+          <li class="color2"></li>
+          <li class="color3"></li>
+        </ul>
+
+        <h3 class="type_titledescription"> Stock </h3>
+        <ul class="type_description">
+          <li> <%= producto.stock %> </li>
+        </ul>
+
+        <h3 class="type_titledescription">Detalles</h3>
+        <ul class="type_description">
+          <li>Medidas: <%= producto.measurements %></li>
+          <li> <%= producto.description %></li>
+          <li>Peso:  <%= producto.weigth %> Kg</li>
+        </ul>
+    </section>
+  </container>
+
+  <%- include('../partials/footer')%>
+  <%- include('../partials/scripts')%>
+
+</body>
+
+</html>

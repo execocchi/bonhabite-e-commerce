@@ -412,8 +412,9 @@ margin-bottom: 20px;
 .fondogris{
     position: absolute;
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     left: 0px;
+    bottom: 0px;
     background: #F4F4F4;
     z-index: -1;
 }
@@ -1279,6 +1280,20 @@ letter-spacing: -0.015em;
 
     /* productDetail */
     
+.flecha-atras{
+        font-family: 'Source Code Pro', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 11px;
+        color: #454743;
+        margin-bottom: 20px;
+}
+
+    
+.flecha-atras:hover {
+    text-decoration: underline;
+}
+
 
  .description_product    a {
         color: #454743;
@@ -1577,7 +1592,12 @@ footer a h5 {
 
                        
 .flex-contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     padding: 10px 15%;
+    margin-left: 20px;
+
 }
 
 .margenmedia{

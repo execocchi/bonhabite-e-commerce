@@ -43,11 +43,11 @@
 
 
   <div class="container_4products">
-    <h3 class="type_title4products"> Los más vendidos </h3>
+    <h3 class="type_title4products"> Los más recomendados </h3>
 
     <div class="card-deck">
-      <% for (let i = 0 ; i < productos.length ; i++){ %>
-      <% if (productos[i].masvendido == 1) {  %>
+      <% for (let i = 0 ; i < 4 ; i++){ %>
+      <% if (productos[i].recommended == 1) {  %>
 
       <div class="card">
 
@@ -63,6 +63,7 @@
 
 
     </div>
+    
   </div>
 
   <div class="metodosdepago">
