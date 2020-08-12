@@ -1,6 +1,6 @@
 module.exports = function (sequelize, dataTypes) {
 
-    let alias = "adressUser";
+    let alias = "AddressUser";
    
         let cols = {
             id: {
@@ -11,13 +11,13 @@ module.exports = function (sequelize, dataTypes) {
             userId: {
                 type: dataTypes.INTEGER
             },
-            adressId: {
+            addressId: {
                 type: dataTypes.INTEGER
             }
         }
     
-    let adressUser = sequelize.define(alias, cols);
+    let AddressUser = sequelize.define(alias, cols);
 
 
-    return adressUser;
+    return AddressUser;
 }

@@ -12,37 +12,37 @@ module.exports = function (sequelize, dataTypes) {
                 type: dataTypes.INTEGER
             },
             total: {
-                type: dataTypes.INTEGER
+                type: dataTypes.DECIMAL
             }
         }
     
     let Cart = sequelize.define(alias, cols);
 
     Cart.associate = function (models) {
-        Cart.belongsToMany(models.products, {
-            as: "Product",
-            through: "cartProduct",
+        Cart.belongsToMany(models.Product, {
+            as: "cartProduct",
+            through: "CartProduct",
             foreignKey: "cartId",
             otherKey: "productId"
         })
     }
 
     Cart.associate = function (models) {
-        Cart.belongsTo(models.users, {
+        Cart.belongsTo(models.User, {
             as: "User",
             foreignKey: "cartId"
         })
     }
 
     Cart.associate = function (models) {
-        Cart.belongsTo(models.orders, {
+        Cart.belongsTo(models.Order, {
             as: "Order",
             foreignKey: "cartId"
         })
     }
 
     Cart.associate = function (models) {
-        Cart.belongsTo(models.products, {
+        Cart.belongsTo(models.Product, {
             as: "Product",
             foreignKey: "cartId"
         })

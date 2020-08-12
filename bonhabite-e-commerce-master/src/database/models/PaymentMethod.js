@@ -11,13 +11,13 @@ module.exports = function (sequelize, dataTypes) {
         method: {
             type: dataTypes.STRING
         }
-    };
+    }
 
     let PaymentMethod = sequelize.define(alias, cols);
 
     PaymentMethod.associate = function (models) {
-        PaymentMethod.belongsTo(models.orders, {
-            as: "Order",
+        PaymentMethod.belongsTo(models.Order, {
+            as: "order",
             foreignKey: "paymentId"
         })
     }

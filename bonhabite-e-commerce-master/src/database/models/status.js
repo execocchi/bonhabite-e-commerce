@@ -13,23 +13,23 @@ module.exports = function (sequelize, dataTypes) {
         }
     }
 
-    let status = sequelize.define(alias, cols);
+    let Status = sequelize.define(alias, cols);
 
-    status.associate = function (models) {
-        status.belongsTo(models.cartProduct, {
-            as: "Product",
+    Status.associate = function (models) {
+        Status.belongsTo(models.CartProduct, {
+            as: "cartProduct",
             foreignKey: "statusId"
         })
     }
 
-    status.associate = function (models) {
-        status.belongsTo(models.orders, {
-            as: "Order",
+    Status.associate = function (models) {
+        Status.belongsTo(models.Order, {
+            as: "order",
             foreignKey: "statusId"
         })
     }
 
 
 
-    return status;
+    return Status;
 }

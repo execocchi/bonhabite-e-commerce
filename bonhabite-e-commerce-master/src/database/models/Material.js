@@ -1,6 +1,6 @@
 module.exports = function (sequelize, dataTypes) {
 
-    let alias = "Color";
+    let alias = "Material";
    
         let cols = {
             id: {
@@ -13,18 +13,18 @@ module.exports = function (sequelize, dataTypes) {
             }
         }
     
-    let Color = sequelize.define(alias, cols);
+    let Material = sequelize.define(alias, cols);
 
-    Color.associate = function (models) {
-        Color.belongsToMany(models.products, {
-            as: "Product",
-            through: "colorProduct",
-            foreignKey: "colorId",
+
+    Material.associate = function (models) {
+        Material.belongsToMany(models.Product, {
+            as: "productMaterial",
+            through: "MaterialProduct",
+            foreignKey: "materialId",
             otherKey: "productId"
         })
     }
 
 
-
-    return Color;
+    return Material;
 }

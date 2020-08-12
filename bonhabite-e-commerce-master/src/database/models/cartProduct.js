@@ -1,6 +1,6 @@
 module.exports = function (sequelize, dataTypes) {
 
-    let alias = "cartProduct";
+    let alias = "CartProduct";
 
     let cols = {
         id: {
@@ -18,42 +18,25 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.INTEGER
         },
         subtotal: {
-            type: dataTypes.INTEGER
+            type: dataTypes.DECIMAL
         },
         quantity: {
-            type: dataTypes.INTEGER
+            type: dataTypes.DECIMAL
         },
         salePrice: {
-            type: dataTypes.INTEGER
+            type: dataTypes.STRING
         }
     }
 
-    let cartProduct = sequelize.define(alias, cols);
+    let CartProduct = sequelize.define(alias, cols);
 
 
-    cartProduct.associate = function (models) {
-        cartProduct.hasMany(models.status, {
-            as: "cartsProduct",
+    CartProduct.associate = function (models) {
+        CartProduct.hasMany(models.Status, {
+            as: "status",
             foreignKey: "statusId"
         })
     }
-
-    cartProduct.associate = function (models) {
-        cartProduct.hasMany(models.products, {
-            as: "cartsProduct",
-            foreignKey: "productId"
-        })
-    }
-
-    cartProduct.associate = function (models) {
-        cartProduct.belongsToMany(models.products, {
-            as: "cartProduct",
-            through: "cartProduct",
-            foreignKey: "productId",
-            otherKey: "cartId"
-        })
-    }
-
-
-    return cartProduct;
+    return CartProduct;
 }
+

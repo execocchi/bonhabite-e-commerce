@@ -29,31 +29,31 @@ module.exports = function (sequelize, dataTypes) {
         }
     }
 
-    let users = sequelize.define(alias, cols);
+    let User = sequelize.define(alias, cols);
 
-    users.associate = function (models) {
-        users.belongsTo(models.roles, {
-            as: "Role",
+    User.associate = function (models) {
+        User.belongsTo(models.Role, {
+            as: "role",
             foreignKey: "userId"
         })
     }
 
-    users.associate = function (models) {
-        users.hasMany(models.carts, {
-            as: "Cart",
+    User.associate = function (models) {
+        User.hasMany(models.Cart, {
+            as: "cart",
             foreignKey: "userId"
         })
     }
 
-    users.associate = function (models) {
-        users.belongsToMany(models.adresses, {
-            as: "Adress",
-            through: "adressUser",
+    User.associate = function (models) {
+        User.belongsToMany(models.Address, {
+            as: "adressUser",
+            through: "AddressUser",
             foreignKey: "userId",
-            otherKey: "adressId"
+            otherKey: "addressId"
         })
     }
 
 
-    return users;
+    return User;
 }

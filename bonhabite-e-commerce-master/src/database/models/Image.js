@@ -1,6 +1,6 @@
 module.exports = function (sequelize, dataTypes) {
 
-    let alias = "Material";
+    let alias = "Image";
    
         let cols = {
             id: {
@@ -8,23 +8,22 @@ module.exports = function (sequelize, dataTypes) {
                 primaryKey: true,
                 autoIncrement: true
             },
-            name: {
+            fileName: {
                 type: dataTypes.STRING
             }
         }
     
-    let Material = sequelize.define(alias, cols);
+    let Image = sequelize.define(alias, cols);
 
-
-    Material.associate = function (models) {
-        Material.belongsToMany(models.products, {
-            as: "Product",
-            through: "materialProduct",
-            foreignKey: "materialId",
+    Image.associate = function (models) {
+        Image.belongsToMany(models.Product, {
+            as: "imageProduct",
+            through: "ImageProduct",
+            foreignKey: "imageId",
             otherKey: "productId"
         })
     }
 
 
-    return Material;
+    return Image;
 }

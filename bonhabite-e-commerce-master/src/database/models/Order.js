@@ -25,29 +25,29 @@ module.exports = function (sequelize, dataTypes) {
     let Order = sequelize.define(alias, cols);
 
     Order.associate = function (models) {
-        Order.hasMany(models.carts, {
+        Order.hasMany(models.Cart, {
             as: "Cart",
             foreignKey: "cartId"
         })
     }
 
     Order.associate = function (models) {
-        Order.hasMany(models.paymentMethods, {
-            as: "Payment",
+        Order.hasMany(models.PaymentMethod, {
+            as: "paymentMethod",
             foreignKey: "paymentId"
         })
     }
 
     Order.associate = function (models) {
-        Order.hasMany(models.shipments, {
-            as: "Shipment",
+        Order.hasMany(models.Shipment, {
+            as: "shipment",
             foreignKey: "shipmentId"
         })
     }
 
     Order.associate = function (models) {
-        Order.hasMany(models.status, {
-            as: "Status",
+        Order.hasMany(models.Status, {
+            as: "status",
             foreignKey: "statusId"
         })
     }

@@ -1,6 +1,6 @@
 module.exports = function (sequelize, dataTypes) {
 
-    let alias = "categoryProduct";
+    let alias = "CategoryProduct";
    
         let cols = {
             id: {
@@ -16,8 +16,8 @@ module.exports = function (sequelize, dataTypes) {
             }
         }
     
-    let categoryProduct = sequelize.define(alias, cols);
+    let CategoryProduct = sequelize.define(alias, cols);
 
 
-    return categoryProduct;
+    return CategoryProduct;
 }

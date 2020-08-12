@@ -16,13 +16,13 @@ module.exports = function (sequelize, dataTypes) {
             allowNull: false
         },
         price: {
-            type: dataTypes.DECIMAL
+            type: dataTypes.INTEGER
         },
         image: {
             type: dataTypes.STRING
         },
         discount: {
-            type: dataTypes.INTEGER
+            type: dataTypes.STRING
         },
         recommended: {
             type: dataTypes.INTEGER,
@@ -30,7 +30,7 @@ module.exports = function (sequelize, dataTypes) {
         topSales: {
             type: dataTypes.INTEGER,
         },
-        collectioId: {
+        collectionId: {
             type: dataTypes.INTEGER,
         },
         stock: {
@@ -40,72 +40,65 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.STRING,
         },
         weigth: {
-            type: dataTypes.INTEGER,
+            type: dataTypes.STRING,
         }
     }
 
     let Product = sequelize.define(alias, cols);
 
     Product.associate = function (models) {
-        Product.belongsTo(models.colecctions, {
-            as: "Collection",
+        Product.belongsTo(models.Collection, {
+            as: "collection",
             foreignKey: "collectionId"
         })
     }
 
-    Product.associate = function (models) {
-        Product.belongsToMany(models.materialProduct, {
-            as: "materialProduct",
-            foreignKey: "materialId"
-        })
-
-
         Product.associate = function (models) {
-            Product.belongsToMany(models.materials, {
-                as: "Product",
-                through: "materialProduct",
+            Product.belongsToMany(models.Material, {
+                as: "material",
+                through: "MaterialProduct",
                 foreignKey: "productId",
                 otherKey: "materialId"
             })
         }
 
         Product.associate = function (models) {
-            Product.belongsToMany(models.colors, {
-                as: "Product",
-                through: "colorProduct",
+            Product.belongsToMany(models.Color, {
+                as: "color",
+                through: "ColorProduct",
                 foreignKey: "productId",
                 otherKey: "colorId"
             })
         }
 
         Product.associate = function (models) {
-            Product.belongsToMany(models.categories, {
+            Product.belongsToMany(models.Category, {
                 as: "categoryProduct",
-                through: "categoryProduct",
+                through: "CategoryProduct",
                 foreignKey: "productId",
                 otherKey: "categoryId"
             })
         }
 
-
         Product.associate = function (models) {
-            Product.belongsToMany(models.carts, {
-                as: "cartProduct",
-                through: "cartProduct",
+            Product.belongsToMany(models.Image, {
+                as: "imageProduct",
+                through: "ImageProduct",
                 foreignKey: "productId",
-                otherKey: "cartId"
+                otherKey: "imageId"
             })
         }
 
         Product.associate = function (models) {
-            Product.belongsTo(models.cartProduct, {
-                    as: "cartsProduct",
-                    foreignKey: "productId"
-                } )
-             }
+            Product.belongsToMany(models.Cart, {
+                as: "cartProduct",
+                through: "CartProduct",
+                foreignKey: "productId",
+                otherKey: "cardId"
+            })
+        }
 
 
         return Product;
-    }
 
 }

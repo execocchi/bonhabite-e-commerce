@@ -11,13 +11,13 @@ module.exports = function (sequelize, dataTypes) {
         name: {
             type: dataTypes.STRING
         }
-    };
+    }
 
     let Collection = sequelize.define(alias, cols);
 
     Collection.associate = function (models) {
-        Collection.hasMany(models.products, {
-            as: "Product",
+        Collection.hasMany(models.Product, {
+            as: "product",
             foreignKey: "collectionId"
         })
     }
