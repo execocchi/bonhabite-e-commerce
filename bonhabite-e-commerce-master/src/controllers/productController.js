@@ -4,6 +4,7 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 const Product = db.Product;
 const Category = db.Category;
+const Collection = db.Collection;
 
 
 const productController = {
@@ -16,18 +17,18 @@ const productController = {
 
     },
     showall: function (req, res) {
-        let category = req.params;
         Product
         .findAll()
         .then(productos => {
-            res.render(path.resolve(__dirname, "../views/products/allProducts"), {productos});
+        res.render(path.resolve(__dirname, '..', 'views', 'products', 'allProducts'), { productos });
         })
-        .catch(error => res.send(error))
+        
+
     },
     
     collection:function(req,res){
-        Product
-        .findByPk(req.params.id)
+        Collection
+        .findAll()
         .then(productos => {
             res.render(path.resolve(__dirname, "../views/products/collections"), {productos});
         })
