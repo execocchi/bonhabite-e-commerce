@@ -11,131 +11,120 @@ const {
     body
 } = require('express-validator');
 
+const db = require("../database/models");
+const Op = db.Sequelize.Op;
+const User = db.User
 
 module.exports = {
-
     index: (req, res) => {
-        let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
-        res.render(path.resolve(__dirname, "../views/users/userAdmin"), {
-            usuarios
-        });
+        User
+            .findAll()
+            .then(usuarios => {
+                res.render(path.resolve(__dirname, "../views/users/userAdmin"), {
+                    usuarios
+                });
+            })
+            .catch(error => res.send(error))
     },
 
     create: (req, res) => {
-        let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
         res.render(path.resolve(__dirname, "../views/users/signUp"));
     },
 
     save: (req, res) => {
-        let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
+        const _body = req.body;
+        _body.name = req.body.name,
+            _body.lastName = req.body.lastName,
+            _body.email = req.body.email,
+            _body.password = req.body.password,
+            _body.image = req.file ? req.file.filename : '' // if ternario 
 
-        let errors = validationResult(req);
-
-        if (errors.isEmpty()) {
-            //----------------------------------------
-            //Solución a la prblemática de el id duplicado. (De acuerdo a la Indicado por Papacho y Ronaldo).
-            let usuariosTotales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
-            let ultimoUsuario = usuariosTotales.pop();
-            //-----------------------------------------
-            //Solución de lo mismo - propuesto por Edu.
-            //-----------------------------
-            //let ultimo = platos[platos.length-1];  
-            //-----------------------------
-            let nuevoUsuario = {
-                id: ultimoUsuario.id + 1,
-                name: req.body.name,
-                last_name: req.body.last_name,
-                email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10),
-                //image: req.file.filename,
-                //Controlar si el usuario subio o no una imagen
-                image: req.file ? req.file.filename : "" // Si en image llega algo => lo guardas . Sino, no guardas nada. 
-
-            }
-
-            //res.send(nuevoPlato);
-            usuarios.push(nuevoUsuario);
-            usuariosJSON = JSON.stringify(usuarios, null, 2);
-            fs.writeFileSync(path.resolve(__dirname, '../models/users.json'), usuariosJSON);
-            res.redirect('/userAdmin');
-
-        } else {
-            return res.render(path.resolve(__dirname, '../views/users/signUp'), {
-                errors: errors.mapped(),
-                old: req.body
-            });
-        }
-
+        User
+            .create(_body)
+            .then(usuario => {
+                res.redirect('/userAdmin');
+            })
     },
     show: (req, res) => {
-        //res.send(req.params.id);
-        let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
-        let usuarioId = req.params.id;
-        const usuarioDetalle = usuarios.find(usuario => usuario.id == usuarioId);
-        res.render(path.resolve(__dirname, '..', 'views', 'users', 'detail'), {
-            usuarioDetalle
-        });
+        User
+            .findByPk(req.params.id)
+            .then(usuarioDetalle => {
+                res.render(path.resolve(__dirname, '..', 'views', 'users', 'detail'), {
+                    usuarioDetalle
+                });
+            })
     },
     destroy: (req, res) => {
-        let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
-        const usuarioId = req.params.id;
-        const usuarioFinal = usuarios.filter(usuario => usuario.id != usuarioId);
-        usuariosJSON = JSON.stringify(usuarioFinal, null, 2);
-        fs.writeFileSync(path.resolve(__dirname, '../models/users.json'), usuariosJSON);
-        res.redirect('/userAdmin');
+        User
+            .destroy({
+                where: {
+                    id: req.params.id
+                },
+                force: true
+            })
+            .then(confirm => {
+                res.redirect('/userAdmin');
+            })
     },
     edit: (req, res) => {
-        let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
-        let usuarioId = req.params.id;
-        const usuarioDetalle = usuarios.find(usuario => usuario.id == usuarioId);
-        res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), {
-            usuarioDetalle
-        });
+        User
+            .findByPk(req.params.id)
+            .then(usuarioDetalle => {
+                res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), {
+                    usuarioDetalle
+                });
+            })
     },
     update: (req, res) => {
-        let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
-        req.body.id = req.params.id;
+        const _body = req.body;
+        _body.name = req.body.name,
+            _body.lastName = req.body.lastName,
+            _body.email = req.body.email,
+            _body.password = req.body.password,
+            _body.image = req.file ? req.file.filename : '' // if ternario
 
+        User
+            .update(_body, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(usuario => {
+                res.redirect('/userAdmin')
+            })
+            .catch(error => res.send(error));
+
+        req.body.id = req.params.id;
         req.body.image = req.file ? req.file.filename : req.body.oldImage;
         // Si llega un archivo => lo guardas req.file.file.
         // Sino, se guarda req.body.oldImage. 
-
-        let usuariosUpdate = usuarios.map(usuario => { //id nombre descripcion precio imagen
-            if (usuario.id == req.body.id) {
-                return usuario = req.body;
-            }
-            return usuario;
-        });
-        usuariosJSON = JSON.stringify(usuariosUpdate, null, 2);
-        fs.writeFileSync(path.resolve(__dirname, '../models/users.json'), usuariosJSON);
-        res.redirect('/userAdmin');
-
-
     },
 
     login: function (req, res) {
-
         res.render(path.resolve(__dirname, '../views/users/logIn'));
-
     },
+
     logged: (req, res) => {
         const errors = validationResult(req)
         if (errors.isEmpty()) {
-            let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
 
-            let usuarioLogueado = usuarios.find(usuario => usuario.email == req.body.email)
+            User.findAll({
+                where: {
+                    email: req.body.email
+                }
+            }).then((usuarioLogueado) => {
+                delete usuarioLogueado.password;
+                req.session.usuario = usuarioLogueado;
 
-            //Modifico lo que viene del usuario, para proteger sus datos y que no esten guardados en la sesión
-           delete usuarioLogueado.password;
+            });
 
-            req.session.usuario = usuarioLogueado;
             if (req.body.recordarme) {
                 //Crear la cookie de ese usuario
-                res.cookie('email', usuarioLogueado.email, {maxAge: 1000 * 60 * 60 * 24})
+                res.cookie('email', usuarioLogueado.email, {
+                    maxAge: 1000 * 60 * 60 * 24
+                })
             }
-            return res.redirect('/productos/todos'); 
-  
-
+            return res.redirect('/productos/todos');
         } else {
             res.render(path.resolve(__dirname, '../views/users/login'), {
                 errors: errors.mapped(),
@@ -143,7 +132,6 @@ module.exports = {
             });
         }
     },
-
     logout: (req, res) => {
         req.session.destroy();
         res.cookie('email', null, {
@@ -151,20 +139,16 @@ module.exports = {
         });
         res.redirect('/')
     },
-
     miscompras: (req, res) => {
         let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
         res.render(path.resolve(__dirname, "../views/users/miscompras"), {
             usuarios
         });
     },
-
     datos: (req, res) => {
         let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
         res.render(path.resolve(__dirname, "../views/users/misdatos"), {
             usuarios
         });
     },
-
-
 }

@@ -9,33 +9,54 @@ const Collection = db.Collection;
 
 const productController = {
     show: function (req, res) {
+
         Product
-        .findByPk(req.params.id)
-        .then(producto => {
-        res.render(path.resolve(__dirname, '..', 'views', 'products', 'detail'), { producto });
-        })
+            .findByPk(req.params.id)
+            .then(producto => {
+                res.render(path.resolve(__dirname, '..', 'views', 'products', 'detail'), {
+                    producto
+                });
+            })
 
     },
+
     showall: function (req, res) {
-        Product
-        .findAll()
-        .then(productos => {
-        res.render(path.resolve(__dirname, '..', 'views', 'products', 'allProducts'), { productos });
-        })
-        
+
+        Product.findAll( /*{
+                where: {
+                    categoryId: req.params.id
+                }
+            }*/)
+
+            .then(productos => {
+                res.render(path.resolve(__dirname, '..', 'views', 'products', 'allProducts'), {
+                    productos
+                });
+            })
+            
+            .catch(error => res.send(error))
+
 
     },
-    
-    collection:function(req,res){
-        Collection
-        .findAll()
-        .then(productos => {
-            res.render(path.resolve(__dirname, "../views/products/collections"), {productos});
-        })
-        .catch(error => res.send(error))
-     
+
+    collection: function (req, res) {
+
+            Product.findAll({
+                where: {
+                    collectionId: req.params.id
+                }
+            })
+
+            .then(productos => {
+                res.render(path.resolve(__dirname, "../views/products/collections"), {
+                    productos
+                });
+            })
+            
+            .catch(error => res.send(error))
+
     }
-     
+
 }
 
 

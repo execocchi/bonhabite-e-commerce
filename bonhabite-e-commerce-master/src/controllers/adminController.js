@@ -12,7 +12,6 @@ module.exports = {
         Product
             .findAll()
             .then(productos => {
-                //return res.send(platos)
                 res.render(path.resolve(__dirname, "../views/admin/indexAdmin"), { productos });
             })
             .catch(error => res.send(error))

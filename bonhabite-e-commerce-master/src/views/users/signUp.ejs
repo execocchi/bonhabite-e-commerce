@@ -27,7 +27,7 @@
         <span class="text-danger"> <%=errors.name.msg %> </span>
         <% } %>
 
-        <input type="name" class="form-control signup" name="last_name" placeholder="Apellido"
+        <input type="name" class="form-control signup" name="lastName" placeholder="Apellido"
           value="<%=typeof old == 'undefined' ? '':old.last_name %>">
 
         <% if (typeof(errors) != 'undefined' && errors.last_name) { %>
