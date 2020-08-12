@@ -18,33 +18,23 @@ USE `bonhabite`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Dumping data for table `Shipments`
+-- Dumping data for table `addressUser`
 --
 
-LOCK TABLES `Shipments` WRITE;
-/*!40000 ALTER TABLE `Shipments` DISABLE KEYS */;
-INSERT INTO `Shipments` VALUES (1,1,NULL,NULL,NULL);
-/*!40000 ALTER TABLE `Shipments` ENABLE KEYS */;
+LOCK TABLES `addressUser` WRITE;
+/*!40000 ALTER TABLE `addressUser` DISABLE KEYS */;
+INSERT INTO `addressUser` VALUES (1,2,1,NULL,NULL,NULL),(2,3,2,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `addressUser` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Dumping data for table `adressUser`
+-- Dumping data for table `addresses`
 --
 
-LOCK TABLES `adressUser` WRITE;
-/*!40000 ALTER TABLE `adressUser` DISABLE KEYS */;
-INSERT INTO `adressUser` VALUES (1,2,1,NULL,NULL,NULL),(2,3,2,NULL,NULL,NULL);
-/*!40000 ALTER TABLE `adressUser` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping data for table `adresses`
---
-
-LOCK TABLES `adresses` WRITE;
-/*!40000 ALTER TABLE `adresses` DISABLE KEYS */;
-INSERT INTO `adresses` VALUES (1,'Las Heras',123,4,'B',1050,'BsAs',NULL,NULL,NULL),(2,'Coronel Diaz',456,NULL,NULL,1600,'Tigre',NULL,NULL,NULL);
-/*!40000 ALTER TABLE `adresses` ENABLE KEYS */;
+LOCK TABLES `addresses` WRITE;
+/*!40000 ALTER TABLE `addresses` DISABLE KEYS */;
+INSERT INTO `addresses` VALUES (1,'Las Heras',123,4,1050,'B','BsAs',NULL,NULL,NULL),(2,'Coronel Diaz',456,NULL,1600,NULL,'Tigre',NULL,NULL,NULL);
+/*!40000 ALTER TABLE `addresses` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -73,7 +63,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Mesas',NULL,NULL,NULL),(2,'Sillas',NULL,NULL,NULL),(3,'Bancos',NULL,NULL,NULL);
+INSERT INTO `categories` VALUES (1,'Mesas',NULL,NULL,NULL),(2,'Sillas',NULL,NULL,NULL),(3,'Bancos',NULL,NULL,NULL),(4,'Iluminación',NULL,NULL,NULL),(5,'Sillones',NULL,NULL,NULL),(6,'Escritorios',NULL,NULL,NULL),(7,'Camas',NULL,NULL,NULL),(8,'Cómodas',NULL,NULL,NULL),(9,'Otras',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +83,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `collections` WRITE;
 /*!40000 ALTER TABLE `collections` DISABLE KEYS */;
-INSERT INTO `collections` VALUES (1,'Colección A',NULL,NULL,NULL),(2,'Colección B',NULL,NULL,NULL),(3,'Colección C',NULL,NULL,NULL);
+INSERT INTO `collections` VALUES (1,'Colección A','colecciona.jpg',NULL,NULL,NULL),(2,'Colección B','coleccionb.jpeg',NULL,NULL,NULL),(3,'Colección C','coleccionc.jpg',NULL,NULL,NULL),(4,'Reciclados','reciclados.jpeg',NULL,NULL,NULL),(5,'Ofertas','ofertas.jpeg',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `collections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,7 +173,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Mesa','Mesa de Madera',12000,'mesa.jpg',2,12,'150 x 145','50',1,1,'0',NULL,NULL,NULL),(2,'Banco','Banco Blanco',6000,NULL,1,6,'100 x 50','5',0,0,'15',NULL,NULL,NULL);
+INSERT INTO `products` VALUES (1,'Mesa de madera','Mesa de Madera',12000,'producto-1597248710641.jpeg',2,12,'150 x 145','50',1,1,'0',NULL,'2020-08-12 16:11:50',NULL),(2,'Banco Blanco','Banco Blanco',6500,'producto-1597248730648.jpeg',1,6,'100 x 50','5',0,1,'15',NULL,'2020-08-12 16:12:29',NULL),(3,'Silla Mexicana','Silla mexicana mecedora',5000,'producto-1597264160512.jpg',3,12,'150 cm x 25 cm ','40',1,1,'Sin descuento','2020-08-12 16:10:23','2020-08-12 20:29:20',NULL),(4,'Lámpara metálica','Lampara de pie ',3000,'producto-1597263908823.jpeg',2,45,'150 cm x 25 cm ','3',1,1,'Sin descuento','2020-08-12 17:33:32','2020-08-12 20:30:13',NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,6 +185,16 @@ LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
 INSERT INTO `roles` VALUES (1,'admin',NULL,NULL,NULL),(2,'user',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `shipments`
+--
+
+LOCK TABLES `shipments` WRITE;
+/*!40000 ALTER TABLE `shipments` DISABLE KEYS */;
+INSERT INTO `shipments` VALUES (1,1,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `shipments` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -226,4 +226,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-11 15:02:49
+-- Dump completed on 2020-08-12 18:03:50
