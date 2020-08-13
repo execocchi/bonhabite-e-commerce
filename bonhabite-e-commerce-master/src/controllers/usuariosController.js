@@ -105,19 +105,19 @@ module.exports = {
     },
 
     logged: (req, res) => {
-        const errors = validationResult(req)
-        if (errors.isEmpty()) {
+        //const errors = validationResult(req)
+       // if (errors.isEmpty()) {
 
-            User.findAll({
+            User.findOne({
                 where: {
                     email: req.body.email
                 }
-            }).then((usuarioLogueado) => {
-                delete usuarioLogueado.password;
+            }).then((usuario) => {
+                delete usuario.password;
                 req.session.usuario = usuarioLogueado;
 
             });
-
+            // res.send(usuarioLogueado)
             if (req.body.recordarme) {
                 //Crear la cookie de ese usuario
                 res.cookie('email', usuarioLogueado.email, {
@@ -125,12 +125,13 @@ module.exports = {
                 })
             }
             return res.redirect('/productos/todos');
-        } else {
-            res.render(path.resolve(__dirname, '../views/users/login'), {
-                errors: errors.mapped(),
-                old: req.body
-            });
-        }
+
+       // } else {
+          //  res.render(path.resolve(__dirname, '../views/users/login'), {
+             //   errors: errors.mapped(),
+            //    old: req.body
+           // });
+      //  }
     },
     logout: (req, res) => {
         req.session.destroy();
