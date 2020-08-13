@@ -2,33 +2,24 @@ const fs = require('fs');
 const path = require('path');
 // let usuarios =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
 
-const db = require("../database/models");
-const Op = db.Sequelize.Op;
-const User = db.User      
-
-module.exports = (req,res,next) =>{
- 
-    User
-    .findAll()
-    .then(usuarios => {
-            return usuarios
-    })
-    .catch(error => res.send(error))
-
-
-    //Variable locals (super global - vive en las vistas )
+module.exports = (req, res, next) => {
+    
     res.locals.usuario = false;
-    if(req.session.usuario){
+    if (req.session.usuario) {
         res.locals.usuario = req.session.usuario;
         return next();
-    }else if(req.cookies.email){
-        let usuario = usuarios.find(usuario => usuario.email == req.cookies.email)
-        //return res.send(usuario);
-        delete usuario.password;
-        req.session.usuario = usuario;
-        res.locals.usuario = usuario;
-        return next();
-    }else{
-        return next();
+
+    } else if (req.cookies.email) {
+        User.findOne({
+                where: {
+                    email: req.cookies.email
+                }
+            })
+            .then(user => {
+                req.session.usuario = user;
+                res.locals.usuario = user;
+                return next();
+
+            })
     }
 }

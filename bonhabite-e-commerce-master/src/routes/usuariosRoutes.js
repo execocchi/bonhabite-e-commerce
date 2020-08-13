@@ -31,7 +31,7 @@ const upload = multer({
     storage
 })
 router.get('/login', usuariosController.login);
-router.post('/login',validacionesMiddleware.logIn, usuariosController.logged);
+router.post('/login', validacionesMiddleware.logIn, usuariosController.logged);
 
 
 router.get('/userAdmin', usuariosController.index);

@@ -8,7 +8,7 @@ const Collection = db.Collection;
 
 
 const productController = {
-    show: function (req, res) {
+    detail: function (req, res) {
 
         Product
             .findByPk(req.params.id)
@@ -20,41 +20,42 @@ const productController = {
 
     },
 
-    showall: function (req, res) {
+    categories: function (req, res) {
 
-        Product.findAll( /*{
-                where: {
-                    categoryId: req.params.id
-                }
-            }*/)
-
-            .then(productos => {
-                res.render(path.resolve(__dirname, '..', 'views', 'products', 'allProducts'), {
-                    productos
-                });
-            })
+            //return res.send(req.query.category);
+            const categorias = Category.findAll();
+            const productos = 
+            Product
             
+            .findAll({
+                where: {collectionId : req.query.category},
+                include: [{association: 'categoryProduct'}]
+            })
+            Promise.all([productos,categorias])
+            .then(([productos,categorias]) =>
+                //return res.send(platoComida);
+                res.render(path.resolve(__dirname, '..', 'views', 'products', 'allProducts'), {productos,categorias })
+                )   
             .catch(error => res.send(error))
-
 
     },
 
     collection: function (req, res) {
 
-            Product.findAll({
-                where: {
-                    collectionId: req.params.id
-                }
-            })
-
-            .then(productos => {
-                res.render(path.resolve(__dirname, "../views/products/collections"), {
-                    productos
-                });
-            })
-            
-            .catch(error => res.send(error))
-
+        const collections = Collection.findAll();
+        const productos = 
+        Product
+        .findAll({
+            where: {collectionId : req.query.collection},
+        })
+        Promise.all([productos,collections])
+        .then(([productos,collections]) =>
+            //return res.send(platoComida);
+            res.render(path.resolve(__dirname, '..', 'views', 'products', 'collections'), {productos,collections})
+            )   
+        .catch(error => res.send(error))
+        
+      
     }
 
 }

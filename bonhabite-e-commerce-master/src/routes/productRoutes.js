@@ -5,8 +5,8 @@ const path = require('path');
 
 const productController = require(path.resolve(__dirname, '../controllers/productController'));
 
-router.get('/productos/:id', productController.showall)
-router.get('/products/detail/:id',productController.show);
+router.get('/productos/:id', productController.categories)
+router.get('/products/detail/:id',productController.detail);
 
 router.get("/colecciones/:id",productController.collection);
 
