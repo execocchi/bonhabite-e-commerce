@@ -20,7 +20,7 @@ let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/use
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.resolve(__dirname, '../../public/img/usuarios')); //Aquí deben indicar donde van a guardar la imagen
+        cb(null, path.resolve(__dirname, '../../public/img/usuarios')); // donde va la guardar la imagen
     },
     filename: function (req, file, cb) {
         cb(null, 'usuario' + '-' + Date.now() + path.extname(file.originalname)); //UNIQID() --- PHP
@@ -31,14 +31,14 @@ const upload = multer({
     storage
 })
 router.get('/login', usuariosController.login);
-router.post('/login', validacionesMiddleware.logIn, usuariosController.logged);
+router.post('/login', validacionesMiddleware.logIn , usuariosController.logged);
 
 
 router.get('/userAdmin', usuariosController.index);
 
 router.get('/signup', usuariosController.create);
 
-router.post('/signup', upload.single('image'),validacionesMiddleware.registro,
+router.post('/signup', upload.single('image'), validacionesMiddleware.registro, 
 
 usuariosController.save); //nombre que esta en el formulario.  Si queres muchos archivos, en el form pones : upload.any() => name="image[]" multiple> 
 

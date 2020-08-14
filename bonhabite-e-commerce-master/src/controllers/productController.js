@@ -26,19 +26,17 @@ const productController = {
             const categorias = Category.findAll();
             const productos = 
             Product
-            
             .findAll({
-                where: {collectionId : req.query.category},
+                where: {categoryId : req.query.category},
                 include: [{association: 'categoryProduct'}]
             })
             Promise.all([productos,categorias])
             .then(([productos,categorias]) =>
-                //return res.send(platoComida);
                 res.render(path.resolve(__dirname, '..', 'views', 'products', 'allProducts'), {productos,categorias })
                 )   
             .catch(error => res.send(error))
-
     },
+
 
     collection: function (req, res) {
 
@@ -47,6 +45,7 @@ const productController = {
         Product
         .findAll({
             where: {collectionId : req.query.collection},
+            include: [{association: 'collection'}]
         })
         Promise.all([productos,collections])
         .then(([productos,collections]) =>
@@ -59,7 +58,5 @@ const productController = {
     }
 
 }
-
-
 
 module.exports = productController;

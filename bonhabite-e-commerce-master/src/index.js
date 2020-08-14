@@ -7,7 +7,7 @@ const session = require ('express-session')
 const cookieParser = require('cookie-parser');
 
 //Requerir el middleware que controla si el usuario está o no Logueado
-const acceso = require('./middlewares/acceso');
+// const acceso = require('./middlewares/acceso');
 
 
 const webRoutes = require('./routes/webRoutes');
@@ -24,7 +24,7 @@ app.use(session({
     saveUninitialized : true
 }));
 
-app.use(acceso);
+// app.use(acceso);
 
 //Aquí requiero el Middleware que controla si el usuario está o no Logueado
 

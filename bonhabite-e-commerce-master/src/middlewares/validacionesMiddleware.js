@@ -6,7 +6,7 @@ const {
 
 const fs = require('fs');
 const path = require('path');
-let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
+//let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
 const db = require("../database/models");
 const Op = db.Sequelize.Op;
 const User = db.User
@@ -18,9 +18,16 @@ const User = db.User
 })
 .catch(error => res.send(error)); */
 
+async function usuariosTotales (){
+    return await User.findAll()    
+}
+
+let usuarios = usuariosTotales();
+
 module.exports = {
 
     registro: [
+
         check('name').isLength({
             min: 1
         }).withMessage('El campo nombre no puede estar vacío'),
@@ -32,14 +39,14 @@ module.exports = {
         // Valido si el usuario ya está registrado
 
         body('email').custom((value) => {
+          
             for (let i = 0; i < usuarios.length; i++) {
                 if (usuarios[i].email == value) {
                     return false // si se cumple, muestra el error: ya existe
                 }
-            }
-            return true // no esta el mail, no muestra mensaje de error
-
-        }).withMessage('usuario ya se encuentra registrado'),
+            } 
+            return true // no existe el mail, no muestra mensaje de error 
+        }).withMessage('El usuario ya se encuentra registrado'),
 
         body('checkbox').custom((value, {
             req
@@ -89,6 +96,7 @@ module.exports = {
             min: 6
         }).withMessage('La contraseña debe tener un mínimo de 6 caractéres'),
         body('email').custom((value) => { //value: lo que tipea el usuario
+          
             for (let i = 0; i < usuarios.length; i++) {
                 if (usuarios[i].email == value) {
                     return true
@@ -100,7 +108,6 @@ module.exports = {
         body('password').custom((value, {
             req
         }) => {
-
             for (let i = 0; i < usuarios.length; i++) {
                 if (usuarios[i].email == req.body.email) {
                     if (bcrypt.compareSync(value, usuarios[i].password)) {
