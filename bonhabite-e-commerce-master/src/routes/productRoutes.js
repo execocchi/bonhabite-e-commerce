@@ -5,10 +5,14 @@ const path = require('path');
 
 const productController = require(path.resolve(__dirname, '../controllers/productController'));
 
-router.get('/productos/:id', productController.categories)
+router.get('/todas', productController.allCategories)
+router.get('/categoria/:nombre', productController.categories)
+
+router.get("/colecciones/:nombre",productController.collections);
+
 router.get('/products/detail/:id',productController.detail);
 
-router.get("/colecciones/:id",productController.collection);
+
 
 
 

@@ -24,8 +24,5 @@ module.exports = function (sequelize, dataTypes) {
             foreignKey: "collectionId"
         })
     }
-
     return Collection;
-
-
 }

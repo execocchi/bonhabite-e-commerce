@@ -20,41 +20,71 @@ const productController = {
 
     },
 
-    categories: function (req, res) {
+    allCategories: function (req, res) {
 
-            //return res.send(req.query.category);
-            const categorias = Category.findAll();
-            const productos = 
-            Product
-            .findAll({
-                where: {categoryId : req.query.category},
-                include: [{association: 'categoryProduct'}]
+        titulo = "Todas";
+        Product
+            .findAll()
+            .then(productos => {
+                res.render(path.resolve(__dirname, '..', 'views', 'products', 'allProducts'), {
+                    productos, titulo
+                });
             })
-            Promise.all([productos,categorias])
-            .then(([productos,categorias]) =>
-                res.render(path.resolve(__dirname, '..', 'views', 'products', 'allProducts'), {productos,categorias })
-                )   
-            .catch(error => res.send(error))
+
+
+    },
+
+    categories: async function (req, res) {
+
+        //return res.send(req.params.nombre);
+
+        let categorias = await Category.findAll({
+            where: {
+                name: req.params.nombre
+            },
+            include: [{
+                association: 'product'
+            }]
+        })
+
+        //return res.send(categorias[0].product)
+        
+        let productos = categorias[0].product;
+        //return res.send(products);
+        let titulo = String(req.params.nombre)
+
+        res.render(path.resolve(__dirname, '..', 'views', 'products', 'allProducts'), {
+            productos,
+            titulo
+        })
     },
 
 
-    collection: function (req, res) {
+    collections: async function (req, res) {
 
-        const collections = Collection.findAll();
-        const productos = 
-        Product
-        .findAll({
-            where: {collectionId : req.query.collection},
-            include: [{association: 'collection'}]
+        //return res.send(req.params.nombre);
+
+        let colecciones = await Collection.findAll({
+            where: {
+                name: req.params.nombre
+            },
+            include: [{
+                association: 'product'
+            }]
         })
-        Promise.all([productos,collections])
-        .then(([productos,collections]) =>
-            //return res.send(platoComida);
-            res.render(path.resolve(__dirname, '..', 'views', 'products', 'collections'), {productos,collections})
-            )   
-        .catch(error => res.send(error))
+
+        //return res.send(colecciones[0].product)
         
-      
+        let productos = colecciones[0].product;
+        let banner = colecciones[0].image;
+        let titulo = String(req.params.nombre)
+       //return  res.send(banner)
+
+        res.render(path.resolve(__dirname, '..', 'views', 'products', 'collections'), {
+            productos,
+            titulo,
+            banner
+        })
     }
 
 }

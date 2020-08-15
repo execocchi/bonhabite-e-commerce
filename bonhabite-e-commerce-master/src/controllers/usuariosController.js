@@ -32,6 +32,14 @@ module.exports = {
     },
 
     save: (req, res) => {
+
+        let errors = validationResult(req);
+        //console.log(errors)
+        if(!errors.isEmpty()) {
+          return res.render(path.resolve(__dirname, '../views/users/signUp'), {
+            errors: errors.errors,  old: req.body
+          });
+        }   
             const _body = req.body;
             _body.name = req.body.name,
             _body.lastName = req.body.lastName,
@@ -44,7 +52,9 @@ module.exports = {
             .then(usuario => {
                 res.redirect('/userAdmin');
             })
+            .catch(error => console.log(error));
     },
+    
     show: (req, res) => {
         User
             .findByPk(req.params.id)
@@ -67,6 +77,7 @@ module.exports = {
             })
     },
     edit: (req, res) => {
+
         User
             .findByPk(req.params.id)
             .then(usuarioDetalle => {
@@ -75,13 +86,16 @@ module.exports = {
                 });
             })
     },
+
     update: (req, res) => {
-        const _body = req.body;
+
+             const _body = req.body;
+
             _body.name = req.body.name,
             _body.lastName = req.body.lastName,
             _body.email = req.body.email,
             _body.password = bcrypt.hashSync(req.body.password, 10),
-            _body.image = req.file ? req.file.filename : '' // if ternario
+            _body.image = req.file ? req.file.filename : req.body.oldImage;
 
         User
             .update(_body, {
@@ -93,21 +107,16 @@ module.exports = {
                 res.redirect('/userAdmin')
             })
             .catch(error => res.send(error));
-
-        req.body.id = req.params.id;
-        req.body.image = req.file ? req.file.filename : req.body.oldImage;
-        // Si llega un archivo => lo guardas req.file.file.
-        // Sino, se guarda req.body.oldImage. 
     },
 
     login: function (req, res) {
         res.render(path.resolve(__dirname, '../views/users/logIn'));
     },
 
-    logged: (req, res, next) => {
+    logged: (req, res) => {
 
         const errors = validationResult(req);
-        let usuarioLogueado;
+       
         if (errors.isEmpty()) {
 
             User.findOne({

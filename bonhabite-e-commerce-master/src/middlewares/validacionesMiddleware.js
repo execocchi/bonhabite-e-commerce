@@ -27,11 +27,11 @@ let usuarios = usuariosTotales();
 module.exports = {
 
     registro: [
-
+        
         check('name').isLength({
             min: 1
         }).withMessage('El campo nombre no puede estar vacío'),
-        check('last_name').isLength({
+        check('lastName').isLength({
             min: 1
         }).withMessage('El campo apellido no puede estar vacío'),
         check('email').isEmail().withMessage('Agregar un email válido'),
@@ -96,29 +96,41 @@ module.exports = {
             min: 6
         }).withMessage('La contraseña debe tener un mínimo de 6 caractéres'),
         body('email').custom((value) => { //value: lo que tipea el usuario
-          
-            for (let i = 0; i < usuarios.length; i++) {
-                if (usuarios[i].email == value) {
-                    return true
-                }
+
+        /*    User.findAll()
+            .then(usuarios => {   */
+
+            let usuarioExistente = usuarios.filter(function(usuario){
+            return usuario.email == value;
+        })
+          if (usuarioExistente) {
+                return true
+            } else {
+                return false
             }
-            return false
+
         }).withMessage('El usuario no existe'),
+   // }),
 
         body('password').custom((value, {
             req
         }) => {
-            for (let i = 0; i < usuarios.length; i++) {
-                if (usuarios[i].email == req.body.email) {
-                    if (bcrypt.compareSync(value, usuarios[i].password)) {
+
+         /*   User.findAll()
+            .then(usuarios => { */
+
+            let claveCorrecta = usuarios.filter(function (usuario){
+                return bcrypt.compareSync(value, usuario.password)
+            })
+
+                if (usuarios.email == req.body.email) {
+                    if (claveCorrecta) {
                         return true
                     } else {
                         return false
                     }
                 }
-            }
         }).withMessage('La contraseña es incorrecta')
-
+   // })
     ]
-
 };

@@ -38,12 +38,12 @@
     </div>
 
     <section class="description_product">
-      <a href="/productos/todos">
+      <a href="javascript:history.back()">
       <p class="flecha-atras"> <ion-icon name="arrow-back-outline" ></ion-icon> Volver</p>
       </a>
 
     
-      <h4 class="type_product_category"> CATEGORIAS |  <%= producto.categoryProduct %> </h3>
+      <h4 class="type_product_category"> CATEGORIA |  <%=producto.category %>  </h3>
         <H1 class="type_productname">  <%= producto.name %>  </H1>
         <div class="container_price">
           <p class="type_price_description"> $ <%= producto.price %> </p>

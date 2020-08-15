@@ -12,35 +12,34 @@
 
 <body>
   <%- include('../partials/header')%>
-  <container class="row">
+  <container class="row" style="background-color: white;">
     <section class="product-list col-3 d-none d-md-block">
-      <h2 class="productlist-title">CATEGORIAS</h2>
-      <h3 class="productlist-title2 mb-4">TODAS</h3>
+      <h2 class="productlist-title">CATEGORIA</h2>
+      <h3 class="productlist-title2 mb-4"> <%=titulo%> </h3>
 
       <h4 class="productlist-subtitle">CATEGORIAS</h4>
       <ul>
-        <li><a class="productlist" href="/productos/Todos">Todas</a></li>
-        <li> <a class="productlist" href="/productos/Mesas">Mesas</a></li>
-        <li> <a class="productlist" href="/productos/Iluminación">Iluminación</a></li>
-        <li><a class="productlist" href="/productos/Camas">Camas</a></li>
-        <li><a class="productlist" href="/productos/Sillones">Sillones</a></li>
-        <li> <a class="productlist" href="/productos/Escritorios">Escritorios</a></li>
-        <li> <a class="productlist" href="/productos/Bibliotecas">Bibliotecas</a></li>
-        <li> <a class="productlist" href="/productos/Cómodas">Cómodas</a></li>
-        <li><a class="productlist" href="/productos/Sillas">Sillas</a></li>
-        <li><a class="productlist" href="/productos/Otras">Otras</a></li>
-        <li> <a class="productlist" href="/productos/Losmasvendido">Los más vendidos</a></li>
-        <li> <a class="productlist" href="/productos/Ofertas">Ofertas</a></li>
+        <li><a class="productlist" href="/todas">Todas</a></li>
+        <li> <a class="productlist" href="/categoria/Mesas">Mesas</a></li>
+        <li> <a class="productlist" href="/categoria/Iluminacion">Iluminación</a></li>
+        <li><a class="productlist" href="/categoria/Camas">Camas</a></li>
+        <li><a class="productlist" href="/categoria/Sillones">Sillones</a></li>
+        <li> <a class="productlist" href="/categoria/Escritorios">Escritorios</a></li>
+        <li> <a class="productlist" href="/categoria/Bibliotecas">Bibliotecas</a></li>
+        <li> <a class="productlist" href="/categoria/Comodas">Cómodas</a></li>
+        <li><a class="productlist" href="/categoria/Sillas">Sillas</a></li>
+        <li><a class="productlist" href="/colecciones/Ofertas">Otras</a></li>
+        <li> <a class="productlist" href="/colecciones/Reciclados">Reciclados</a></li>
       </ul>
 
       <h4 class="productlist-subtitle">COLECCIONES</h4>
       <ul>
 
 
-        <li> <a class="productlist" href="/colecciones/coleccionA">Colección A</a></li>
-        <li><a class="productlist" href="/colecciones/coleccionB">Colección B</a></li>
-        <li> <a class="productlist" href="/colecciones/coleccionC">Colección C</a></li>
-        <li> <a class="productlist" href="/colecciones/reciclados">Reciclados</a></li>
+        <li> <a class="productlist" href="/colecciones/a">Colección A</a></li>
+        <li><a class="productlist" href="/colecciones/b">Colección B</a></li>
+        <li> <a class="productlist" href="/colecciones/c">Colección C</a></li>
+        <li> <a class="productlist" href="/colecciones/Reciclados">Reciclados</a></li>
       </ul>
 
       <h4 class="productlist-subtitle">FILTRÁ POR COLORES</h4>
@@ -57,15 +56,6 @@
         <option value="1">Metal</option>
         <option value="2">Mármol</option>
         <option value="3">Plástico</option>
-      </select>
-
-      <h4 class="productlist-subtitle">ETIQUETAS COMUNES</h4>
-      <select class="custom-select custom-select-sm mb-4">
-        <option selected>Minimalista</option>
-        <option value="1">Barroco</option>
-        <option value="2">Tradicional</option>
-        <option value="3">Moderno</option>
-        <option value="3">Rustico</option>
       </select>
 
     </section>

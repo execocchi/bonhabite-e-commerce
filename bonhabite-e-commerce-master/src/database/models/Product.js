@@ -33,6 +33,9 @@ module.exports = function (sequelize, dataTypes) {
         collectionId: {
             type: dataTypes.INTEGER,
         },
+        categoryId: {
+            type: dataTypes.INTEGER,
+        },
         stock: {
             type: dataTypes.INTEGER,
         },
@@ -53,6 +56,13 @@ module.exports = function (sequelize, dataTypes) {
         })
     }
 
+    Product.associate = function (models) {
+        Product.belongsTo(models.Category, {
+            as: "category",
+            foreignKey: "categoryId",
+        })
+    }
+
         Product.associate = function (models) {
             Product.belongsToMany(models.Material, {
                 as: "material",
@@ -68,15 +78,6 @@ module.exports = function (sequelize, dataTypes) {
                 through: "ColorProduct",
                 foreignKey: "productId",
                 otherKey: "colorId"
-            })
-        }
-
-        Product.associate = function (models) {
-            Product.belongsToMany(models.Category, {
-                as: "categoryProduct",
-                through: "CategoryProduct",
-                foreignKey: "productId",
-                otherKey: "categoryId"
             })
         }
 
