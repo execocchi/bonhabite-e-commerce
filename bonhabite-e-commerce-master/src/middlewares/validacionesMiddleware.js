@@ -7,6 +7,7 @@ const {
 const fs = require('fs');
 const path = require('path');
 //let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
+const bcrypt = require('bcrypt');
 const db = require("../database/models");
 const Op = db.Sequelize.Op;
 const User = db.User
@@ -18,8 +19,8 @@ const User = db.User
 })
 .catch(error => res.send(error)); */
 
-async function usuariosTotales (){
-    return await User.findAll()    
+async function usuariosTotales() {
+    return await User.findAll()
 }
 
 let usuarios = usuariosTotales();
@@ -27,7 +28,7 @@ let usuarios = usuariosTotales();
 module.exports = {
 
     registro: [
-        
+
         check('name').isLength({
             min: 1
         }).withMessage('El campo nombre no puede estar vacío'),
@@ -38,15 +39,11 @@ module.exports = {
 
         // Valido si el usuario ya está registrado
 
-        body('email').custom((value) => {
-          
-            for (let i = 0; i < usuarios.length; i++) {
-                if (usuarios[i].email == value) {
-                    return false // si se cumple, muestra el error: ya existe
-                }
-            } 
-            return true // no existe el mail, no muestra mensaje de error 
-        }).withMessage('El usuario ya se encuentra registrado'),
+        body('email').custom(async (value) =>
+
+         Array.from (await User.findAll())
+         .filter( usuario => usuario.email == value).length > 0 ? Promise.reject("El usuario ya se encuentra registrado") : true),
+
 
         body('checkbox').custom((value, {
             req
@@ -56,6 +53,7 @@ module.exports = {
             }
             return false;
         }).withMessage('Debes aceptar los términos y condiciones'),
+
 
         check('password').isLength({
             min: 6
@@ -95,42 +93,57 @@ module.exports = {
         check('password').isLength({
             min: 6
         }).withMessage('La contraseña debe tener un mínimo de 6 caractéres'),
-        body('email').custom((value) => { //value: lo que tipea el usuario
 
-        /*    User.findAll()
-            .then(usuarios => {   */
+        body('email').custom(async value => Array.from(await User.findAll())
+            .filter(usuario => usuario.email == value).length > 0 ? false : Promise.reject("El usuario no se encuentra registrado")),
 
-            let usuarioExistente = usuarios.filter(function(usuario){
-            return usuario.email == value;
+        body('password').custom(async (value, {
+            req
+        }) => {
+
+            let usuarios = Array.from( await User.findAll())
+
+            let usuario = usuarios.find(usuario => usuario.email == req.body.email)
+
+            return bcrypt.compareSync (req.body.password, usuario.password)? true : Promise.reject("La contraseña no es correcta")
         })
-          if (usuarioExistente) {
+
+
+        /* User.findAll()
+        .then(usuarios => {
+
+            let usuarioExistente = usuarios.filter(function (usuario) {
+                return usuario.email == value;
+            })
+            if (usuarioExistente) {
                 return true
             } else {
                 return false
             }
 
         }).withMessage('El usuario no existe'),
-   // }),
+
+        // }),
 
         body('password').custom((value, {
             req
         }) => {
 
-         /*   User.findAll()
-            .then(usuarios => { */
+            /*   User.findAll()
+               .then(usuarios => { 
 
-            let claveCorrecta = usuarios.filter(function (usuario){
+            let claveCorrecta = usuarios.filter(function (usuario) {
                 return bcrypt.compareSync(value, usuario.password)
             })
 
-                if (usuarios.email == req.body.email) {
-                    if (claveCorrecta) {
-                        return true
-                    } else {
-                        return false
-                    }
+            if (usuarios.email == req.body.email) {
+                if (claveCorrecta) {
+                    return true
+                } else {
+                    return false
                 }
-        }).withMessage('La contraseña es incorrecta')
-   // })
+            }
+        }).withMessage('La contraseña es incorrecta') */
+        // })
     ]
 };
