@@ -30,8 +30,8 @@
         <input type="name" class="form-control signup" name="lastName" placeholder="Apellido"
           value="<%=typeof old == 'undefined' ? '':old.last_name %>">
 
-        <% if (typeof(errors) != 'undefined' && errors.last_name) { %>
-        <span class="text-danger"> <%= errors.last_name.msg %> </span>
+        <% if (typeof(errors) != 'undefined' && errors.lastName) { %>
+        <span class="text-danger"> <%= errors.lastName.msg %> </span>
         <% } %>
 
         <input type="email" class="form-control signup" name="email" placeholder="Email"

@@ -87,6 +87,8 @@ module.exports = {
         }).withMessage('Elija su imagen de perfil')
     ],
 
+    
+
     logIn: [
 
         check('email').isEmail().withMessage('Ingresar un email válido'),

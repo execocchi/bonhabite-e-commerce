@@ -33,13 +33,14 @@ module.exports = {
 
     save: (req, res) => {
 
-        let errors = validationResult(req);
+        const errors = validationResult(req);
         //console.log(errors)
         if(!errors.isEmpty()) {
           return res.render(path.resolve(__dirname, '../views/users/signUp'), {
-            errors: errors.errors,  old: req.body
+            errors: errors.mapped(),
+            old: req.body
           });
-        }   
+        }   else {
             const _body = req.body;
             _body.name = req.body.name,
             _body.lastName = req.body.lastName,
@@ -53,7 +54,7 @@ module.exports = {
                 res.redirect('/userAdmin');
             })
             .catch(error => console.log(error));
-    },
+        }},
     
     show: (req, res) => {
         User
