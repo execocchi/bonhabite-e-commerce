@@ -42,7 +42,7 @@
                     <td><a class="text-muted" href="/user/edit/<%= usuario.id%>">
                             <ion-icon name="create-outline"></ion-icon>
                         </a></td>
-                    <td><a class="text-muted" href="/user/delete/<%= usuario.id%>">
+                    <td><a class="text-muted sureDelete" href="/user/delete/<%= usuario.id%>">
                             <ion-icon name="trash-outline"></ion-icon>
                         </a></td>
                 </tr>
@@ -52,7 +52,9 @@
     </div>
 
     <%- include('../partials/footer')%>
+    <script src="/js/delete.js"></script>
     <%- include('../partials/scripts')%>
+
 </body>
 
 

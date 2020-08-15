@@ -167,6 +167,12 @@ padding-bottom: 5px;
     padding-top: 25px;
 }
 
+/* JS */
+
+.confirmoBorrar{
+    background-color: red;
+}
+
 /* Términos y Condiciones */
 
 .contenedortyc{

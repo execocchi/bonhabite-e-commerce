@@ -63,18 +63,8 @@ UNLOCK TABLES;
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Mesas',NULL,NULL,NULL),(2,'Sillas',NULL,NULL,NULL),(3,'Bancos',NULL,NULL,NULL),(4,'Iluminación',NULL,NULL,NULL),(5,'Sillones',NULL,NULL,NULL),(6,'Escritorios',NULL,NULL,NULL),(7,'Camas',NULL,NULL,NULL),(8,'Cómodas',NULL,NULL,NULL),(9,'Otras',NULL,NULL,NULL);
+INSERT INTO `categories` VALUES (1,'Mesas',NULL,NULL,NULL),(2,'Sillas',NULL,NULL,NULL),(3,'Bancos',NULL,NULL,NULL),(4,'Iluminacion',NULL,NULL,NULL),(5,'Sillones',NULL,NULL,NULL),(6,'Escritorios',NULL,NULL,NULL),(7,'Camas',NULL,NULL,NULL),(8,'Comodas',NULL,NULL,NULL),(9,'Otras',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping data for table `categoryProduct`
---
-
-LOCK TABLES `categoryProduct` WRITE;
-/*!40000 ALTER TABLE `categoryProduct` DISABLE KEYS */;
-INSERT INTO `categoryProduct` VALUES (1,1,1,NULL,NULL,NULL),(2,2,3,NULL,NULL,NULL);
-/*!40000 ALTER TABLE `categoryProduct` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -83,7 +73,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `collections` WRITE;
 /*!40000 ALTER TABLE `collections` DISABLE KEYS */;
-INSERT INTO `collections` VALUES (1,'Colección A','colecciona.jpg',NULL,NULL,NULL),(2,'Colección B','coleccionb.jpeg',NULL,NULL,NULL),(3,'Colección C','coleccionc.jpg',NULL,NULL,NULL),(4,'Reciclados','reciclados.jpeg',NULL,NULL,NULL),(5,'Ofertas','ofertas.jpeg',NULL,NULL,NULL);
+INSERT INTO `collections` VALUES (1,'a','colecciona.jpg',NULL,NULL,NULL),(2,'b','coleccionb.jpeg',NULL,NULL,NULL),(3,'c','coleccionc.jpg',NULL,NULL,NULL),(4,'Reciclados','reciclados.jpeg',NULL,NULL,NULL),(5,'Ofertas','ofertas.jpeg',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `collections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,7 +163,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Mesa de madera','Mesa de Madera',12000,'producto-1597248710641.jpeg',2,12,'150 x 145','50',1,1,'0',NULL,'2020-08-12 16:11:50',NULL),(2,'Banco Blanco','Banco Blanco',6500,'producto-1597248730648.jpeg',1,6,'100 x 50','5',0,1,'15',NULL,'2020-08-12 16:12:29',NULL),(3,'Silla Mexicana','Silla mexicana mecedora',5000,'producto-1597264160512.jpg',3,12,'150 cm x 25 cm ','40',1,1,'Sin descuento','2020-08-12 16:10:23','2020-08-12 20:29:20',NULL),(4,'Lámpara metálica','Lampara de pie ',3000,'producto-1597263908823.jpeg',2,45,'150 cm x 25 cm ','3',1,1,'Sin descuento','2020-08-12 17:33:32','2020-08-12 20:30:13',NULL);
+INSERT INTO `products` VALUES (1,'Mesa de madera','Mesa de Madera',12000,'producto-1597248710641.jpeg',1,1,12,'150 x 145','50',1,1,'0',NULL,'2020-08-12 16:11:50',NULL),(2,'Banco Blanco','Banco Blanco',6500,'producto-1597248730648.jpeg',1,3,6,'100 x 50','5',0,1,'15',NULL,'2020-08-12 16:12:29',NULL),(3,'Silla Mexicana','Silla mexicana mecedora',5000,'producto-1597264160512.jpg',3,2,12,'150 cm x 25 cm ','40',1,1,'Sin descuento','2020-08-12 16:10:23','2020-08-12 20:29:20',NULL),(4,'Lámpara metálica','Lampara de pie ',3000,'producto-1597263908823.jpeg',2,4,45,'150 cm x 25 cm ','3',1,1,'Sin descuento','2020-08-12 17:33:32','2020-08-12 20:30:13',NULL),(5,'Lámpara de pie','Lámpara blanca ',7000,'producto-1597365993957.jpeg',NULL,4,10,'200 cm x 35 cm','5',NULL,NULL,'Sin descuento','2020-08-14 00:46:33','2020-08-15 16:50:20',NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,7 +203,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Juan','Gomez','jgomez@gmail.com','123456','juan.jpg',1,NULL,NULL,NULL),(2,'Maria ','Lopez','mlopez@gmail.com','123456','maria.jpg',2,NULL,NULL,NULL),(3,'Martin','Fernandez','mfernandez@gmail.com','123456','martin.jpg',2,NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'Pepe','Gomez','jgomez@gmail.com','123456','usuario-1597269249915.jpeg',1,NULL,'2020-08-12 21:54:09',NULL),(2,'Maria ','Lopez','mlopez@gmail.com','$2b$10$785VhqQAL6M3BCnG2qonU.ktKymiMyShpwaMFQWl2xapoK2sqDXvy','usuario-1597269261592.jpeg',2,NULL,'2020-08-15 16:57:07',NULL),(3,'Martin','Fernandez','mfernandez@gmail.com','$2b$10$84kNBDVnnKuwhm1yVFx6DO6WqkNCAkRwPjGMSv6kWu8hSRigSu2uy','usuario-1597269271882.jpg',2,NULL,'2020-08-15 16:56:44',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -226,4 +216,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-12 18:03:50
+-- Dump completed on 2020-08-15 19:08:15
