@@ -11,8 +11,10 @@ const productController = {
     detail: function (req, res) {
 
         Product
-            .findByPk(req.params.id)
+            .findByPk(req.params.id , {include: ['category', 'color', 'material']})
+
             .then(producto => {
+                //return res.send(producto);
                 res.render(path.resolve(__dirname, '..', 'views', 'products', 'detail'), {
                     producto
                 });
@@ -22,6 +24,11 @@ const productController = {
 
     allCategories: function (req, res) {
 
+       /* if (req.query){
+           return res.send(req.query)
+
+        } */
+
         titulo = "Todas";
         Product
             .findAll()
@@ -30,7 +37,6 @@ const productController = {
                     productos, titulo
                 });
             })
-
 
     },
 

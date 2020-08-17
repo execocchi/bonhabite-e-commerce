@@ -18,8 +18,8 @@ module.exports = function (sequelize, dataTypes) {
 
     Material.associate = function (models) {
         Material.belongsToMany(models.Product, {
-            as: "productMaterial",
-            through: "MaterialProduct",
+            as: "product",
+            through: "materialProduct",
             foreignKey: "materialId",
             otherKey: "productId"
         })

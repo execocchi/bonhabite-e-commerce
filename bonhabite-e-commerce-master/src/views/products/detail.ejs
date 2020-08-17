@@ -43,7 +43,7 @@
       </a>
 
     
-      <h4 class="type_product_category"> CATEGORIA |  <%=producto.category %>  </h3>
+      <h4 class="type_product_category"> CATEGORIA |  <%= producto.category.name %>  </h3>
         <H1 class="type_productname">  <%= producto.name %>  </H1>
         <div class="container_price">
           <p class="type_price_description"> $ <%= producto.price %> </p>
@@ -60,9 +60,9 @@
 
         <h3 class="type_titledescription">Colores disponibles</h3>
         <ul class="coloresdisponibles">
-          <li class="color1"></li>
-          <li class="color2"></li>
-          <li class="color3"></li>
+        
+          <li style=`background-color: ${product.color.name}`;>   <%= producto.color[0].name %> </li>
+         
         </ul>
 
         <h3 class="type_titledescription"> Stock </h3>
@@ -70,10 +70,14 @@
           <li> <%= producto.stock %> </li>
         </ul>
 
+        <h3 class="type_titledescription"> Material </h3>
+        <ul class="type_description">
+          <li> <%= producto.material[0].name %> </li>
+        </ul>
+
         <h3 class="type_titledescription">Detalles</h3>
         <ul class="type_description">
           <li>Medidas: <%= producto.measurements %></li>
-          <li> <%= producto.description %></li>
           <li>Peso:  <%= producto.weigth %> Kg</li>
         </ul>
     </section>

@@ -54,50 +54,41 @@ module.exports = function (sequelize, dataTypes) {
             as: "collection",
             foreignKey: "collectionId"
         })
-    }
 
-    Product.associate = function (models) {
         Product.belongsTo(models.Category, {
             as: "category",
             foreignKey: "categoryId",
         })
+
+        Product.belongsToMany(models.Material, {
+            as: "material",
+            through: "materialProduct",
+            foreignKey: "productId",
+            otherKey: "materialId"
+        })
+
+        Product.belongsToMany(models.Color, {
+            as: "color",
+            through: "colorProduct",
+            foreignKey: "productId",
+            otherKey: "colorId"
+        })
+
+        Product.belongsToMany(models.Image, {
+            as: "imageProduct",
+            through: "ImageProduct",
+            foreignKey: "productId",
+            otherKey: "imageId"
+        })
+
+        Product.belongsToMany(models.Cart, {
+            as: "cartProduct",
+            through: "CartProduct",
+            foreignKey: "productId",
+            otherKey: "cardId"
+        })
+
     }
-
-        Product.associate = function (models) {
-            Product.belongsToMany(models.Material, {
-                as: "material",
-                through: "MaterialProduct",
-                foreignKey: "productId",
-                otherKey: "materialId"
-            })
-        }
-
-        Product.associate = function (models) {
-            Product.belongsToMany(models.Color, {
-                as: "color",
-                through: "ColorProduct",
-                foreignKey: "productId",
-                otherKey: "colorId"
-            })
-        }
-
-        Product.associate = function (models) {
-            Product.belongsToMany(models.Image, {
-                as: "imageProduct",
-                through: "ImageProduct",
-                foreignKey: "productId",
-                otherKey: "imageId"
-            })
-        }
-
-        Product.associate = function (models) {
-            Product.belongsToMany(models.Cart, {
-                as: "cartProduct",
-                through: "CartProduct",
-                foreignKey: "productId",
-                otherKey: "cardId"
-            })
-        }
 
 
         return Product;

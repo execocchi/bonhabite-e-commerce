@@ -11,7 +11,7 @@ module.exports = function (sequelize, dataTypes) {
             productId: {
                 type: dataTypes.INTEGER
             },
-            materialsId: {
+            materialId: {
                 type: dataTypes.INTEGER
             }
         }
