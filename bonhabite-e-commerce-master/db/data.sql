@@ -93,7 +93,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `colors` WRITE;
 /*!40000 ALTER TABLE `colors` DISABLE KEYS */;
-INSERT INTO `colors` VALUES (1,'Blanco',NULL,NULL,NULL),(2,'Negro',NULL,NULL,NULL),(3,'Gris',NULL,NULL,NULL),(4,'Azul',NULL,NULL,NULL),(5,'Madera',NULL,NULL,NULL),(6,'Amarillo',NULL,NULL,NULL),(7,'Verde',NULL,NULL,NULL),(8,'Plateado',NULL,NULL,NULL);
+INSERT INTO `colors` VALUES (1,'#FFFFFF',NULL,NULL,NULL),(2,'#000000',NULL,NULL,NULL),(3,'#9BA2AB',NULL,NULL,NULL),(4,'#345BDB',NULL,NULL,NULL),(5,'#A35E43',NULL,NULL,NULL),(6,'#FFE25E',NULL,NULL,NULL),(7,'#6A9C73',NULL,NULL,NULL),(9,'#B5513B',NULL,NULL,NULL),(10,'#74BCF2',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `colors` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,7 +163,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Mesa de madera','Mesa de Madera',12000,'producto-1597248710641.jpeg',1,1,12,'150 x 145','50',1,1,'0',NULL,'2020-08-12 16:11:50',NULL),(2,'Banco Blanco','Banco Blanco',6500,'producto-1597248730648.jpeg',1,3,6,'100 x 50','5',0,1,'15',NULL,'2020-08-12 16:12:29',NULL),(3,'Silla Mexicana','Silla mexicana mecedora',5000,'producto-1597264160512.jpg',3,2,12,'150 cm x 25 cm ','40',1,1,'Sin descuento','2020-08-12 16:10:23','2020-08-12 20:29:20',NULL),(4,'Lámpara metálica','Lampara de pie ',3000,'producto-1597263908823.jpeg',2,4,45,'150 cm x 25 cm ','3',1,1,'Sin descuento','2020-08-12 17:33:32','2020-08-12 20:30:13',NULL),(5,'Lámpara de pie','Lámpara blanca ',7000,'producto-1597365993957.jpeg',NULL,4,10,'200 cm x 35 cm','5',NULL,NULL,'Sin descuento','2020-08-14 00:46:33','2020-08-15 16:50:20',NULL);
+INSERT INTO `products` VALUES (1,'Mesa de madera','Mesa de Madera',12000,'producto-1597248710641.jpeg',1,1,12,'150 x 145','55',1,1,'0',NULL,'2020-08-17 20:25:33',NULL),(2,'Banco Blanco','Banco Blanco',6500,'producto-1597248730648.jpeg',1,3,6,'100 x 50','5',0,1,'15',NULL,'2020-08-12 16:12:29',NULL),(3,'Silla Mexicana','Silla mexicana mecedora',5000,'producto-1597264160512.jpg',3,2,12,'150 cm x 25 cm ','40',1,1,'Sin descuento','2020-08-12 16:10:23','2020-08-12 20:29:20',NULL),(4,'Lámpara metálica','Lampara de pie ',3000,'producto-1597263908823.jpeg',2,4,45,'150 cm x 25 cm ','3',1,1,'Sin descuento','2020-08-12 17:33:32','2020-08-12 20:30:13',NULL),(5,'Lámpara de pie','Lámpara blanca ',7000,'producto-1597365993957.jpeg',NULL,4,10,'200 cm x 35 cm','5',NULL,NULL,'Sin descuento','2020-08-14 00:46:33','2020-08-15 16:50:20',NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,7 +203,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Pepe','Gomez','jgomez@gmail.com','123456','usuario-1597269249915.jpeg',1,NULL,'2020-08-12 21:54:09',NULL),(2,'Maria ','Lopez','mlopez@gmail.com','$2b$10$785VhqQAL6M3BCnG2qonU.ktKymiMyShpwaMFQWl2xapoK2sqDXvy','usuario-1597269261592.jpeg',2,NULL,'2020-08-15 16:57:07',NULL),(3,'Martin','Fernandez','mfernandez@gmail.com','$2b$10$84kNBDVnnKuwhm1yVFx6DO6WqkNCAkRwPjGMSv6kWu8hSRigSu2uy','usuario-1597269271882.jpg',2,NULL,'2020-08-15 16:56:44',NULL);
+INSERT INTO `users` VALUES (1,'Pepe','Gomez','jgomez@gmail.com','123456','usuario-1597269249915.jpeg',1,NULL,'2020-08-12 21:54:09',NULL),(2,'Maria ','Lopez','mlopez@gmail.com','$2b$10$785VhqQAL6M3BCnG2qonU.ktKymiMyShpwaMFQWl2xapoK2sqDXvy','usuario-1597269261592.jpeg',2,NULL,'2020-08-15 16:57:07',NULL),(3,'Martin','Fernandez','mfernandez@gmail.com','$2b$10$84kNBDVnnKuwhm1yVFx6DO6WqkNCAkRwPjGMSv6kWu8hSRigSu2uy','usuario-1597269271882.jpg',2,NULL,'2020-08-15 16:56:44',NULL),(4,'prueba ','login','login@gmail.com','$2b$10$Kx.AGvmFlyBwPSSi2pgN8OedtFKsYrqPfmfDs8p193prdlqsKfesO','usuario-1597692639683.jpg',NULL,'2020-08-17 19:30:39','2020-08-17 19:30:39',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -216,4 +216,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-15 19:08:15
+-- Dump completed on 2020-08-19 13:02:14

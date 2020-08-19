@@ -13,6 +13,7 @@
 ### Descripcion corta: Ecommerce de venta y reciclado de muebles
 [Prototipo](https://www.figma.com/proto/Wuyc9raXOC4JTCgGovNvbM/Dise%C3%B1o?node-id=4%3A223&scaling=scale-down)
 
+[Prototipo](https://www.figma.com/proto/Wuyc9raXOC4JTCgGovNvbM/Dise%C3%B1o?node-id=4%3A223&scaling=scale-down)
 
 
 ***************************************************************

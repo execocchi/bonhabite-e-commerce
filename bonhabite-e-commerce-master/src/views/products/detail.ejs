@@ -17,13 +17,19 @@
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-           <figure style="height: 50%;"><img style="object-fit: cover;"class="main_image d-block w-100" style="object-fit: cover; max-height: 80%;" src="/img/productos/<%= producto.image%>" alt="producto"></figure> 
+            <figure style="height: 50%;"><img style="object-fit: cover;" class="main_image d-block w-100"
+                style="object-fit: cover; max-height: 80%;" src="/img/productos/<%= producto.image%>" alt="producto">
+            </figure>
           </div>
           <div class="carousel-item">
-            <figure style="height: 80%;"><img style="object-fit: cover;"class="main_image d-block w-100" style="object-fit: cover; max-height: 80%;" src="/img/productos/<%= producto.image%>" alt="producto"></figure> 
+            <figure style="height: 80%;"><img style="object-fit: cover;" class="main_image d-block w-100"
+                style="object-fit: cover; max-height: 80%;" src="/img/productos/<%= producto.image%>" alt="producto">
+            </figure>
           </div>
           <div class="carousel-item">
-            <figure style="height: 80%;"><img style="object-fit: cover;"class="main_image d-block w-100" style="object-fit: cover; max-height: 80%;" src="/img/productos/<%= producto.image%>" alt="producto"></figure> 
+            <figure style="height: 80%;"><img style="object-fit: cover;" class="main_image d-block w-100"
+                style="object-fit: cover; max-height: 80%;" src="/img/productos/<%= producto.image%>" alt="producto">
+            </figure>
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -39,12 +45,15 @@
 
     <section class="description_product">
       <a href="javascript:history.back()">
-      <p class="flecha-atras"> <ion-icon name="arrow-back-outline" ></ion-icon> Volver</p>
+        <p class="flecha-atras">
+          <ion-icon name="arrow-back-outline"></ion-icon> Volver
+        </p>
       </a>
 
-    
-      <h4 class="type_product_category"> CATEGORIA |  <%= producto.category.name %>  </h3>
-        <H1 class="type_productname">  <%= producto.name %>  </H1>
+
+      <h4 class="type_product_category" style="text-transform:uppercase"> CATEGORIA | <%= producto.category.name %>
+        </h3>
+        <H1 class="type_productname"> <%= producto.name %> </H1>
         <div class="container_price">
           <p class="type_price_description"> $ <%= producto.price %> </p>
         </div>
@@ -58,12 +67,12 @@
           <li> <%= producto.description %> </li>
         </ul>
 
-        <h3 class="type_titledescription">Colores disponibles</h3>
+        <h3 class="type_titledescription">Colores</h3>
         <ul class="coloresdisponibles">
         
-          <li style=`background-color: ${product.color.name}`;>   <%= producto.color[0].name %> </li>
-         
+          <li style=`background-color: ${producto.color[0].name}`;> </li>
         </ul>
+      
 
         <h3 class="type_titledescription"> Stock </h3>
         <ul class="type_description">
@@ -72,13 +81,13 @@
 
         <h3 class="type_titledescription"> Material </h3>
         <ul class="type_description">
-          <li> <%= producto.material[0].name %> </li>
+          <li style="text-transform: capitalize;"> <%= producto.material[0].name %> </li>
         </ul>
 
         <h3 class="type_titledescription">Detalles</h3>
         <ul class="type_description">
           <li>Medidas: <%= producto.measurements %></li>
-          <li>Peso:  <%= producto.weigth %> Kg</li>
+          <li>Peso: <%= producto.weigth %> Kg</li>
         </ul>
     </section>
   </container>
