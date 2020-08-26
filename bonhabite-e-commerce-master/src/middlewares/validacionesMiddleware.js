@@ -206,24 +206,24 @@ module.exports = {
         }).withMessage('El campo imagen no puede estar vacío'),
 
  
-       body('image').custom(function (value, { req }) {
-            let ext
-            if(req.file != undefined ){
-                return true
-            }else{
-                ext = ''+path.extname(req.file[0].filename).toLowerCase();
-                console.log('extensión imagen' + ext);
-                console.log("request" + req.file[0])
+    body('image').custom(function (value, { req }) {
+        let ext;
+        //console.log('Foto'+req.file.filename);
+        if(req.file.filename == ''){
+            return false
+        }else{
+            ext = path.extname(req.file.filename).toLowerCase();
+        }
+        //console.log(ext);
+        if (
+            ext == ".JPG" ||
+            ext == ".JPEG" ||
+            ext == ".PNG" ||
+            ext == ".GIF"){
+                return true;
             }
-            if (
-                ext == '.jpg' ||
-                ext == '.jpeg' ||
-                ext == '.png' ||
-                ext == '.gif') {
-                    return true;
-                }
-                return false;
-          }).withMessage('Seleccionar archivos con extensión JPG, JPEG, PNG o GIF')
+            return false;
+    }).withMessage('Seleccionar archivos con extensión JPG, JPEG, PNG o GIF')
     ],
 
 };
