@@ -4,8 +4,13 @@ const path = require('path');
 const multer = require('multer');
 
 const adminController = require(path.resolve(__dirname, '..', 'controllers', 'adminController'));
+const validacionesMiddleware= require("../middlewares/validacionesMiddleware");
 
-
+const {
+    check,
+    validationResult,
+    body
+} = require('express-validator');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -23,7 +28,7 @@ const upload = multer({
 router.get('/administrar', adminController.index);
 
 router.get('/create', adminController.create);
-router.post('/create', upload.single('image'), adminController.save);   //nombre que esta en el formulario.  Si queres muchos archivos, en el form pones : upload.any() => name="image[]" multiple> 
+router.post('/create', upload.single('image'), validacionesMiddleware.addProduct, adminController.save);   //nombre que esta en el formulario.  Si queres muchos archivos, en el form pones : upload.any() => name="image[]" multiple> 
 
 router.get('/admin/detail/:id', adminController.show);
 

@@ -19,40 +19,63 @@
       <h1 class="h3 mb-3 font-weight-normal title-form">Añadir producto</h1>
 
       <label for="inputName" class="sr-only">Nombre</label>
-      <input type="text" id="inputName" class="form-control signup" name="name" placeholder="Nombre"
-        required="required">
+      <input type="text" id="inputName" class="form-control signup" name="name" placeholder="Nombre"  value="<%=typeof old == 'undefined' ? '':old.name %>">
+
+      <% if (typeof(errors) != 'undefined' && errors.name) { %>
+        <span class="text-danger"> <%=errors.name.msg %> </span>
+        <% } %>
 
       <label for="inputPrice" class="sr-only">Precio</label>
-      <input type="number" id="inputPrice" class="form-control signup" name="price" placeholder="Precio"
-        required="required">
+      <input type="number" id="inputPrice" class="form-control signup" name="price" placeholder="Precio"  value="<%=typeof old == 'undefined' ? '':old.price %>">
+
+      <% if (typeof(errors) != 'undefined' && errors.price) { %>
+        <span class="text-danger"> <%= errors.price.msg %> </span>
+        <% } %>
 
       <label for="inputStock" class="sr-only">Stock</label>
-      <input type="number" id="InputStock" class="form-control signup" name="stock" placeholder="Stock"
-        required="required">
+      <input type="number" id="InputStock" class="form-control signup" name="stock" placeholder="Stock" value="<%=typeof old == 'undefined' ? '':old.stock %>">
+
+      <% if (typeof(errors) != 'undefined' && errors.stock) { %>
+        <span class="text-danger"> <%=errors.stock.msg %> </span>
+        <% } %>
 
       <label for="inputDetail" class="sr-only">Detalle</label>
-      <input type="text" id="inputDetail" class="form-control signup" name="description" placeholder="Descripción"
-        required="required">
+      <input type="text" id="inputDetail" class="form-control signup" name="description" placeholder="Descripción"  value="<%=typeof old == 'undefined' ? '':old.description%>" >
 
-        <label for="inputDetail" class="sr-only">Detalle</label>
-      <input type="text" id="inputDetail" class="form-control signup" name="measurements" placeholder="Medidas"
-        required="required">
+      <% if (typeof(errors) != 'undefined' && errors.description) { %>
+        <span class="text-danger"><%= errors.description.msg %> </span>
+        <% } %>
 
-        <label for="inputDetail" class="sr-only">Detalle</label>
-      <input type="text" id="inputDetail" class="form-control signup" name="weigth" placeholder="Peso"
-        required="required">
+        <label for="inputDetail" class="sr-only">Medidas</label>
+      <input type="text" id="inputDetail" class="form-control signup" name="measurements" placeholder="Medidas" value="<%=typeof old == 'undefined' ? '':old.measurements %>">
 
-      <select name="collection" class="form-control signup " required>
-        <option selected disabled value="#"> Elija su colección </option>
-        <option value="coleccionA" selected> Colección A</option>
+      <% if (typeof(errors) != 'undefined' && errors.measurements) { %>
+        <span class="text-danger"><%= errors.measurements.msg %> </span>
+        <% } %>
+
+        <label for="inputDetail" class="sr-only">Peso</label>
+      <input type="text" id="inputDetail" class="form-control signup" name="weigth" placeholder="Peso" value="<%=typeof old == 'undefined' ? '':old.weigth %>" >
+
+
+      <% if (typeof(errors) != 'undefined' && errors.weigth) { %>
+        <span class="text-danger"><%= errors.weigth.msg %> </span>
+        <% } %>
+
+      <select name="collection" class="form-control signup " value="<%=typeof old == 'undefined' ? '':old.collection %>" >
+        <option selected disabled> Elija su colección </option>
+        <option value="coleccionA" > Colección A</option>
         <option value="coleccionB"> Colección B </option>
         <option value="coleccionC"> Colección C </option>
         <option value="reciclados"> Reciclados </option>
       </select>
 
-      <select name="category" class="form-control signup " required>
-        <option selected disabled value="#"> Qué categoria es? </option>
-        <option value="mesas" selected> Mesas</option>
+      <% if (typeof(errors) != 'undefined' && errors.collection) { %>
+        <span class="text-danger"><%= errors.collection.msg %> </span>
+        <% } %>
+
+      <select name="category" class="form-control signup" value="<%=typeof old == 'undefined' ? '':old.category %>">
+        <option selected disabled> Qué categoria es? </option>
+        <option value="mesas"> Mesas</option>
         <option value="iluminación"> Iluminación </option>
         <option value="camas"> Camas </option>
         <option value="sillones"> Sillones </option>
@@ -65,18 +88,31 @@
 
       </select>
 
-      <select name="discount" class="form-control signup " required>
-        <option selected disabled value="#">Elija su descuento</option>
-        <option value="Sin descuento" selected>Sin descuento</option>
+      <% if (typeof(errors) != 'undefined' && errors.category) { %>
+        <span class="text-danger"><%= errors.category.msg %> </span>
+        <% } %>
+
+      <select name="discount" class="form-control signup" value="<%=typeof old == 'undefined' ? '' : old.discount%>">
+
+        <option selected ="#" disabled >Elija su descuento</option>
+        <option value="0"> Sin descuento </option>
         <option value="15"> 15 </option>
         <option value="30"> 30 </option>
       </select>
 
+      <% if (typeof(errors) != 'undefined' && errors.discount) { %>
+        <span class="text-danger"><%= errors.discount.msg %> </span>
+        <% } %>
+
 
       <div class="form-group">
         <label for="exampleFormControlFile1"></label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image" required>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image"  value="<%=typeof old == 'undefined' ? '':old.image%>">
       </div>
+
+      <% if (typeof(errors) != 'undefined' && errors.image) { %>
+        <span class="text-danger"> <%= errors.image.msg %> </span>
+        <% } %>
 
 
       <button class="btn_register" type="submit">Añadir</button>

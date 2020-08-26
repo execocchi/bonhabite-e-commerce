@@ -5,6 +5,12 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 const Product = db.Product;
 
+const {
+    check,
+    validationResult,
+    body
+} = require('express-validator');
+
 
 module.exports = {
 
@@ -22,6 +28,19 @@ module.exports = {
     },
 
     save: (req, res) => {
+
+        const errors = validationResult(req);
+      
+       
+
+        if(!errors.isEmpty()) {
+            //return res.send(req.body)
+             return res.render(path.resolve(__dirname, '../views/admin/productAdd'), {
+              errors: errors.mapped(),
+              old: req.body 
+            }); 
+
+          } else {
         const _body = req.body;
         // return res.send(_body);
             _body.name = req.body.name,
@@ -34,13 +53,14 @@ module.exports = {
             _body.measurements = req.body.measurements,
             _body.weigth = req.body.weigth,
             _body.image = req.file ? req.file.filename : ''    // if ternario       
-
+            
         Product
             .create(_body)
             .then(producto => {
                 res.redirect('/administrar');
             }) 
             .catch(error => res.send(error));  
+        }
     },
     show: (req, res) => {
         Product

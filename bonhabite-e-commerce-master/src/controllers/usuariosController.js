@@ -54,8 +54,8 @@ module.exports = {
                 res.redirect('/userAdmin');
             })
             .catch(error => console.log(error));
-        }},
-    
+        }
+    },
     show: (req, res) => {
         User
             .findByPk(req.params.id)
