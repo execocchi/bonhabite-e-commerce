@@ -41,8 +41,8 @@ module.exports = {
 
         body('email').custom(async (value) =>
 
-         Array.from (await User.findAll())
-         .filter( usuario => usuario.email == value).length > 0 ? Promise.reject("El usuario ya se encuentra registrado") : true),
+            Array.from(await User.findAll())
+            .filter(usuario => usuario.email == value).length > 0 ? Promise.reject("El usuario ya se encuentra registrado") : true),
 
 
         body('checkbox').custom((value, {
@@ -100,11 +100,11 @@ module.exports = {
             req
         }) => {
 
-            let usuarios = Array.from( await User.findAll())
+            let usuarios = Array.from(await User.findAll())
 
             let usuario = usuarios.find(usuario => usuario.email == req.body.email)
 
-            return bcrypt.compareSync (req.body.password, usuario.password)? true : Promise.reject("La contraseña no es correcta")
+            return bcrypt.compareSync(req.body.password, usuario.password) ? true : Promise.reject("La contraseña no es correcta")
         })
 
 
@@ -148,31 +148,25 @@ module.exports = {
 
     addProduct: [
 
+        check('name').isLength({min: 1}).withMessage('El campo nombre no puede estar vacío'),
 
+        check('price').isNumeric({min: 0}).withMessage('Este campo debe ser numérico'),
 
-        check('name').isLength({
-            min: 1
-        }).withMessage('El campo nombre no puede estar vacío'),
-    
-        check('price').isNumeric({min:0}).withMessage('Este campo debe ser numérico'),
-        check('stock').isNumeric({min:0}).withMessage('Este campo debe ser numérico'),
+        check('stock').isNumeric({min: 0}).withMessage('Este campo debe ser numérico'),
 
-        check('description').isLength({
-            min: 1
-        }).withMessage('El campo descripción no puede estar vacío'),
-        check('measurements').isLength({
-            min: 1
-        }).withMessage('El campo medidas no puede estar vacío'),
-        check('weigth').isNumeric({min:0}).withMessage('Este campo debe ser numérico'),
-
-     
+        check('description').isLength({min: 1}).withMessage('El campo descripción no puede estar vacío'),
+        
+        check('measurements').isLength({min: 1}).withMessage('El campo medidas no puede estar vacío'),
+       
+        check('weigth').isNumeric({min: 0}).withMessage('Este campo debe ser numérico'),
 
         body('collection').custom((value, {
             req
         }) => {
             if (!req.body.collection) {
                 return false
-            } return true
+            }
+            return true
         }).withMessage('El campo colección no puede estar vacío'),
 
         body('category').custom((value, {
@@ -180,7 +174,8 @@ module.exports = {
         }) => {
             if (!req.body.category) {
                 return false
-            } return true
+            }
+            return true
         }).withMessage('El campo categoría no puede estar vacío'),
 
 
@@ -188,10 +183,11 @@ module.exports = {
             req
         }) => {
             //console.log("validando!" + req.body.discount)
-            
+
             if (!req.body.discount) {
                 return false
-            } return true
+            }
+            return true
         }).withMessage('El campo descuento no puede estar vacío'),
 
 
@@ -199,31 +195,52 @@ module.exports = {
             req
         }) => {
             //console.log("validando!" + req.body.discount)
-            
+
             if (!req.file) {
                 return false
-            } return true
+            }
+            return true
         }).withMessage('El campo imagen no puede estar vacío'),
 
- 
-    body('image').custom(function (value, { req }) {
-        let ext;
-        //console.log('Foto'+req.file.filename);
-        if(req.file.filename == ''){
-            return false
-        }else{
-            ext = path.extname(req.file.filename).toLowerCase();
-        }
-        //console.log(ext);
-        if (
-            ext == ".JPG" ||
-            ext == ".JPEG" ||
-            ext == ".PNG" ||
-            ext == ".GIF"){
+
+        body('image').custom(function (value, {
+            req
+        }) {
+            let ext;
+            //console.log('Foto'+req.file.filename);
+            if (req.file.filename == '') {
+                return false
+            } else {
+                ext = path.extname(req.file.filename).toLowerCase();
+            }
+            //console.log(ext);
+            if (
+                ext == ".JPG" ||
+                ext == ".JPEG" ||
+                ext == ".PNG" ||
+                ext == ".GIF") {
                 return true;
             }
             return false;
-    }).withMessage('Seleccionar archivos con extensión JPG, JPEG, PNG o GIF')
+        }).withMessage('Seleccionar archivos con extensión JPG, JPEG, PNG o GIF')
     ],
+
+    update: [
+
+        check('name').isLength({min: 1}).withMessage('El campo nombre no puede estar vacío'),
+
+        check('price').isLength({min: 1}).withMessage('El campo precio no puede estar vacío'),
+        check('price').isNumeric({min: 0}).withMessage('Este campo debe ser numérico'),
+
+        check('description').isLength({min: 1}).withMessage('El campo descripción no puede estar vacío'),
+
+        check('stock').isLength({min: 1}).withMessage('El campo stock no puede estar vacío'),
+        check('stock').isNumeric({ min: 0 }).withMessage('Este campo debe ser numérico'),
+
+        check('measurements').isLength({ min: 1 }).withMessage('El campo medidas no puede estar vacío'),
+
+        check('weigth').isLength({min: 1}).withMessage('El campo peso no puede estar vacío'),
+        check('weigth').isNumeric({ min: 0  }).withMessage('Este campo debe ser numérico'),
+    ]
 
 };

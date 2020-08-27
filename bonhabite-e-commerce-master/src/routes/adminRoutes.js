@@ -35,7 +35,7 @@ router.get('/admin/detail/:id', adminController.show);
 router.get('/admin/delete/:id', adminController.destroy);
 
 router.get('/admin/edit/:id', adminController.edit);
-router.put('/admin/edit/:id',  upload.single('image'), adminController.update);
+router.put('/admin/edit/:id',  upload.single('image'), validacionesMiddleware.update, adminController.update);
 
 
 
