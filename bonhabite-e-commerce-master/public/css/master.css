@@ -138,6 +138,7 @@ padding-bottom: 5px;
     text-align: right;
     color: #D7613C;
     }
+
 .home_reciclados_text{
     font-family: Playfair Display;
     font-style: normal;
@@ -1524,8 +1525,24 @@ footer a h5 {
 .form-control.edit{
     font-family:'Roboto', sans-serif;
     font-size: 15px;
-
 }
+
+.checkbox-form-title{
+    font-family: Playfair Display;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 30px;
+    letter-spacing: -0.015em;
+    text-transform: lowercase;
+    color: #454743;
+}
+
+.color-checkbox{
+    color: #454743;
+    font-size: 15px;
+    font-weight: lighter;
+}
+
 /* Media Queries */
 
 @media (max-width: 426px){

@@ -83,18 +83,80 @@
                                     <% if (typeof(errors) != 'undefined' && errors.weigth) { %>
                                         <span class="text-danger"> <%=errors.weigth.msg %> </span>
                                         <% } %>
-                            </div>
+                            </div> 
+
+                       <!--  <div class="form-group">
+                            <div class="form-check">
+                                <p> Elija materiales</p>
+                                <input class="form-check-input" type="checkbox" name="madera" id="defaultCheck1">
+                                <label class="form-check-label mr-4" for="defaultCheck1">
+                                 Madera
+                                </label>
+                                <input class="form-check-input" type="checkbox" name="metal" id="defaultCheck1">
+                                <label class="form-check-label mr-4" for="defaultCheck1">
+                                Metal
+                                </label>
+                                <input class="form-check-input" type="checkbox" name="plástico" id="defaultCheck1">
+                                <label class="form-check-label mr-4" for="defaultCheck1">
+                                 Plástico
+                                </label>
+                                <input class="form-check-input" type="checkbox" name="arpillera" id="defaultCheck1">
+                                <label class="form-check-label mr-4" for="defaultCheck1">
+                                 Arpillera
+                                </label>
+                              </div>
+                            </div> 
+
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <p class="ml-0"> Elija colores</p>
+                                    <input class="form-check-input" type="checkbox" name="#B5513B" id="defaultCheck1">
+                                    <label class="form-check-label mr-4" for="defaultCheck1">
+                                     Rojo
+                                    </label>
+                                    <input class="form-check-input" type="checkbox" name="#74BCF2" id="defaultCheck1">
+                                    <label class="form-check-label mr-4" for="defaultCheck1">
+                                    Celeste
+                                    </label>
+                                    <input class="form-check-input" type="checkbox" name="#345BDB" id="defaultCheck1">
+                                    <label class="form-check-label mr-4" for="defaultCheck1">
+                                     Azul
+                                    </label>
+                                    <input class="form-check-input" type="checkbox" name="#6A9C73" id="defaultCheck1">
+                                    <label class="form-check-label mr-4" for="defaultCheck1">
+                                     Verde
+                                    </label>
+                                    <input class="form-check-input" type="checkbox" name="#FFE25E" id="defaultCheck1">
+                                    <label class="form-check-label mr-4" for="defaultCheck1">
+                                     Amarillo
+                                    </label> <br>
+                                    <input class="form-check-input" type="checkbox" name="#9BA2AB" id="defaultCheck1">
+                                    <label class="form-check-label mr-4" for="defaultCheck1">
+                                     Gris   
+                                    </label>
+                                    <input class="form-check-input" type="checkbox" name="#A35E43" id="defaultCheck1">
+                                    <label class="form-check-label mr-4" for="defaultCheck1">
+                                     Marrón
+                                    </label>
+                                    <input class="form-check-input" type="checkbox" name="#FFFFFF" id="defaultCheck1">
+                                    <label class="form-check-label mr-4" for="defaultCheck1">
+                                     Blanco
+                                    </label>
+                                    <input class="form-check-input" type="checkbox" name="#000000" id="defaultCheck1">
+                                    <label class="form-check-label mr-4" for="defaultCheck1">
+                                     Negro
+                                    </label>
+                                  </div>
+                                </div>   -->   
+
+                           
+
                             <div class="form-group">
                                 <select name="discount" class="custom-select">
                                     <option selected disabled value="#">Elija su descuento</option>
-                                    <option value="<%= productoMueble.discount == 0 ? 0 :productoMueble.discount %>"
-                                        selected> Sin descuento</option>
-                                    <option value="<%= productoMueble.discount == 15 ? 15 :productoMueble.discount %>">
-                                        15%
-                                    </option>
-                                    <option value="<%= productoMueble.discount == 30 ? 30 :productoMueble.discount %>">
-                                        30%
-                                    </option>
+                                    <option value="0" <%= productoMueble.discount == 0 ? "selected" : null %>> Sin descuento</option>
+                                    <option value="15" <%= productoMueble.discount == 15 ? "selected" : null %>>15%</option>
+                                    <option value="30" <%= productoMueble.discount == 30 ? "selected" : null %>>30%</option>
                                 </select>
                                
                             </div>
@@ -102,31 +164,32 @@
 
                             <div class="form-group">
                                 <select name="collection" class="custom-select">
-                                    <option selected disabled value="#">Colección</option>
-                                    <option value="<%= productoMueble.collection %>"> Colección A
+                                    <option selected disabled value="#">Elija la colección</option>
+                                    <option value="1" <%= productoMueble.collectionId == 1 ? "selected" : null %>> Colección A
                                     </option>
-                                    <option value="<%= productoMueble.collection %>"> Colección B
+                                    <option value="2" <%= productoMueble.collectionId == 2 ? "selected" : null %>> Colección B
                                     </option>
-                                    <option value="<%= productoMueble.collection %>"> Colección C
+                                    <option value="3" <%= productoMueble.collectionId == 3 ? "selected" : null %>>  Colección C
                                     </option>
-                                    <option value="<%= productoMueble.collection %>"> Reciclados
+                                    <option value="4" <%= productoMueble.collectionId == 4 ? "selected" : null %>>  Reciclados
+                                    </option>
+                                    <option value="5" <%= productoMueble.collectionId == 5 ? "selected" : null %>> Ofertas
                                     </option>
                                 </select>
                             </div>
 
                             <div class="form-group">
                             <select name="category"  class="custom-select">
-                                <option selected disabled> Qué categoria es? </option>
-                                <option value="<%= productoMueble.category %>"> Mesas</option>
-                                <option value="<%= productoMueble.category %>"> Iluminación </option>
-                                <option value="<%= productoMueble.category %>"> Camas </option>
-                                <option value="<%= productoMueble.category %>"> Sillones </option>
-                                <option value="<%= productoMueble.category %>"> Escritorios </option>
-                                <option value="<%= productoMueble.category %>"> Bibliotecas </option>
-                                <option value="<%= productoMueble.category %>"> Cómodas </option>
-                                <option value="<%= productoMueble.category %>"> Sillas </option>
-                                <option value="<%= productoMueble.category %>"> Otras </option>
-                                <option value="<%= productoMueble.category %>"> Ofertas </option>
+                                <option value=<%= productoMueble.categoryId%>><%= productoMueble.categoryId%></option>
+                                <option value="1" <%= productoMueble.categoryId == 1 ? "selected" : null %>>  Mesas</option>
+                                <option value="2" <%= productoMueble.categoryId == 2 ? "selected" : null %>> Iluminación </option>
+                                <option value="3" <%= productoMueble.categoryId == 3 ? "selected" : null %>> Camas </option>
+                                <option value="4" <%= productoMueble.categoryId == 4 ? "selected" : null %>> Sillones </option>
+                                <option value="5" <%= productoMueble.categoryId == 5 ? "selected" : null %>> Escritorios </option>
+                                <option value="6" <%= productoMueble.categoryId == 6 ? "selected" : null %>> Bibliotecas </option>
+                                <option value="7" <%= productoMueble.categoryId == 7 ? "selected" : null %>> Cómodas </option>
+                                <option value="8" <%= productoMueble.categoryId == 8 ? "selected" : null %>> Sillas </option>
+                                <option value="9" <%= productoMueble.categoryId == 9 ? "selected" : null %>> Otras </option>
                               </select>
                               </div>
 

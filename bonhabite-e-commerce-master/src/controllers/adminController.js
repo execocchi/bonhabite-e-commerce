@@ -45,13 +45,13 @@ module.exports = {
         } else {
             const _body = req.body;
             // return res.send(_body);
-            _body.name = req.body.name,
+                _body.name = req.body.name,
                 _body.description = req.body.description,
                 _body.price = Number(req.body.price),
                 _body.stock = Number(req.body.stock),
                 _body.discount = req.body.discount,
-                _body.category = req.body.category,
-                _body.collection = req.body.collection,
+                _body.categoryId = req.body.category,
+                _body.collectionId = req.body.collection,
                 _body.measurements = req.body.measurements,
                 _body.weigth = Number(req.body.weigth),
                 _body.image = req.file ? req.file.filename : '' // if ternario       
@@ -65,8 +65,10 @@ module.exports = {
         }
     },
     show: (req, res) => {
+
+
         Product
-            .findByPk(req.params.id)
+            .findByPk(req.params.id  , {include: ['category', 'color', 'material', 'collection']})
             .then(productoMueble => {
                 res.render(path.resolve(__dirname, '..', 'views', 'admin', 'detail'), {
                     productoMueble
@@ -88,6 +90,7 @@ module.exports = {
 
     },
     edit: (req, res) => {
+        
         Product
             .findByPk(req.params.id)
             .then(productoMueble => {
@@ -121,8 +124,8 @@ module.exports = {
                 _body.price = Number(req.body.price),
                 _body.stock = Number(req.body.stock),
                 _body.discount = req.body.discount,
-                _body.category = req.body.category,
-                _body.collection = req.body.collection,
+                _body.categoryId = req.body.category,
+                _body.collectionId = req.body.collection,
                 _body.measurements = req.body.measurements,
                 _body.weigth = Number(req.body.weigth),
                 _body.image = req.file ? req.file.filename : req.body.oldImagen // if ternario   

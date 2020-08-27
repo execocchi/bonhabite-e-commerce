@@ -61,12 +61,77 @@
         <span class="text-danger"><%= errors.weigth.msg %> </span>
         <% } %>
 
+      <!-- <div class="form-group">
+          <div class="form-check">
+              <p class="checkbox-form-title ml-n4"> Elija materiales</p>
+              <input class="form-check-input" type="checkbox" name="materials" id="defaultCheck1">
+              <label class="form-check-label mr-4 color-checkbox" for="defaultCheck1" value="madera">
+               Madera
+              </label>
+              <input class="form-check-input" type="checkbox"  name="materials" id="defaultCheck1">
+              <label class="form-check-label mr-4 color-checkbox" for="defaultCheck1" value="metal"> 
+              Metal
+              </label>
+              <input class="form-check-input" type="checkbox" name="materials" id="defaultCheck1">
+              <label class="form-check-label mr-4 color-checkbox" for="defaultCheck1" value="plástico">
+               Plástico
+              </label>
+              <input class="form-check-input" type="checkbox"  name="materials" id="defaultCheck1">
+              <label class="form-check-label mr-4 color-checkbox" for="defaultCheck1" value="arpillera">
+               Arpillera
+              </label>
+            </div>
+          </div> 
+
+          <div class="form-group">
+              <div class="form-check">
+                  <p class="checkbox-form-title ml-n4"> Elija colores</p>
+                  <input class="form-check-input" type="checkbox" name="colors" id="defaultCheck1">
+                  <label class="form-check-label mr-4 color-checkbox" for="defaultCheck1" value="#B5513B" >
+                   Rojo
+                  </label>
+                  <input class="form-check-input" type="checkbox" name="colors" id="defaultCheck1">
+                  <label class="form-check-label mr-4 color-checkbox" for="defaultCheck1" value="#74BCF2">
+                  Celeste
+                  </label>
+                  <input class="form-check-input" type="checkbox" name="colors" id="defaultCheck1">
+                  <label class="form-check-label mr-4 color-checkbox" for="defaultCheck1" value="#345BDB">
+                   Azul
+                  </label>
+                  <input class="form-check-input" type="checkbox" name="colors" id="defaultCheck1">
+                  <label class="form-check-label mr-4 color-checkbox" for="defaultCheck1" value="#6A9C73">
+                   Verde
+                  </label>
+                  <input class="form-check-input" type="checkbox" name="colors" id="defaultCheck1">
+                  <label class="form-check-label mr-4 color-checkbox" for="defaultCheck1" value="#FFE25E">
+                   Amarillo
+                  </label> <br>
+                  <input class="form-check-input" type="checkbox" name="colors" id="defaultCheck1">
+                  <label class="form-check-label mr-4 color-checkbox" for="defaultCheck1" value="#9BA2AB">
+                   Gris   
+                  </label>
+                  <input class="form-check-input" type="checkbox" name="colors" id="defaultCheck1">
+                  <label class="form-check-label mr-4 color-checkbox" for="defaultCheck1" value="#A35E43">
+                   Marrón
+                  </label>
+                  <input class="form-check-input" type="checkbox" name="colors" id="defaultCheck1">
+                  <label class="form-check-label mr-4 color-checkbox" for="defaultCheck1" value="#FFFFFF">
+                   Blanco
+                  </label>
+                  <input class="form-check-input" type="checkbox" name="colors" id="defaultCheck1">
+                  <label class="form-check-label mr-4 color-checkbox" for="defaultCheck1" value="#000000">
+                   Negro
+                  </label>
+                </div>
+              </div>   --> 
+
       <select name="collection" class="form-control signup " value="<%=typeof old == 'undefined' ? '':old.collection %>" >
         <option selected disabled> Elija su colección </option>
-        <option value="coleccionA" > Colección A</option>
-        <option value="coleccionB"> Colección B </option>
-        <option value="coleccionC"> Colección C </option>
-        <option value="reciclados"> Reciclados </option>
+        <option value="1" > Colección A</option>
+        <option value="2"> Colección B </option>
+        <option value="3"> Colección C </option>
+        <option value="4"> Reciclados </option>
+        <option value="5"> Ofertas </option>
       </select>
 
       <% if (typeof(errors) != 'undefined' && errors.collection) { %>
@@ -75,16 +140,16 @@
 
       <select name="category" class="form-control signup" value="<%=typeof old == 'undefined' ? '':old.category %>">
         <option selected disabled> Qué categoria es? </option>
-        <option value="mesas"> Mesas</option>
-        <option value="iluminación"> Iluminación </option>
-        <option value="camas"> Camas </option>
-        <option value="sillones"> Sillones </option>
-        <option value="escritorios"> Escritorios </option>
-        <option value="bibliotecas"> Bibliotecas </option>
-        <option value="cómodas"> Cómodas </option>
-        <option value="sillas"> Sillas </option>
-        <option value="otras"> Otras </option>
-        <option value="ofertas"> Ofertas </option>
+        <option value="1"> Mesas</option>
+        <option value="2"> Iluminación </option>
+        <option value="3"> Camas </option>
+        <option value="4"> Sillones </option>
+        <option value="5"> Escritorios </option>
+        <option value="6"> Bibliotecas </option>
+        <option value="7"> Cómodas </option>
+        <option value="8"> Sillas </option>
+        <option value="9"> Otras </option>
+     
 
       </select>
 
@@ -96,8 +161,8 @@
 
         <option selected ="#" disabled >Elija su descuento</option>
         <option value="0"> Sin descuento </option>
-        <option value="15"> 15 </option>
-        <option value="30"> 30 </option>
+        <option value="15"> 15% </option>
+        <option value="30"> 30% </option>
       </select>
 
       <% if (typeof(errors) != 'undefined' && errors.discount) { %>

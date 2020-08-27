@@ -256,26 +256,26 @@ module.exports = {
         }).withMessage('El campo imagen no puede estar vacío'),
 
 
-        body('image').custom(function (value, {
-            req
-        }) {
-            let ext;
-            //console.log('Foto'+req.file.filename);
-            if (req.file.filename == '') {
-                return false
-            } else {
-                ext = path.extname(req.file.filename).toLowerCase();
-            }
-            //console.log(ext);
-            if (
-                ext == ".JPG" ||
-                ext == ".JPEG" ||
-                ext == ".PNG" ||
-                ext == ".GIF") {
+           //Aquí obligo a que el usuario seleccione su avatar
+    body('image').custom(function (value, { req }) {
+        let ext;
+        //console.log('Foto'+req.file.filename);
+        if(req.file.filename == ''){
+            return false
+        }else{
+            ext = path.extname(req.file.filename).toLowerCase();
+        }
+        //console.log(ext);
+        if (
+            ext == ".jpg" ||
+            ext == ".jpeg" ||
+            ext == ".png" ||
+            ext == ".gif"){
                 return true;
             }
             return false;
-        }).withMessage('Seleccionar archivos con extensión JPG, JPEG, PNG o GIF')
+    }).withMessage('Solo archivos JPG, JPEG, PNG o GIF')
+
     ],
 
     update: [
