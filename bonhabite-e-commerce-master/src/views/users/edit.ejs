@@ -40,19 +40,39 @@
                             enctype="multipart/form-data">
                             <div class="form-group">
                                 <input type="text" class="form-control edit" name="name" placeholder="Nombre"
-                                    required="required" value="<%= usuarioDetalle.name%>">
+                                    value="<%= usuarioDetalle.name%>">
+                                    <% if (typeof(errors) != 'undefined' && errors.name) { %>
+                                        <span class="text-danger"> <%=errors.name.msg %> </span>
+                                        <% } %>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control edit" name="lastName" placeholder="Apellido"
-                                    required="required" value="<%= usuarioDetalle.lastName%>">
+                                    value="<%= usuarioDetalle.lastName%>">
+                                    <% if (typeof(errors) != 'undefined' && errors.lastName) { %>
+                                        <span class="text-danger"> <%= errors.lastName.msg %> </span>
+                                        <% } %>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control edit" name="email" placeholder="Descripción"
-                                    required="required" value="<%= usuarioDetalle.email%>">
+                                <input type="text" class="form-control edit" name="email" placeholder="Email"
+                                    value="<%= usuarioDetalle.email%>">
+                                    <% if (typeof(errors) != 'undefined' && errors.email) { %>
+                                        <span class="text-danger"> <%=errors.email.msg %> </span>
+                                        <% } %>
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control edit" name="password" placeholder="Clave"
-                                    required="required" value="<%= usuarioDetalle.password%>">
+                                    value="<%= usuarioDetalle.password%>">
+                                    <% if (typeof(errors) != 'undefined' && errors.password) { %>
+                                        <span class="text-danger"><%= errors.password.msg %> </span>
+                                        <% } %>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" class="form-control edit" name="confirm_password" placeholder="Repita la clave"
+                                    value="<%= usuarioDetalle.password%>">
+                                    <% if (typeof(errors) != 'undefined' && errors.confirm_password) { %>
+                                        <span class="text-danger"> <%= errors.confirm_password.msg %> </span>
+                                        <% } %>
                             </div>
 
                             <div class="form-group">
@@ -64,7 +84,7 @@
                                 <label for="exampleFormControlFile1">Eligí una nueva imagen</label>
 
                                 <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image"
-                                    placeholder="Seleccione una imagen">
+                                    placeholder="Seleccione una imagen" value="<%= usuarioDetalle.image%>">
                             </div>
 
                             <div class="form-group">

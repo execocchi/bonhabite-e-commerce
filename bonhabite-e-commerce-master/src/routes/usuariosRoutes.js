@@ -49,7 +49,7 @@ router.get('/user/detail/:id', usuariosController.show);
 router.get('/user/delete/:id', usuariosController.destroy);
 
 router.get('/user/edit/:id', usuariosController.edit);
-router.put('/user/edit/:id', upload.single('image'), usuariosController.update);
+router.put('/user/edit/:id', upload.single('image'), validacionesMiddleware.updateUser ,usuariosController.update);
 
 router.get('/perfil/miscompras', usuariosController.miscompras)
 router.get('/perfil/misdatos', usuariosController.datos)

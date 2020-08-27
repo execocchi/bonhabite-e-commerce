@@ -58,11 +58,12 @@
         <div class="form-group">
           <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image"
             value="<%=typeof old == 'undefined' ? '':old.image%>">
-        </div>
 
         <% if (typeof(errors) != 'undefined' && errors.image) { %>
-        <span class="text-danger"> <%= errors.image.msg %> </span>
-        <% } %>
+          <span class="text-danger"> <%= errors.image.msg %> </span>
+          <% } %>
+        </div>
+
 
         <input class="cuenta" type="checkbox" name="checkbox" value="check" id="agree"> He leido y
         aceptado los <a href="/tyc" style="color:grey;"> Términos <br>y condiciones </a> de Bon Habite Deco.<br>

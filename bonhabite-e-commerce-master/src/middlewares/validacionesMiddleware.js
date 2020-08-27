@@ -29,12 +29,10 @@ module.exports = {
 
     registro: [
 
-        check('name').isLength({
-            min: 1
-        }).withMessage('El campo nombre no puede estar vacío'),
-        check('lastName').isLength({
-            min: 1
-        }).withMessage('El campo apellido no puede estar vacío'),
+        check('name').isLength({min: 1 }).withMessage('El campo nombre no puede estar vacío'),
+       
+        check('lastName').isLength({min: 1 }).withMessage('El campo apellido no puede estar vacío'),
+       
         check('email').isEmail().withMessage('Agregar un email válido'),
 
         // Valido si el usuario ya está registrado
@@ -76,14 +74,47 @@ module.exports = {
             }
         }).withMessage('Las contraseñas deben ser iguales'),
 
-        body('image').custom((value, {
+       /* body('image').custom((value, {
             req
         }) => {
             if (req.file != undefined) {
                 return true
             }
             return false;
-        }).withMessage('Elija su imagen de perfil')
+        }).withMessage('Elija su imagen de perfil') */
+
+        body('image').custom((value, {
+            req
+        }) => {
+            //console.log("validando!" + req.body.discount)
+
+            if (!req.file) {
+                return false
+            }
+            return true
+        }).withMessage('Eija una foto de perfil'),
+
+
+        body('image').custom(function (value, {
+            req
+        }) {
+            let ext;
+            //console.log('Foto'+req.file.filename);
+            if (req.file.filename == '') {
+                return false
+            } else {
+                ext = path.extname(req.file.filename).toLowerCase();
+            }
+            //console.log(ext);
+            if (
+                ext == ".JPG" ||
+                ext == ".JPEG" ||
+                ext == ".PNG" ||
+                ext == ".GIF") {
+                return true;
+            }
+            return false;
+        }).withMessage('Seleccionar archivos con extensión JPG, JPEG, PNG o GIF')
     ],
 
     logIn: [
@@ -144,6 +175,28 @@ module.exports = {
             }
         }).withMessage('La contraseña es incorrecta') */
         // })
+    ],
+
+    updateUser: [
+
+        check('name').isLength({min: 1}).withMessage('El campo nombre no puede estar vacío'),
+
+        check('lastName').isLength({min: 1}).withMessage('El campo apellido no puede estar vacío'),
+
+        check('email').isEmail().withMessage('Agregar un email válido'),
+
+    
+            body('confirm_password').custom((value, {
+                req
+            }) => {
+                if (req.body.password == value) {
+                    return true // Si yo retorno un true  no se muestra el error     
+                } else {
+                    return false // Si retorno un false si se muestra el error
+                }
+            }).withMessage('Las contraseñas deben ser iguales'),
+
+         
     ],
 
     addProduct: [

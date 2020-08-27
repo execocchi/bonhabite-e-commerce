@@ -90,7 +90,22 @@ module.exports = {
 
     update: (req, res) => {
 
-             const _body = req.body;
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            //console.log("Erroresss!!!!!!!!!!!" + errors)
+            User
+                .findByPk(req.params.id)
+                .then( usuarioDetalle => {
+                    res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), {
+                    usuarioDetalle,
+                    errors: errors.mapped()
+                    });
+                })
+
+        } else {
+
+            const _body = req.body;
 
             _body.name = req.body.name,
             _body.lastName = req.body.lastName,
@@ -108,6 +123,7 @@ module.exports = {
                 res.redirect('/userAdmin')
             })
             .catch(error => res.send(error));
+        }
     },
 
     login: function (req, res) {
