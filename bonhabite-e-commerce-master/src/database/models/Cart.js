@@ -13,6 +13,9 @@ module.exports = function (sequelize, dataTypes) {
             },
             total: {
                 type: dataTypes.DECIMAL
+            },
+            orderNumber: {
+                type: dataTypes.INTEGER
             }
         }
     
