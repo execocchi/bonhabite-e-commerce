@@ -4,6 +4,8 @@
 <head>
     <%- include('../partials/head')%>
     <title>Bon Habite</title>
+    <script src="js/edit.js"></script>
+
 </head>
 
 
@@ -36,31 +38,37 @@
                         <form action="/admin/edit/<%= productoMueble.id%>?_method=PUT" method="POST"
                             enctype="multipart/form-data">
                             <div class="form-group">
-                                <input type="text" class="form-control edit" name="name" placeholder="Nombre"
+                                <input type="text" class="form-control edit classjsName" name="name" placeholder="Nombre"
                                     value="<%= productoMueble.name%>">
+
+                                    <div class="errorName">   </div>
                                     <% if (typeof(errors) != 'undefined' && errors.name) { %>
                                         <span class="text-danger"> <%=errors.name.msg %> </span>
                                         <% } %>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control edit" name="description"
+                                <input type="text" class="form-control edit classjsDescription" name="description"
                                     placeholder="Descripción" 
                                     value="<%= productoMueble.description%>">
+
+                                    <div class="errorDescription">   </div>
                                     <% if (typeof(errors) != 'undefined' && errors.description) { %>
                                         <span class="text-danger"> <%=errors.description.msg %> </span>
                                         <% } %>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control edit" name="price"
+                                <input type="text" class="form-control edit classjsPrice" name="price"
                                     placeholder="Indique el precio" 
                                     value="<%=productoMueble.price%>">
+
+                                    <div class="errorPrice">   </div>
                                     <% if (typeof(errors) != 'undefined' && errors.price) { %>
                                         <span class="text-danger"> <%=errors.price.msg %> </span>
                                         <% } %>
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control edit" name="stock"
+                                <input type="text" class="form-control edit classjsStock" name="stock"
                                     placeholder="Indique el stock" 
                                     value="<%=productoMueble.stock%>">
                                     <% if (typeof(errors) != 'undefined' && errors.stock) { %>
@@ -69,17 +77,21 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control edit" name="measurements"
+                                <input type="text" class="form-control edit classjsMeasurements" name="measurements"
                                     placeholder="Indique las medidas en cm"
                                     value="<%= productoMueble.measurements%>">
+
+                                    <div class="errorPrice">   </div>
                                     <% if (typeof(errors) != 'undefined' && errors.measurements) { %>
                                         <span class="text-danger"> <%=errors.measurements.msg %> </span>
                                         <% } %>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control edit" name="weigth"
+                                <input type="text" class="form-control edit classjsWeigth" name="weigth"
                                     placeholder="Indique el peso en Kg"
                                     value="<%= productoMueble.weigth%>">
+
+                                    <div class="errorWeigth">   </div>
                                     <% if (typeof(errors) != 'undefined' && errors.weigth) { %>
                                         <span class="text-danger"> <%=errors.weigth.msg %> </span>
                                         <% } %>
@@ -152,7 +164,7 @@
                            
 
                             <div class="form-group">
-                                <select name="discount" class="custom-select">
+                                <select name="discount" class="custom-select classjsDiscount">
                                     <option selected disabled value="#">Elija su descuento</option>
                                     <option value="0" <%= productoMueble.discount == 0 ? "selected" : null %>> Sin descuento</option>
                                     <option value="15" <%= productoMueble.discount == 15 ? "selected" : null %>>15%</option>
@@ -161,9 +173,11 @@
                                
                             </div>
 
+                            <div class="errorDiscount">   </div>
+
 
                             <div class="form-group">
-                                <select name="collection" class="custom-select">
+                                <select name="collection" class="custom-select classjsCollection">
                                     <option selected disabled value="#">Elija la colección</option>
                                     <option value="1" <%= productoMueble.collectionId == 1 ? "selected" : null %>> Colección A
                                     </option>
@@ -178,8 +192,10 @@
                                 </select>
                             </div>
 
+                            <div class="errorCollection">   </div>
+
                             <div class="form-group">
-                            <select name="category"  class="custom-select">
+                            <select name="category"  class="custom-select classjsCategory">
                                 <option value=<%= productoMueble.categoryId%>><%= productoMueble.categoryId%></option>
                                 <option value="1" <%= productoMueble.categoryId == 1 ? "selected" : null %>>  Mesas</option>
                                 <option value="2" <%= productoMueble.categoryId == 2 ? "selected" : null %>> Iluminación </option>
@@ -193,13 +209,17 @@
                               </select>
                               </div>
 
+                              <div class="errorCategory">   </div>
+
                             <!--De esta forma logro conservar y que viaje la imagen anterior de esta forma evito que el usuario seleccione una imagen nuevamente, ( si no lo desea) -->  
                             <!-- hidden: esta pero no se ve en el form. -->
 
                             <label for="exampleFormControlFile1">Eligí una nueva imagen</label>
                             <input type="hidden" name="oldImagen" value="<%= productoMueble.image%>">
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image"
+                            <input type="file" class="form-control-file classjsImage " id="exampleFormControlFile1" name="image"
                             placeholder="Seleccione una imagen">
+
+                            <div class="errorImage">   </div>
 
                     </div>
 
@@ -218,6 +238,8 @@
 
     <%- include('../partials/footer')%>
     <%- include('../partials/scripts')%>
+    <script src="js/editarProducto.js"></script>
+
 
 </body>
 

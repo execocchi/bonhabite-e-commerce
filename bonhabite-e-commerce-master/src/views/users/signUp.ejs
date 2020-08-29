@@ -6,6 +6,7 @@
   <%- include('../partials/head')%>
   <title>Registrate</title>
   <link rel="stylesheet" href="/css/signUp.css">
+  <script src="/js/registroNuevo.js"></script>
 </head>
 
 
@@ -16,41 +17,48 @@
   <section class="containersignUp">
     <form class="form-login" action="/signup" method="POST" enctype="multipart/form-data">
 
-      <form class="form-login">
-
         <h1 class="h3 mb-3 font-weight-normal title-form">Registrarse</h1>
 
-        <input type="name" id="inputEmail" class="form-control signup" name="name" placeholder="Nombre"
+        <input type="name" id="inputName" class="form-control signup classjsname" name="name" placeholder="Nombre"
           value="<%=typeof old == 'undefined' ? '':old.name %>">
+
+        <div class="errorName">   </div>
 
         <% if (typeof(errors) != 'undefined' && errors.name) { %>
         <span class="text-danger"> <%=errors.name.msg %> </span>
         <% } %>
 
-        <input type="name" class="form-control signup" name="lastName" placeholder="Apellido"
-          value="<%=typeof old == 'undefined' ? '':old.last_name %>">
+        <input type="name" class="form-control signup classjslastName" name="lastName" placeholder="Apellido"
+          value="<%=typeof old == 'undefined' ? '':old.lastName %>">
 
+        <div class="errorlastName"> </div>
         <% if (typeof(errors) != 'undefined' && errors.lastName) { %>
         <span class="text-danger"> <%= errors.lastName.msg %> </span>
         <% } %>
 
-        <input type="email" class="form-control signup" name="email" placeholder="Email"
+      
+        <input type="text" class="form-control signup classjsemail" name="email" placeholder="Email"
           value="<%=typeof old == 'undefined' ? '':old.email %>">
 
+          <div class="errorEmail">   </div>
         <% if (typeof(errors) != 'undefined' && errors.email) { %>
         <span class="text-danger"> <%=errors.email.msg %> </span>
         <% } %>
 
-        <input type="password" class="form-control signup" name="password" placeholder="Clave"
+       
+        <input type="password" class="form-control signup classjspass" name="password" placeholder="Clave"
           value="<%=typeof old == 'undefined' ? '':old.password %>">
 
+          <div class="errorPassword">   </div>
         <% if (typeof(errors) != 'undefined' && errors.password) { %>
         <span class="text-danger"><%= errors.password.msg %> </span>
         <% } %>
 
-        <input type="password" class="form-control signup" name="confirm_password" placeholder="Repetir clave"
+      
+        <input type="password" class="form-control signup classjspass2" name="confirm_password" placeholder="Repetir clave"
           value="<%=typeof old == 'undefined' ? '':old.confirm_password %>">
 
+          <div class="errorPassword2">   </div>
         <% if (typeof(errors) != 'undefined' && errors.confirm_password) { %>
         <span class="text-danger"> <%= errors.confirm_password.msg %> </span>
         <% } %>
@@ -65,9 +73,10 @@
         </div>
 
 
-        <input class="cuenta" type="checkbox" name="checkbox" value="check" id="agree"> He leido y
+        <input class="cuenta classjscheck" type="checkbox" name="checkbox" value="check" id="agree"> He leido y
         aceptado los <a href="/tyc" style="color:grey;"> Términos <br>y condiciones </a> de Bon Habite Deco.<br>
 
+        <div class="errorTerms">   </div>
         <% if (typeof(errors) != 'undefined' && errors.checkbox) { %>
         <span class="text-danger"> <%= errors.checkbox.msg %> </span>
         <% } %>
@@ -88,7 +97,7 @@
   <%- include('../partials/footer')%>
   <%- include('../partials/scripts')%>
 
-  <script src="../../../public/js/register.js"></script>
+
 </body>
 
 

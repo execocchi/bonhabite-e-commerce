@@ -1,4 +1,7 @@
+
 window.addEventListener('load',function(){
+
+  //alert('ESTA LINKEADO!')
 
     //Amigas y amigos, esta es una forma de programar la validación de formularios, existen diversas maneras de hacer lo mismo, cada uno de nosotros programamos de forma diferente, lo importante es que ustedes desarrollen su propia lógica y hagan uso de este ejemplo, sólo como para tomar ideas.
   
@@ -9,13 +12,16 @@ window.addEventListener('load',function(){
     //var formulario = document.forms[0]
     //Esta es otra forma de capturar el formulario
     
-    let formulario = document.querySelectorAll('.form-login');
+    let formulario = document.querySelector('.form-login');
     //Con esta línea hago que el al cargar el formulario, el cursor se posicione en el campo email
-    formulario.elements.email.focus();
+    formulario.elements.name.focus();
+
     //Esto lo coloque para que lo puedan ver en la consola
-    console.log(formulario);
+    //console.log(formulario);
+
     //Aquí les dispongo este console.log, para que vean como puedo obtener el valor colocado por el usuario
     console.log(formulario.elements.email.value);
+    console.log(formulario.elements.name.value.length)
   
     //También puedo capturar elemento por elemento, es decir cada input
     //let campoEmail = document.querySelector('input[name=email]');
@@ -26,8 +32,9 @@ window.addEventListener('load',function(){
       //Aquí evito que por defecto se envie el formulario
       //Si el formulario pasa las validaciones doy el ingreso al usuario
       //Este console.log, se los coloque, para que vean el evento que se dispara
-      console.log("Hola evento"+evento );
+      console.log("Hola evento" + evento );
       //Si los campos no pasan las validaciones, entonces no envio el formulario, que es la acción por defecto del submit, en el caso contrario este se envía.
+
       if (!validateRegisterForm()) {
         evento.preventDefault()
       }else{
@@ -50,8 +57,10 @@ window.addEventListener('load',function(){
       if (!validatePassword(password)) return false;
       if (!validatePasswordRepeat(password, confirm_password)) return false;
       if (!validateName(name)) return false;
+      if (!validatelastName(lastName)) return false;
       if (!validateTermsCondition(termsCondition)) return false;
       return true;
+
       }
       //Aquí comoenzo a realizar cada una de las funciones encgadas de hacer las validaciones.
       function validateEmail(email) {
@@ -127,17 +136,19 @@ window.addEventListener('load',function(){
       }
     
       function validateName(name) {
-        let errorName = document.getElementById('errorNombreUsuario');
-        if (name.value.length < 6){
+        let errorName = document.querySelector('.errorName');
+        let valorName = formulario.elements.name.value.length;
+        //console.log(valorName)
+        if ( valorName < 6){
           errorName.innerHTML = "Nombre de usuario no puede tener menos de 6 digitos";
           errorName.classList.add('alert-danger');
-          name.classList.add('is-invalid');
+          //name.classList.add('is-invalid');
           return false;
         } else{
           errorName.innerHTML = "";
           errorName.classList.remove('alert-danger');
-          name.classList.remove('is-invalid');
-          name.classList.add('is-valid');
+          //name.classList.remove('is-invalid');
+          //name.classList.add('is-valid');
           formulario.elements.termsCondition.focus();
           return true;
         }
@@ -145,7 +156,25 @@ window.addEventListener('load',function(){
        // swal('Error', 'Ingrese un nombre de usuario válido', 'error')
         
       }
-    
+
+      function validateName(lastName) {
+        let errorlastName = document.getElementById('errorNombreUsuario');
+        if (lastName.value.length < 6){
+        errorlastName.innerHTML = "Nombre de usuario no puede tener menos de 6 digitos";
+        errorlastName.classList.add('alert-danger');
+          lastName.classList.add('is-invalid');
+          return false;
+        } else{
+        errorlastName.innerHTML = "";
+        errorlastName.classList.remove('alert-danger');
+          lastName.classList.remove('is-invalid');
+          lastName.classList.add('is-valid');
+          formulario.elements.termsCondition.focus();
+          return true;
+        }
+       // swal('Error', 'Ingrese un nombre de usuario válido', 'error')   
+      }
+
       function validateTermsCondition(termsConditionChecked) {
         let errorTerminos = document.getElementById('errorTerminos');
         if (!termsConditionChecked.checked) {

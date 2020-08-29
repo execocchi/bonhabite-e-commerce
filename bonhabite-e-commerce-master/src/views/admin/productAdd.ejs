@@ -6,9 +6,8 @@
   <%- include('../partials/head')%>
   <title>Agregá tu producto</title>
   <link rel="stylesheet" href="css/signUp.css">
+  <script src="js/productAdd.js"></script>
 </head>
-
-
 
 <body class="body-login">
   <%- include('../partials/header')%>
@@ -19,44 +18,52 @@
       <h1 class="h3 mb-3 font-weight-normal title-form">Añadir producto</h1>
 
       <label for="inputName" class="sr-only">Nombre</label>
-      <input type="text" id="inputName" class="form-control signup" name="name" placeholder="Nombre"  value="<%=typeof old == 'undefined' ? '':old.name %>">
+      <input type="text" id="inputName" class="form-control signup classjsName" name="name" placeholder="Nombre"  value="<%=typeof old == 'undefined' ? '':old.name %>">
 
+
+      <div class="errorName">   </div>
       <% if (typeof(errors) != 'undefined' && errors.name) { %>
         <span class="text-danger"> <%=errors.name.msg %> </span>
         <% } %>
 
       <label for="inputPrice" class="sr-only">Precio</label>
-      <input type="number" id="inputPrice" class="form-control signup" name="price" placeholder="Precio"  value="<%=typeof old == 'undefined' ? '':old.price %>">
+      <input type="text" id="inputPrice" class="form-control signup classjsPrice" name="price" placeholder="Precio"  value="<%=typeof old == 'undefined' ? '':old.price %>">
 
+
+      <div class="errorPrice">   </div>
       <% if (typeof(errors) != 'undefined' && errors.price) { %>
         <span class="text-danger"> <%= errors.price.msg %> </span>
         <% } %>
 
       <label for="inputStock" class="sr-only">Stock</label>
-      <input type="number" id="InputStock" class="form-control signup" name="stock" placeholder="Stock" value="<%=typeof old == 'undefined' ? '':old.stock %>">
+      <input type="text" id="InputStock" class="form-control signup classjsStock" name="stock" placeholder="Stock" value="<%=typeof old == 'undefined' ? '':old.stock %>">
 
+      <div class="errorStock">   </div>
       <% if (typeof(errors) != 'undefined' && errors.stock) { %>
         <span class="text-danger"> <%=errors.stock.msg %> </span>
         <% } %>
 
       <label for="inputDetail" class="sr-only">Detalle</label>
-      <input type="text" id="inputDetail" class="form-control signup" name="description" placeholder="Descripción"  value="<%=typeof old == 'undefined' ? '':old.description%>" >
+      <input type="text" id="inputDetail" class="form-control signup classjsDescription" name="description" placeholder="Descripción"  value="<%=typeof old == 'undefined' ? '':old.description%>" >
 
+      <div class="errorDescription">   </div>
       <% if (typeof(errors) != 'undefined' && errors.description) { %>
         <span class="text-danger"><%= errors.description.msg %> </span>
         <% } %>
 
-        <label for="inputDetail" class="sr-only">Medidas</label>
-      <input type="text" id="inputDetail" class="form-control signup" name="measurements" placeholder="Medidas" value="<%=typeof old == 'undefined' ? '':old.measurements %>">
 
+        <label for="inputDetail" class="sr-only">Medidas</label>
+      <input type="text" id="inputDetail" class="form-control signup classjsMeasurements" name="measurements" placeholder="Medidas" value="<%=typeof old == 'undefined' ? '':old.measurements %>">
+
+      <div class="errorMeasurements">   </div>
       <% if (typeof(errors) != 'undefined' && errors.measurements) { %>
         <span class="text-danger"><%= errors.measurements.msg %> </span>
         <% } %>
 
         <label for="inputDetail" class="sr-only">Peso</label>
-      <input type="text" id="inputDetail" class="form-control signup" name="weigth" placeholder="Peso" value="<%=typeof old == 'undefined' ? '':old.weigth %>" >
+      <input type="text" id="inputDetail" class="form-control signup classjsWeigth" name="weigth" placeholder="Peso" value="<%=typeof old == 'undefined' ? '':old.weigth %>" >
 
-
+      <div class="errorWeigth">   </div>
       <% if (typeof(errors) != 'undefined' && errors.weigth) { %>
         <span class="text-danger"><%= errors.weigth.msg %> </span>
         <% } %>
@@ -125,8 +132,8 @@
                 </div>
               </div>   --> 
 
-      <select name="collection" class="form-control signup " value="<%=typeof old == 'undefined' ? '':old.collection %>" >
-        <option selected disabled> Elija su colección </option>
+      <select name="collection" class="form-control signup classjsCollection " value="<%=typeof old == 'undefined' ? '':old.collection %>" >
+        <option selected disabled>Elija su colección</option>
         <option value="1" > Colección A</option>
         <option value="2"> Colección B </option>
         <option value="3"> Colección C </option>
@@ -134,11 +141,12 @@
         <option value="5"> Ofertas </option>
       </select>
 
+      <div class="errorCollection">   </div>
       <% if (typeof(errors) != 'undefined' && errors.collection) { %>
         <span class="text-danger"><%= errors.collection.msg %> </span>
         <% } %>
 
-      <select name="category" class="form-control signup" value="<%=typeof old == 'undefined' ? '':old.category %>">
+      <select name="category" class="form-control signup classjsCategory" value="<%=typeof old == 'undefined' ? '' : old.category %>">
         <option selected disabled> Qué categoria es? </option>
         <option value="1"> Mesas</option>
         <option value="2"> Iluminación </option>
@@ -153,11 +161,12 @@
 
       </select>
 
+      <div class="errorCategory">   </div>
       <% if (typeof(errors) != 'undefined' && errors.category) { %>
         <span class="text-danger"><%= errors.category.msg %> </span>
         <% } %>
 
-      <select name="discount" class="form-control signup" value="<%=typeof old == 'undefined' ? '' : old.discount%>">
+      <select name="discount" class="form-control signup classjsDiscount" value="<%=typeof old == 'undefined' ? '' : old.discount%>">
 
         <option selected ="#" disabled >Elija su descuento</option>
         <option value="0"> Sin descuento </option>
@@ -165,6 +174,7 @@
         <option value="30"> 30% </option>
       </select>
 
+      <div class="errorDiscount">   </div>
       <% if (typeof(errors) != 'undefined' && errors.discount) { %>
         <span class="text-danger"><%= errors.discount.msg %> </span>
         <% } %>
@@ -172,9 +182,10 @@
 
       <div class="form-group">
         <label for="exampleFormControlFile1"></label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image"  value="<%=typeof old == 'undefined' ? '':old.image%>">
+        <input type="file" class="form-control-file classjsImage" id="exampleFormControlFile1" name="image"  value="<%=typeof old == 'undefined' ? '':old.image%>">
       </div>
 
+      <div class="errorImage">   </div>
       <% if (typeof(errors) != 'undefined' && errors.image) { %>
         <span class="text-danger"> <%= errors.image.msg %> </span>
         <% } %>
