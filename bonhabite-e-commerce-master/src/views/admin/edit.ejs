@@ -196,15 +196,15 @@
 
                             <div class="form-group">
                             <select name="category"  class="custom-select classjsCategory">
-                                <option value=<%= productoMueble.categoryId%>><%= productoMueble.categoryId%></option>
-                                <option value="1" <%= productoMueble.categoryId == 1 ? "selected" : null %>>  Mesas</option>
-                                <option value="2" <%= productoMueble.categoryId == 2 ? "selected" : null %>> Iluminación </option>
-                                <option value="3" <%= productoMueble.categoryId == 3 ? "selected" : null %>> Camas </option>
-                                <option value="4" <%= productoMueble.categoryId == 4 ? "selected" : null %>> Sillones </option>
-                                <option value="5" <%= productoMueble.categoryId == 5 ? "selected" : null %>> Escritorios </option>
-                                <option value="6" <%= productoMueble.categoryId == 6 ? "selected" : null %>> Bibliotecas </option>
-                                <option value="7" <%= productoMueble.categoryId == 7 ? "selected" : null %>> Cómodas </option>
-                                <option value="8" <%= productoMueble.categoryId == 8 ? "selected" : null %>> Sillas </option>
+                                <option value=<%= productoMueble.categoryId.name%>><%= productoMueble.categoryId.name%></option>
+                                <option value="1" <%= productoMueble.categoryId == 1 ? "selected" : null %>> Mesas</option>
+                                <option value="2" <%= productoMueble.categoryId == 2 ? "selected" : null %>> Sillas </option>
+                                <option value="3" <%= productoMueble.categoryId == 3 ? "selected" : null %>> Bancos </option>
+                                <option value="4" <%= productoMueble.categoryId == 4 ? "selected" : null %>> Iluminación </option>
+                                <option value="5" <%= productoMueble.categoryId == 5 ? "selected" : null %>> Sillones </option>
+                                <option value="6" <%= productoMueble.categoryId == 6 ? "selected" : null %>> Escritorios </option>
+                                <option value="7" <%= productoMueble.categoryId == 7 ? "selected" : null %>> Camas </option>
+                                <option value="8" <%= productoMueble.categoryId == 8 ? "selected" : null %>> Cómodas </option>
                                 <option value="9" <%= productoMueble.categoryId == 9 ? "selected" : null %>> Otras </option>
                               </select>
                               </div>

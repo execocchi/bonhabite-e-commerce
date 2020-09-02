@@ -79,16 +79,30 @@
         <h4 class="numeroproductos"> <%= productos.length%> PRODUCTOS</h4>
       </div>
 
-    
+
 
       <section class="mr-4 sm-mg-auto" style="display: flex; flex-wrap: wrap;">
         <% productos.forEach(producto => { %>
-        <article class="col-xs-12 col-md-6 col-lg-4 card p-0.5">
-          <a href="/products/detail/<%=producto.id%>"><img src="/img/productos/<%=producto.image %>" class="card-img-top"
-              alt="producto">
+        <article class="col-xs-12 col-md-6 col-lg-4 card m-auto">
+          <a href="/products/detail/<%=producto.id%>">
+
+            <div class="relativepos">
+              <img src="/img/productos/<%=producto.image %>" class="card-img-top" alt="producto">
+              <% if (producto.discount == 15) { %>
+                <div class=" descuento15" ><h3 class="descuentotype">SALE 15%</h3> </div>  
+              <% } %>
+              <% if (producto.discount == 30) { %>
+                <div  class=" descuento30"> <h3 class="descuentotype">SALE 30%</h3> </div>  
+              <% } %>
+            </div>
+
             <div class="card-body">
               <h5 class="card-title"> <%= producto.name %> </h5>
+              <% if (producto.discount == 0) { %>
               <p class="card-text"> $<%= producto.price %> </p>
+              <% } else { %>
+                <p class="card-text"> $<%= producto.price %> </p>
+                <% }  %>
           </a>
           <button class="btn_deletecart mb-1 mt-2"> AÑADIR AL CARRITO </button>
           </div>

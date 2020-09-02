@@ -479,8 +479,13 @@ margin-bottom: 20px;
     height: 100%;
 }
 
+
 .card-img-top.nos{
     height: 100%;
+}
+
+.card-img-top{
+    padding-right: 0px;
 }
 
 .nos2{
@@ -649,6 +654,8 @@ body{
       .card-body{
        padding-left: 0;
        margin: 0;
+       padding-top: 10px;
+       padding-right: 0px;
        }
 
 
@@ -869,7 +876,7 @@ letter-spacing: -0.015em;
        .numeroproductos{
            margin-left: 10px;
            margin-bottom: 0;
-           font-family: Source Code Pro;
+           font-family:'Source Code Pro', sans-serif;
             font-style: normal;
             font-weight: 400;
             font-size: 15px;
@@ -888,7 +895,7 @@ letter-spacing: -0.015em;
 
 
          .btn_subscribe{
-            font-family: 'Source Code Pro';
+            font-family: 'Source Code Pro', sans-serif;
             background-color: #87998B;
             font-style: normal;
             font-weight: 300;
@@ -1301,7 +1308,6 @@ letter-spacing: -0.015em;
     text-decoration: underline;
 }
 
-
  .description_product    a {
         color: #454743;
     }
@@ -1310,7 +1316,6 @@ letter-spacing: -0.015em;
         height: 25vw;
         object-fit: cover;
         border-radius: 0;
-        padding-right: 10px;
     }
 
     .product_detail{
@@ -1448,7 +1453,49 @@ letter-spacing: -0.015em;
         font-size: 40px;
        margin-right: 0;
     }
+    /* Producto */
 
+    .descuento30{
+        background-color:#D7613C ;
+        position:absolute;
+        width: 100%;
+        height: 26px;
+        bottom: 0px;
+        padding: auto;
+        text-align: center;
+        padding-top: 6px;
+    }
+
+        .descuento15{
+            background-color:#454743;
+            position:absolute;
+            width: 100%;
+            height: 26px;
+            bottom: 0px;
+            text-align: center;
+            padding-top: 6px;
+         }
+
+        .descuentotype{
+            color: white;
+            font-family:'Source Code Pro', sans-serif;
+            font-size: 11px;
+            font-weight: lighter;
+        }
+
+    .imagenNormal{
+        position:relative;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    .relativepos{
+        position:relative;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
        
     /* Footer */
     
