@@ -4,18 +4,18 @@
 <head>
 
   <%- include('../partials/head')%>
-  <title>Colecciones | <%= titulo %></title>
+  <title>Productos | <%= titulo %> </title>
   <link rel="stylesheet" href="css/signUp.css">
 </head>
 
 <body>
   <%- include('../partials/header')%>
-  <container class="row">
+  <container class="row" style="background-color: white;">
     <section class="product-list col-3 d-none d-md-block">
-      <h2 class="productlist-title">COLECCIÓN</h2>
-      <h3 class="productlist-title2 mb-4"> <%= titulo %></h3>
+      <h2 class="productlist-title">CATEGORIA</h2>
+      <h3 class="productlist-title2 mb-4"> <%=titulo%> </h3>
 
-      <h4 class="productlist-subtitle">COLECCIONES</h4>
+      <h4 class="productlist-subtitle">CATEGORIAS</h4>
       <ul>
         <li><a class="productlist" href="/todas">Todas</a></li>
         <li> <a class="productlist" href="/categoria/Mesas">Mesas</a></li>
@@ -28,8 +28,11 @@
         <li><a class="productlist" href="/ofertas">Otras</a></li>
       </ul>
 
+
       <h4 class="productlist-subtitle">COLECCIONES</h4>
       <ul>
+
+
         <li> <a class="productlist" href="/colecciones/Clásica"> CLÁSICA</a></li>
         <li><a class="productlist" href="/colecciones/Rústica"> RÚSTICA </a></li>
         <li> <a class="productlist" href="/colecciones/Minimal"> MINIMAL </a></li>
@@ -38,8 +41,12 @@
 
       <h4 class="productlist-subtitle">FILTRÁ POR COLORES</h4>
       <select class="custom-select custom-select-sm mb-4">
-        <option selected>Blanco</option>
         <option value="1">Negro</option>
+        <option selected>Blanco</option>
+        <option selected>Gris</option>
+        <option selected>Verde</option>
+        <option selected>Madera</option>
+        <option selected>Plateado</option>
         <option value="2">Azul</option>
         <option value="3">Amarillo</option>
       </select>
@@ -47,11 +54,14 @@
       <h4 class="productlist-subtitle"> FILTRÁ POR MATERIAL</h4>
       <select class="custom-select custom-select-sm mb-4">
         <option selected>Madera</option>
+        <option selected>Plástico</option>
+        <option selected>Roble</option>
         <option value="1">Metal</option>
         <option value="2">Mármol</option>
         <option value="3">Plástico</option>
+        <option value="3">Arpillera</option>
+        <option value="3">Quebracho</option>
       </select>
-
     </section>
 
     <section class="product-photos col-9">
@@ -65,29 +75,28 @@
             <option value="2">Precio: mayor a menor</option>
           </select>
         </div>
-        <h4 class="numeroproductos"> <%= productos.length%> </h4>
-      </div>
-
-      <div>
-        <figure class="fotocollection d-none d-md-block ml-3 mb-4"> <img class="imgfotocollection"
-            src="/img/banners/<%=banner %>" alt="colección"></figure>
+        <h4 class="numeroproductos"> <%= productos.length%> PRODUCTOS</h4>
       </div>
 
 
 
       <section class="mr-4 sm-mg-auto" style="display: flex; flex-wrap: wrap;">
-       <% productos.forEach(producto => { %>
+
+        <% productos.forEach(producto => { %>
+
+       <% if (producto.discount != 0) {  %>
         <article class="col-xs-12 col-md-6 col-lg-4 card">
           <a href="/products/detail/<%=producto.id%>">
 
             <div class="relativepos">
               <img src="/img/productos/<%=producto.image %>" class="card-img-top" alt="producto">
               <% if (producto.discount == 15) { %>
-                <div class=" descuento15" ><h3 class="descuentotype">SALE 15%</h3> </div>  
+                <div class=" descuento15Oferta" ><h3 class="descuentotype"> 15%</h3> </div>  
               <% } %>
               <% if (producto.discount == 30) { %>
-                <div  class=" descuento30"> <h3 class="descuentotype">SALE 30%</h3> </div>  
-              <% } %>
+                <div  class=" descuento30Oferta"> <h3 class="descuentotype"> 30%</h3> </div>  
+             
+              <%  } %>
             </div>
 
             <div class="card-body">
@@ -98,26 +107,22 @@
                 <p class="card-text"> $<%= producto.price %> </p>
                 <% }  %>
           </a>
-          <button class="btn_deletecart mb-1 mt-2"> AÑADIR AL CARRITO </button>
+          <button class="btn_deletecart mb-2 mt-2"> AÑADIR AL CARRITO </button>
           </div>
         </article>
-        <% }) %>
+         <% } %>
+         <% }) %>
+
       </section>
 
-
     </section>
-
 
     </div>
 
   </container>
 
-
   <%- include('../partials/footer')%>
   <%- include('../partials/scripts')%>
 </body>
-<!-- Footer -->
-
-
 
 </html>

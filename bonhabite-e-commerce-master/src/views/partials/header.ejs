@@ -52,15 +52,14 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/todas">TODAS</a>
                         <a class="dropdown-item" href="/categoria/Mesas">MESAS</a>
-                        <a class="dropdown-item" href="/categoria/Iluminacion">ILUMINACIÓN</a>
-                        <a class="dropdown-item" href="/categoria/Camas">CAMAS</a>
-                        <a class="dropdown-item" href="/categoria/Sillones">SILLONES</a>
-                        <a class="dropdown-item" href="/categoria/Escritorios">ESCRITORIOS</a>
-                        <a class="dropdown-item" href="/categoria/Bibliotecas">BIBLIOTECAS</a>
-                        <a class="dropdown-item" href="/categoria/Comodas">CÓMODAS</a>
                         <a class="dropdown-item" href="/categoria/Sillas">SILLAS</a>
+                        <a class="dropdown-item" href="/categoria/Bancos">BANCOS</a>
+                        <a class="dropdown-item" href="/categoria/Iluminacion">ILUMINACIÓN</a>
+                        <a class="dropdown-item" href="/categoria/Sillones">SILLONES</a>
+                        <a class="dropdown-item" href="/categoria/Camas">CAMAS</a>
+                        <a class="dropdown-item" href="/categoria/Comodas">CÓMODAS</a>
                         <a class="dropdown-item" href="/categoria/Otras">OTRAS</a>
-                        <a class="dropdown-item" href="/colecciones/Ofertas">Ofertas</a>
+                        <a class="dropdown-item" href="/ofertas">Ofertas</a>
                         <a class="dropdown-item" href="/colecciones/Reciclados">Comprá reciclado</a>
                     </div>
                 </li>
@@ -71,9 +70,10 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-                        <a class="dropdown-item" href="/colecciones/a">COLECCIÓN A</a>
-                        <a class="dropdown-item" href="/colecciones/b">COLECCIÓN B</a>
-                        <a class="dropdown-item" href="/colecciones/c">COLECCIÓN C</a>
+                        <a class="dropdown-item" href="/colecciones/Clásica"> ClÁSICA </a>
+                        <a class="dropdown-item" href="/colecciones/Rústica"> RÚSTICA</a>
+                        <a class="dropdown-item" href="/colecciones/Minimal"> MINIMAL</a>
+                        <a class="dropdown-item" href="/ofertas">Ofertas</a>
                         <a class="dropdown-item" href="/colecciones/Reciclados">Reciclados</a>
                     </div>
                 </li>
@@ -136,13 +136,14 @@
 
             <%    }  %>
 
-            <form class="form-inline my-2 my-lg-0 search_navbar">
-                <input class="form-control search mr-sm-2 search-responsive" type="search" placeholder="Buscar"
+            <form action="/busqueda" class="form-inline my-2 my-lg-0 search_navbar" method="GET">
+                <input class="form-control search mr-sm-2 search-responsive" type="search" name="buscar" placeholder="Buscar"
                     style="margin-top:0;">
-                <button class="btn btn-btn-light my-2 my-sm-0 d-none d-lg-block d-xl-block" type="submit">
+               <button class="btn btn-btn-light my-2 my-sm-0 d-none d-lg-block d-xl-block" type="submit">
                     <ion-icon name="search-outline"></ion-icon>
                 </button>
             </form>
+
             <div class="icons_navbar">
                 <button class="btn btn-btn-light my-2 my-sm-0 icon_navbar d-none d-lg-block d-xl-block" type="submit">
                     <a href="/carrito">

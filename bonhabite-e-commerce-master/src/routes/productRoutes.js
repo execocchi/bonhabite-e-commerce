@@ -7,6 +7,10 @@ const productController = require(path.resolve(__dirname, '../controllers/produc
 
 router.get('/todas', productController.allCategories)
 router.get('/categoria/:nombre', productController.categories)
+router.get('/ofertas', productController.ofertas)
+
+router.get('/busqueda', productController.search)
+
 
 router.get("/colecciones/:nombre",productController.collections);
 

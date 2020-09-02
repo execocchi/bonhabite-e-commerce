@@ -35,7 +35,7 @@
 
           <!-- PONER HIDDEN FORM PARA ELIMINAR DEL CARRITO-->
           <form action="/carrito/delete" method="POST">
-          <input type="hidden" name="itemId" value="<%= item.productId %>" >
+          <input type="hidden" name="itemId" value="<%= productos.id  %>" >
           <button class="btn_deletecart mb-1 mt-2"> ELIMINAR DEL CARRITO </button>
         </form>
         </div>

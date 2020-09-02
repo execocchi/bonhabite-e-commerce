@@ -1,10 +1,12 @@
 const path = require('path');
 const fs = require('fs');
 const db = require('../database/models');
+const { send } = require('process');
 const sequelize = db.sequelize;
 const Product = db.Product;
 const Category = db.Category;
 const Collection = db.Collection;
+const Op = db.Sequelize.Op;
 
 
 const productController = {
@@ -91,8 +93,51 @@ const productController = {
             titulo,
             banner
         })
-    }
+    },
 
+
+   ofertas: function (req, res) {
+
+        /* if (req.query){
+            return res.send(req.query)
+ 
+         } */
+ 
+         titulo = "Ofertas";
+         Product
+             .findAll()
+             .then(productos => {
+                 res.render(path.resolve(__dirname, '..', 'views', 'products', 'ofertas'), {
+                     productos, titulo
+                 });
+             })
+ 
+    },
+
+    search: (req, res) => {
+
+        let titulo = req.query.buscar
+
+        //console.log(titulo)
+
+        Product.findAll({
+
+                where: {
+                    name: {
+                        [Op.like]: `%${req.query.buscar}%`
+                    }
+                }
+            })
+            .then(productos => {
+                res.render(path.resolve(__dirname, '..', 'views', 'products', 'search'), {
+                    productos, 
+                    titulo
+                });
+            })
+
+            .catch(error => res.send(error))
+    }
+    
 }
 
 module.exports = productController;

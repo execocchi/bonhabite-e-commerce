@@ -39,8 +39,7 @@ router.put('/admin/edit/:id',  upload.single('image'), validacionesMiddleware.up
 
 
 
-
-
+router.get('/busqueda', adminController.search);
 
 
 module.exports = router;

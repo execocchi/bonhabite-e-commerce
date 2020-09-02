@@ -6,6 +6,7 @@ const multer = require('multer')
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const Product = db.Product;
+const Op = db.Sequelize.Op;
 
 const {
     check,
@@ -144,6 +145,7 @@ module.exports = {
     },
 
     search: (req, res) => {
+
         Product.findAll({
                 where: {
                     name: {
@@ -152,7 +154,7 @@ module.exports = {
                 }
             })
             .then(resultado => {
-                res.render(path.resolve(__dirname, '..', 'views', 'admin', 'index'), {
+                res.render(path.resolve(__dirname, '..', 'views', 'admin', 'indexAdmin'), {
                     productos: resultado
                 });
             })

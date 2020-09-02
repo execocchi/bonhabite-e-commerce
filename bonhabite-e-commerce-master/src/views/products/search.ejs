@@ -4,18 +4,18 @@
 <head>
 
   <%- include('../partials/head')%>
-  <title>Colecciones | <%= titulo %></title>
+  <title>Productos | Búsqueda </title>
   <link rel="stylesheet" href="css/signUp.css">
 </head>
 
 <body>
   <%- include('../partials/header')%>
-  <container class="row">
+  <container class="row" style="background-color: white;">
     <section class="product-list col-3 d-none d-md-block">
-      <h2 class="productlist-title">COLECCIÓN</h2>
-      <h3 class="productlist-title2 mb-4"> <%= titulo %></h3>
+      <h2 class="productlist-title">Resultados de la búsqueda: </h2>
+      <h3 class="productlist-title2 mb-4"> " <%=titulo%> " </h3>
 
-      <h4 class="productlist-subtitle">COLECCIONES</h4>
+      <h4 class="productlist-subtitle">CATEGORIAS</h4>
       <ul>
         <li><a class="productlist" href="/todas">Todas</a></li>
         <li> <a class="productlist" href="/categoria/Mesas">Mesas</a></li>
@@ -28,8 +28,11 @@
         <li><a class="productlist" href="/ofertas">Otras</a></li>
       </ul>
 
+
       <h4 class="productlist-subtitle">COLECCIONES</h4>
       <ul>
+
+
         <li> <a class="productlist" href="/colecciones/Clásica"> CLÁSICA</a></li>
         <li><a class="productlist" href="/colecciones/Rústica"> RÚSTICA </a></li>
         <li> <a class="productlist" href="/colecciones/Minimal"> MINIMAL </a></li>
@@ -38,8 +41,12 @@
 
       <h4 class="productlist-subtitle">FILTRÁ POR COLORES</h4>
       <select class="custom-select custom-select-sm mb-4">
-        <option selected>Blanco</option>
         <option value="1">Negro</option>
+        <option selected>Blanco</option>
+        <option selected>Gris</option>
+        <option selected>Verde</option>
+        <option selected>Madera</option>
+        <option selected>Plateado</option>
         <option value="2">Azul</option>
         <option value="3">Amarillo</option>
       </select>
@@ -47,15 +54,22 @@
       <h4 class="productlist-subtitle"> FILTRÁ POR MATERIAL</h4>
       <select class="custom-select custom-select-sm mb-4">
         <option selected>Madera</option>
+        <option selected>Plástico</option>
+        <option selected>Roble</option>
         <option value="1">Metal</option>
         <option value="2">Mármol</option>
         <option value="3">Plástico</option>
+        <option value="3">Arpillera</option>
+        <option value="3">Quebracho</option>
       </select>
-
     </section>
 
     <section class="product-photos col-9">
 
+
+        <% if (productos.length == 0 ) { %>
+
+      <%  } else { %>
       <div class="aclaracionproductos">
         <div class="sortbycont">
           <h4 class="productlist-subtitle d-none d-md-block ">Ordenar por:</h4>
@@ -65,18 +79,22 @@
             <option value="2">Precio: mayor a menor</option>
           </select>
         </div>
-        <h4 class="numeroproductos"> <%= productos.length%> </h4>
+        <h4 class="numeroproductos"> <%= productos.length%> PRODUCTOS</h4>
       </div>
-
-      <div>
-        <figure class="fotocollection d-none d-md-block ml-3 mb-4"> <img class="imgfotocollection"
-            src="/img/banners/<%=banner %>" alt="colección"></figure>
-      </div>
+      <% }%>
 
 
 
       <section class="mr-4 sm-mg-auto" style="display: flex; flex-wrap: wrap;">
-       <% productos.forEach(producto => { %>
+  
+        <% if (productos.length == 0 ) { %>
+            <div class="col-xs-9 col-md-9 col-lg-9 rtaosbusqueda">
+            <h4 class="errorbusqueda"> No se encontraron resultados <br> para su búsqueda</h4>
+        </div>
+
+      <%  } else { %>
+
+        <% productos.forEach(producto => { %>
         <article class="col-xs-12 col-md-6 col-lg-4 card">
           <a href="/products/detail/<%=producto.id%>">
 
@@ -102,22 +120,17 @@
           </div>
         </article>
         <% }) %>
+        <% }%>
       </section>
 
-
     </section>
-
 
     </div>
 
   </container>
 
-
   <%- include('../partials/footer')%>
   <%- include('../partials/scripts')%>
 </body>
-<!-- Footer -->
-
-
 
 </html>

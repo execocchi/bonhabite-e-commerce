@@ -2,45 +2,63 @@
 <html lang="es">
 
 <head>
-  <%- include('../partials/head')%>
-  <title>Bon Habite</title>
+    <%- include('../partials/head')%>
+    <title>Bon Habite</title>
 </head>
 
 
-<body >
+<body>
     <%- include('../partials/header')%>
     <div class="mx-xs-2 mx-md-5" style="min-height: 100vh;">
-    <h1 class="title_general ml-0 pl-0 " style="font-family:Playfair Display;">Administrador de productos</h1>
-    <section class="row">
-      
-         <a class="btn_volver m-0 mb-4 ml-3 text-center" href="/create" style="border-radius: none;"></ion-icon>Agregar</a>
-    </section>
-   
- 
-    <table class="table" >
-        <thead class="ml-4">
-            <tr>
-                <th >ID</th>
-                <th>Nombre</th>
-                <th>Ver</th>
-                <th>Editar</th>
-                <th>Borrar</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% productos.forEach(producto => { %>
+
+        <h1 class="title_general ml-0 pl-0 mb-3" style="font-family:Playfair Display;">Administrador de productos</h1>
+
+
+        <section class="row">
+
+            <a class="btn_volver m-0 mb-4 ml-3 text-center" href="/create" style="border-radius: none;"></ion-icon>
+                Agregar</a>
+
+            <form action="/busqueda" class="form-inline  ml-4 mb-4" method="GET">
+                <input class="form-control search2 mr-sm-2 search-responsive" type="search" name="buscar"
+                    placeholder="Buscar productos" style="color:#D7613C;" style="margin-top:0; ">
+                <ion-icon name="search-outline"></ion-icon>
+                </button>
+            </form>
+
+        </section>
+
+
+        <table class="table mt-4">
+            <thead class="ml-4">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Ver</th>
+                    <th>Editar</th>
+                    <th>Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% productos.forEach(producto => { %>
                 <tr>
                     <td><%= producto.id %> </td>
                     <td><%= producto.name%> </td>
-                    <td><a class="text-muted" href="/admin/detail/<%= producto.id%>"><ion-icon name="eye-outline"></ion-icon></a></td>
-                    <td><a class="text-muted" href="/admin/edit/<%= producto.id%>"><ion-icon name="create-outline"></ion-icon></a></td>
-                    <td><a class="text-muted sureDelete" href="/admin/delete/<%= producto.id%>"><ion-icon name="trash-outline"></ion-icon></a></td>
+                    <td><a class="text-muted" href="/admin/detail/<%= producto.id%>">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </a></td>
+                    <td><a class="text-muted" href="/admin/edit/<%= producto.id%>">
+                            <ion-icon name="create-outline"></ion-icon>
+                        </a></td>
+                    <td><a class="text-muted sureDelete" href="/admin/delete/<%= producto.id%>">
+                            <ion-icon name="trash-outline"></ion-icon>
+                        </a></td>
                 </tr>
-            <% }) ; %>
-        </tbody>
-     
-    </table>
-</div>
+                <% }) ; %>
+            </tbody>
+
+        </table>
+    </div>
 
     <%- include('../partials/footer')%>
     <script src="/js/delete.js"></script>

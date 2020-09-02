@@ -17,6 +17,7 @@ const User = db.User
 
 module.exports = {
     index: (req, res) => {
+
         User
             .findAll()
             .then(usuarios => {
@@ -29,6 +30,7 @@ module.exports = {
 
     create: (req, res) => {
         res.render(path.resolve(__dirname, "../views/users/signUp"));
+        
     },
 
     save: (req, res) => {
@@ -183,4 +185,21 @@ module.exports = {
             usuarios
         });
     },
+
+    search: (req, res) => {
+
+        User.findAll({
+                where: {
+                    name: {
+                        [Op.like]: `%${req.query.buscar}%`
+                    }
+                }
+            })
+            .then(resultado => {
+                res.render(path.resolve(__dirname, '..', 'views', 'users', 'userAdmin'), {
+                    usuarios: resultado
+                });
+            })
+            .catch(error => res.send(error))
+    }
 }

@@ -55,6 +55,12 @@ router.get('/perfil/miscompras', usuariosController.miscompras)
 router.get('/perfil/misdatos', usuariosController.datos)
 router.get('/perfil', usuariosController.datos)
 
+router.get('/busquedausuarios', usuariosController.search)
+
+
+
+
+
 
 
 

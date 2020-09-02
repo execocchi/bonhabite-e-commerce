@@ -79,9 +79,11 @@
           <li> <%= producto.stock %> </li>
         </ul>
 
-        <h3 class="type_titledescription"> Material </h3>
+        <h3 class="type_titledescription"> Materiales </h3>
         <ul class="type_description">
-          <li style="text-transform: capitalize;"> <%= producto.material[0].name %> </li>
+          <% for (let i = 0 ; i < producto.material ; i ++) { %>
+          <li style="text-transform: capitalize;"> <%= producto.material[i].name %> </li>
+          <% } %>
         </ul>
 
         <h3 class="type_titledescription">Detalles</h3>
