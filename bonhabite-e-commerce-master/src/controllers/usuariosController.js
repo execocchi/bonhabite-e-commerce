@@ -164,7 +164,7 @@ module.exports = {
                             maxAge: 1000 * 60 * 60 * 24
                         })
                     } 
-                    return res.redirect('/perfil/misdatos');
+                    return res.redirect('/todas');
                 })
 
         } else {

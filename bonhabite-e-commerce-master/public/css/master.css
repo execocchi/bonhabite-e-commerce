@@ -1320,6 +1320,12 @@ letter-spacing: -0.015em;
 }
 
     /* productDetail */
+
+.coloresdetail{
+    height: 15px;
+    width: 15px;
+    margin-right: 3px;
+}
     
 .flecha-atras{
         font-family: 'Source Code Pro', sans-serif;

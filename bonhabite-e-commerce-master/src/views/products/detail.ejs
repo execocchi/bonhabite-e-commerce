@@ -69,8 +69,9 @@
 
         <h3 class="type_titledescription">Colores</h3>
         <ul class="coloresdisponibles">
-        
-          <li style=`background-color: ${producto.color[0].name}`;> </li>
+          <% for (let i = 0 ; i < producto.color ; i ++) { %>
+          <li class="coloresdetail" style=`background-color: ${producto.color[i].name}`;> </li>
+          <% } %>
         </ul>
       
 
