@@ -107,10 +107,10 @@ module.exports = {
             }
             //console.log(ext);
             if (
-                ext == ".JPG" ||
-                ext == ".JPEG" ||
-                ext == ".PNG" ||
-                ext == ".GIF") {
+                ext == ".jpg" ||
+                ext == ".jpeg" ||
+                ext == ".png" ||
+                ext == ".gif") {
                 return true;
             }
             return false;

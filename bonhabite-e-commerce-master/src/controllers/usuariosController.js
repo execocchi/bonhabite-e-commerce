@@ -37,18 +37,22 @@ module.exports = {
 
         const errors = validationResult(req);
         //console.log(errors)
+
         if(!errors.isEmpty()) {
           return res.render(path.resolve(__dirname, '../views/users/signUp'), {
             errors: errors.mapped(),
             old: req.body
           });
-        }   else {
+
+        }  else {
+
             const _body = req.body;
             _body.name = req.body.name,
             _body.lastName = req.body.lastName,
             _body.email = req.body.email,
             _body.password = bcrypt.hashSync(req.body.password, 10),
             _body.image = req.file ? req.file.filename : '' // if ternario 
+            
 
         User
             .create(_body)
@@ -108,12 +112,13 @@ module.exports = {
         } else {
 
             const _body = req.body;
-
             _body.name = req.body.name,
             _body.lastName = req.body.lastName,
             _body.email = req.body.email,
             _body.password = bcrypt.hashSync(req.body.password, 10),
             _body.image = req.file ? req.file.filename : req.body.oldImage;
+            
+
 
         User
             .update(_body, {
@@ -134,6 +139,12 @@ module.exports = {
 
     logged: (req, res) => {
 
+      /*  let userAdmin = await User.findAll({
+            where: {
+                roleeId: 2
+            }
+        }) */
+
         const errors = validationResult(req);
        
         if (errors.isEmpty()) {
@@ -144,7 +155,7 @@ module.exports = {
                     }
                 })
                 .then((usuarioLogueado) => {
-
+                    
                     delete usuarioLogueado.password;
                     req.session.usuario = usuarioLogueado;
 
@@ -152,7 +163,7 @@ module.exports = {
                         res.cookie('email', usuarioLogueado.email, {
                             maxAge: 1000 * 60 * 60 * 24
                         })
-                    }
+                    } 
                     return res.redirect('/perfil/misdatos');
                 })
 

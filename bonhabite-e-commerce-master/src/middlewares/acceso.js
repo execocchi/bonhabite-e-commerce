@@ -9,6 +9,8 @@ const User = db.User;
 module.exports = (req, res, next) => {
     
     res.locals.usuario = false;
+
+
         if (req.session.usuario) {
 
             res.locals.usuario = req.session.usuario;
@@ -27,7 +29,7 @@ module.exports = (req, res, next) => {
                    return next();
     
         })
-    }else{
+    }else {
         return next();
     }
 }
