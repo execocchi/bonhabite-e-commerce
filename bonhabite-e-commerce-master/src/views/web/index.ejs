@@ -49,12 +49,14 @@
       <% for (let i = 0 ; i < 4 ; i++){ %>
       <% if (productos[i].recommended == 1) {  %>
 
+        <a href="/products/detail/<%=productos[i].id%>">
       <div class="card">
 
         <img class="card-img-top" src="/img/productos/<%=productos[i].image%>" alt="producto">
         <div class="card-body">
           <h5 class="card-title"> <%= productos[i].name %></h5>
           <p class="card-text"> $ <%= productos[i].price %> </p>
+        </a>
           <button class="btn_deletecart mb-1"> AÑADIR AL CARRITO </button>
         </div>
       </div>

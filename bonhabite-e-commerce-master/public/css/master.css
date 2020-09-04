@@ -824,9 +824,6 @@ flex-direction: column;
         padding: 25px 45px;
     }
 
-    .product-photos{
-    margin-left: 0;
-    }
 
     .productlist-title{
         font-family: 'Roboto', sans-serif;
@@ -892,11 +889,10 @@ letter-spacing: -0.015em;
     }
 
    .aclaracionproductos{
-       display: flex;
+        display: flex;
         justify-content: flex-end;
         margin-right: 105px;
         margin-top: 15px;
-        margin-bottom: 10px;
     }
 
 
@@ -1653,6 +1649,8 @@ footer a h5 {
         display: flex;
         flex-direction: column
     }
+
+     
     .nav-icons li a {
         display: block;
     }
@@ -1698,23 +1696,23 @@ footer a h5 {
         margin-top: 5px;
             }
         
-            footer a h5 {
-                text-align: left;
-                }
+    footer a h5 {
+        text-align: left;
+        }
 
-                footer p {
-                    text-align: left;
-                    }
+    footer p {
+        text-align: left;
+        }
 
-                    .responsive{
-                        width: 100%;
-                    max-width: 400px;
-                    }
+    .responsive{
+        width: 100%;
+    max-width: 400px;
+    }
 
-                    .formfigure{
-                        display: flex;
-                        justify-content: center;
-                       }
+    .formfigure{
+        display: flex;
+        justify-content: center;
+        }
 
                        
 .flex-contact{
@@ -1743,6 +1741,7 @@ footer a h5 {
 .p_cotiza{
     font-size: 12px;
 }
+
 
 }
 

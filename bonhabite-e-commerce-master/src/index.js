@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 
 //Requerir el middleware que controla si el usuario está o no Logueado
 const acceso = require('./middlewares/acceso');
-const userAdmin = require('./middlewares/userAdmin');
+//const userAdmin = require('./middlewares/userAdmin');
 
 
 const webRoutes = require('./routes/webRoutes');
@@ -26,7 +26,7 @@ app.use(session({
 }));
 
 app.use(acceso);
-app.use(userAdmin);
+//app.use(userAdmin);
 
 //Aquí requiero el Middleware que controla si el usuario está o no Logueado
 

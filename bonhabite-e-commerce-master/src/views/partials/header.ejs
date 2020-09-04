@@ -99,22 +99,22 @@
                     </div>
                 </li>
            
-                
-                <% if(locals.userAdmin) { %>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Admin
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/administrar">Productos</a>
-                        <a class="dropdown-item" href="/userAdmin">Usuarios</a>
-                    </div>
-                </li> 
+                    <% if(usuario.roleId ==1) { %> 
+                        <!--Aquí dispongo  el acceso sólo al o los usuarios administradores-->
 
-                <%    } else { %>
-                        <li></li>
-                    <%    }  %>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Admin
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/administrar">Productos</a>
+                            <a class="dropdown-item" href="/userAdmin">Usuarios</a>
+                        </div>
+                    </li> 
+                  <%}%>
+                   
+
 
                 <li> <a class="navbar-text d-lg-none d-xl-none" href="/carrito"> MI CARRITO </a></li>
 
@@ -123,12 +123,12 @@
             <!-- Estoy logueado veo esto -->
 
             <% if(locals.usuario) { %>
-            <img src="/img/usuarios/<%=locals.usuario.image%>" width="30" height="30px" alt="imagen">
+            <img class="d-none d-lg-block d-xl-block" src="/img/usuarios/<%=locals.usuario.image%>" width="30" height="30px" alt="imagen">
             <li class="nav-item dropdown">
                 <!--   <img src="/img/usuarios/<%=locals.usuario.image%>" width="30" style="border-radius: 50%;" alt="imagen"> -->
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    MI PERFIL
+                    Hola, <%=locals.usuario.name%>!
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="/perfil/miscompras"> Mis compras</a>
@@ -144,7 +144,7 @@
 
             <%    }  %>
 
-            <form action="/busqueda" class="form-inline my-2 my-lg-0 search_navbar" method="GET">
+            <form action="/buscar" class="form-inline my-2 my-lg-0 search_navbar" method="GET">
                 <input class="form-control search mr-sm-2 search-responsive" type="search" name="buscar" placeholder="Buscar"
                     style="margin-top:0;">
                <button class="btn btn-btn-light my-2 my-sm-0 d-none d-lg-block d-xl-block" type="submit">

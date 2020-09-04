@@ -11,7 +11,9 @@
 <body>
   <%- include('../partials/header')%>
   <container class="row" style="background-color: white;">
-    <section class="product-list col-3 d-none d-md-block">
+
+
+    <section class="product-list  d-none d-md-block col-md-3 col-lg-3 col-xl-3">
       <h2 class="productlist-title">CATEGORIA</h2>
       <h3 class="productlist-title2 mb-4"> <%=titulo%> </h3>
 
@@ -64,7 +66,7 @@
       </select>
     </section>
 
-    <section class="product-photos col-9">
+    <section class="product-photos col-sm-12 col-md-9 col-lg-9 col-xl-9">
 
       <div class="aclaracionproductos">
         <div class="sortbycont">
@@ -80,7 +82,7 @@
 
 
 
-      <section class="mr-4 sm-mg-auto" style="display: flex; flex-wrap: wrap;">
+      <section style="display: flex; flex-wrap: wrap;">
   
         <% productos.forEach(producto => { %>
         <article class="col-xs-12 col-md-6 col-lg-4 card">

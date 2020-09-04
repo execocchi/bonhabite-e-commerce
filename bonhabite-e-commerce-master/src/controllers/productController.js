@@ -129,7 +129,7 @@ const productController = {
                 }
             })
             .then(productos => {
-                res.render(path.resolve(__dirname, '..', 'views', 'products', 'search'), {
+                res.render(path.resolve(__dirname, '..', 'views', 'admin', 'index'), {
                     productos, 
                     titulo
                 });
