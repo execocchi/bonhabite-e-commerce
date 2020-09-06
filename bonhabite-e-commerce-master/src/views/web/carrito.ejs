@@ -21,13 +21,12 @@
     <section class="col-lg-6 col-md-6 col-sm-12 pl-5 container_productos">
 
 
-      <% for (let i = 0 ; i < productos.length ; i++){ %>
-      <% if (productos[i].masvendido == 1) {  %>
-
+      <% for (let i = 0 ; i < 5 ; i++){ %>
+     
 
       <div class="flex_column containers">
 
-        <figure class="figure_contenedor"> <a href="/productDetail"> <img class="img_productos"
+        <figure class="figure_contenedor"> <a href="/productDetail"> <img class="img_productoscarrito"
               src="/img/productos/<%=productos[i].image %>" class="card-img-top" alt="producto"></figure></a>
         <div class="card-body pr-0 py-3">
           <h5 class="card-title"><%= productos[i].name %></h5>
@@ -41,7 +40,6 @@
         </div>
       </div>
       <%  } %>
-      <%  } %>
 
 
 
@@ -51,7 +49,7 @@
     <section class="col-lg-6 col-md-6 col-sm-12">
 
       <div class="mr-4" style="display: flex; justify-content: space-between;">
-        <address>
+        <address class="mediaadress">
           <strong>BON HABITE</strong>
           <br>
           Av. El Cano 4742
@@ -71,7 +69,7 @@
         </div>
       </div>
 
-      <div class="mr-4 pb-4 mb-3" style="background-color: #F4F4F4; ">
+      <div class="mr-4 pb-4 mb-3 mediacarrito" style="background-color: #F4F4F4; ">
 
 
         <h2 class="title_producto p-3"> tus muebles</h2>
@@ -106,7 +104,7 @@
       </div>
 
       <div class="mb-3" style="width: 100%;">
-        <a href="./checkout" class="btn btn_comprar btn-block ">CONTINUAR CON LA COMPRA </a>
+        <a href="./checkout" class="btn btn_comprar btn-block botonresponsive ">CONTINUAR CON LA COMPRA </a>
       </div>
 
   </div>

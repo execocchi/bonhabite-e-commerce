@@ -23,25 +23,25 @@ const webController = {
     },
 
     carrito:function(req,res){
-        let productos  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
-        res.render(path.resolve(__dirname, "../views/web/carrito"), {productos : productos});
+        Product
+        .findAll()
+        .then(productos => {
+            res.render(path.resolve(__dirname, '..','views',"web",'carrito'), {productos : productos});
+        })
+        .catch(error => res.send(error))
     },
 
     tyc:function(req,res){
-        let productos  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
         res.render(path.resolve(__dirname, "../views/web/tyc"));
     },
 
     preguntasfrecuentes:function(req,res){
-        let productos  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
         res.render(path.resolve(__dirname, "../views/web/preguntasfrecuentes"));
     },
     comofunciona:function(req,res){
-        let productos  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
         res.render(path.resolve(__dirname, "../views/web/comofunciona"));
     },
     cotiza:function(req,res){
-        let productos  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
         res.render(path.resolve(__dirname, "../views/web/cotiza"));
     },
 
