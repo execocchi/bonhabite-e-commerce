@@ -353,6 +353,10 @@ margin-bottom: 20px;
 
 /* Contacto */
 
+.divcontact{
+    padding-left: 40px;
+}
+
 
 .text_contact{
     height: 25%;
@@ -368,7 +372,8 @@ margin-bottom: 20px;
 }
 
 .form-contacto{
-    padding: 10px 15%;}
+    padding: 10px 15%;
+}
 
 .frases-contacto{
     font-family: 'Playfair Display' , sans-serif; 
@@ -397,6 +402,7 @@ margin-bottom: 20px;
 }
 
 .font-contacto {
+   
     font-family: 'Playfair Display' , sans-serif; 
     font-style: normal;
     font-weight: bold;
@@ -407,7 +413,8 @@ margin-bottom: 20px;
 }
 
 .p-contacto{
- font-family: 'Roboto', sans-serif;
+  
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 200;
     font-size: 15px;
@@ -821,7 +828,7 @@ flex-direction: column;
     /* all products */
 
     .product-list{
-        padding: 25px 45px;
+        padding: 25px 50px;
     }
 
 
@@ -893,16 +900,17 @@ letter-spacing: -0.015em;
         justify-content: flex-end;
         margin-right: 105px;
         margin-top: 15px;
+        margin-bottom: 10px;
     }
 
 
        .numeroproductos{
-           margin-left: 10px;
-           margin-bottom: 0;
-           font-family:'Source Code Pro', sans-serif;
+            margin-left: 10px;
+            margin-bottom: 0;
+            font-family:'Source Code Pro', sans-serif;
             font-style: normal;
             font-weight: 400;
-            font-size: 15px;
+            font-size: 13px;
             color: #454743;
             height: 100%;
             margin-top: 5px;
@@ -1113,7 +1121,7 @@ letter-spacing: -0.015em;
     }
 
     .product-photos{
-        padding: 0;
+        padding-right:30px;
     }
 
        /* Carrito */
@@ -1650,6 +1658,18 @@ footer a h5 {
         flex-direction: column
     }
 
+    .aclaracionproductos{
+        margin-left: 10px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        justify-content: flex-start
+    }
+
+    .productosmargensm{
+        margin: 10px 15px;
+    }
+
+
      
     .nav-icons li a {
         display: block;
@@ -1714,15 +1734,7 @@ footer a h5 {
         justify-content: center;
         }
 
-                       
-.flex-contact{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 10px 15%;
-    margin-left: 20px;
 
-}
 
 .margenmedia{
     margin: 10px 35px;

@@ -54,8 +54,9 @@
 
     </section>
 
-    <section class="product-photos col-9">
+    <section class="product-photos col-sm-12 col-md-9 col-lg-9 col-xl-9">
 
+  
       <div class="aclaracionproductos">
         <div class="sortbycont">
           <h4 class="productlist-subtitle d-none d-md-block ">Ordenar por:</h4>
@@ -65,19 +66,12 @@
             <option value="2">Precio: mayor a menor</option>
           </select>
         </div>
-        <h4 class="numeroproductos"> <%= productos.length%> </h4>
+        <h4 class="numeroproductos"> <%= productos.length%> PRODUCTOS</h4>
       </div>
 
-      <div>
-        <figure class="fotocollection d-none d-md-block ml-3 mb-4"> <img class="imgfotocollection"
-            src="/img/banners/<%=banner %>" alt="colección"></figure>
-      </div>
-
-
-
-      <section class="mr-4 sm-mg-auto" style="display: flex; flex-wrap: wrap;">
+      <section class="grillaproductos" style="display: flex; flex-wrap: wrap;">
        <% productos.forEach(producto => { %>
-        <article class="col-xs-12 col-md-6 col-lg-4 card">
+        <article class="col-xs-12 col-md-6 col-lg-4 card productosmargensm">
           <a href="/products/detail/<%=producto.id%>">
 
             <div class="relativepos">

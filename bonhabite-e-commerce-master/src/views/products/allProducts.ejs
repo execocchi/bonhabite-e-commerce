@@ -85,7 +85,8 @@
       <section style="display: flex; flex-wrap: wrap;">
   
         <% productos.forEach(producto => { %>
-        <article class="col-xs-12 col-md-6 col-lg-4 card">
+          
+        <article class="col-xs-12 col-md-6 col-lg-4 card productosmargensm">
           <a href="/products/detail/<%=producto.id%>">
 
             <div class="relativepos">
@@ -93,6 +94,7 @@
               <% if (producto.discount == 15) { %>
                 <div class=" descuento15" ><h3 class="descuentotype">SALE 15%</h3> </div>  
               <% } %>
+
               <% if (producto.discount == 30) { %>
                 <div  class=" descuento30"> <h3 class="descuentotype">SALE 30%</h3> </div>  
               <% } %>

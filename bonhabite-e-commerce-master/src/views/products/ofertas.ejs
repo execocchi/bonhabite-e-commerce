@@ -64,7 +64,7 @@
       </select>
     </section>
 
-    <section class="product-photos col-9">
+    <section class="product-photos col-sm-12 col-md-9 col-lg-9 col-xl-9">
 
       <div class="aclaracionproductos">
         <div class="sortbycont">
@@ -80,12 +80,12 @@
 
 
 
-      <section class="mr-4 sm-mg-auto" style="display: flex; flex-wrap: wrap;">
+      <section style="display: flex; flex-wrap: wrap;">
 
         <% productos.forEach(producto => { %>
 
        <% if (producto.discount != 0) {  %>
-        <article class="col-xs-12 col-md-6 col-lg-4 card">
+        <article class="col-xs-12 col-md-6 col-lg-4 card productosmargensm">
           <a href="/products/detail/<%=producto.id%>">
 
             <div class="relativepos">
