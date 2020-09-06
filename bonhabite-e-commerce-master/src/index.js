@@ -15,6 +15,7 @@ const webRoutes = require('./routes/webRoutes');
 const usuariosRoutes = require('./routes/usuariosRoutes')
 const adminRoutes= require("./routes/adminRoutes")
 const productRoutes = require("./routes/productRoutes")
+const apiRoutes = require('./routes/api/productos');
 
 app.use(cookieParser());
 
@@ -43,6 +44,7 @@ app.use(webRoutes);
 app.use(usuariosRoutes);
 app.use(adminRoutes);
 app.use(productRoutes);
+app.use(apiRoutes);
 
 
 

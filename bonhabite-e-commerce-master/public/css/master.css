@@ -396,7 +396,7 @@ margin-bottom: 20px;
 .contacto{
     margin: 8px 0px;
     background-color:#F4F4F4;
-    border: 0.2px solid #000000;
+    border: 0.2px solid #454743;
     box-sizing: border-box;
     border-radius: 10px;
 }
@@ -1326,9 +1326,10 @@ letter-spacing: -0.015em;
     /* productDetail */
 
 .coloresdetail{
-    height: 15px;
-    width: 15px;
+    height: 10px;
+    width: 10px;
     margin-right: 3px;
+    border: solid #454743 1px;
 }
     
 .flecha-atras{

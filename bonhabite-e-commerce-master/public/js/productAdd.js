@@ -43,6 +43,10 @@ window.addEventListener('load', function(){
             errores.push('El campo nombre esta vacío');
             errorPrice.innerHTML = "El campo precio no puede estar vacío";
             campoPrice.classList.add('is-invalid')
+        } else if(isNaN(Number(campoPrice.value))){
+                errores.push('El campo debe ser numérico');
+                errorPrice.innerHTML = "El campo debe ser numérico";
+                campoPrice.classList.add('is-invalid')
         } else {
             campoPrice.classList.add('is-valid')
             campoPrice.classList.remove('is-invalid')
@@ -53,11 +57,15 @@ window.addEventListener('load', function(){
             errores.push('El campo stock esta vacío');
             errorStock.innerHTML = "El campo stock no puede estar vacío";
             campoStock.classList.add('is-invalid')
+
+        }else if(isNaN(Number(campoStock.value))){
+                errores.push('El campo debe ser numérico');
+                errorStock.innerHTML = "El campo debe ser numérico";
+                campoStock.classList.add('is-invalid')
         } else {
             campoStock.classList.add('is-valid')
             campoStock.classList.remove('is-invalid')
             errorStock.innerHTML = "";
-            
         } 
 
         if (campoDescription.value == ""){

@@ -13,6 +13,7 @@ router.get('/preguntasfrecuentes',webController.preguntasfrecuentes);
 router.get('/reciclados/comofunciona', webController.comofunciona)
 router.get('/reciclados/cotiza', webController.cotiza)
 router.get('/buscar', webController.search)
+router.get('/nuestrasApis', webController.showApis)
 
 
 

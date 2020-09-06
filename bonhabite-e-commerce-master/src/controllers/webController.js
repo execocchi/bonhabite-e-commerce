@@ -67,7 +67,10 @@ const webController = {
             })
 
             .catch(error => res.send(error))
-    }
+    },
+    showApis: function (req, res) {
+        res.render(path.resolve(__dirname, '../views/web/nuestrasApis'));
+    },
     
 }
 module.exports = webController;
