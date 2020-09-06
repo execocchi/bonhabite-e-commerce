@@ -15,7 +15,9 @@ const webRoutes = require('./routes/webRoutes');
 const usuariosRoutes = require('./routes/usuariosRoutes')
 const adminRoutes= require("./routes/adminRoutes")
 const productRoutes = require("./routes/productRoutes")
-const apiRoutes = require('./routes/api/productos');
+const productosApiRoutes = require('./routes/api/productos');
+const categoriasApiRoutes = require('./routes/api/categorias');
+const coleccionesApiRoutes = require('./routes/api/colecciones');
 
 app.use(cookieParser());
 
@@ -44,7 +46,10 @@ app.use(webRoutes);
 app.use(usuariosRoutes);
 app.use(adminRoutes);
 app.use(productRoutes);
-app.use(apiRoutes);
+app.use(productosApiRoutes);
+app.use(categoriasApiRoutes);
+app.use(coleccionesApiRoutes);
+
 
 
 

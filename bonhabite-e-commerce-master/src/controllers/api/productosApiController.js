@@ -28,7 +28,17 @@ const productosApiController = {
                 };
                 res.json(respuesta)
                 });
-            }
+            },
+    find: function (req, res) {
+
+        Product
+            .findByPk(req.params.id , {include: ['category', 'color', 'material']})
+
+            .then(producto => {
+                res.send(producto)   
+            })
+
     }
+}
    
 module.exports = productosApiController;
