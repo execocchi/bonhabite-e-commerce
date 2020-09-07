@@ -164,8 +164,8 @@ padding-bottom: 5px;
 .textarea2{
     position: absolute;
     text-align: left;
-    padding-left: 30px;
-    padding-top: 25px;
+    padding-left: 35px;
+    padding-top: 55px;
 }
 
 /* JS */
@@ -460,10 +460,11 @@ margin-bottom: 20px;
     font-style: normal;
     font-weight: 100;
     font-size: 15px;
-    line-height: 30px;
+    line-height: 26px;
     letter-spacing: -0.015em;
     color: #454743;
     margin-left: 45px;
+    width: 62%;
 }
 
 .nostext p{
@@ -519,7 +520,9 @@ margin-bottom: 20px;
 
 /* NavBar */
 
-
+.dropdown-toggle::after{
+    display: none;
+}
 
 .navbar-text {
     padding-right: 20px;
@@ -838,7 +841,7 @@ flex-direction: column;
         font-weight: normal;
         font-size:25px ;
         letter-spacing: -0.015em;
-        color: #000000;
+        color: #454743;
     }
 
     .productlist-title2{
@@ -868,17 +871,18 @@ flex-direction: column;
     }
 
     .productlist{
-        color: #000000;
+        color: #454743;
         font-weight: 300;
     }
 
     .productlist-subtitle{
         font-family: 'Roboto', sans-serif;
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 35px;
-letter-spacing: -0.015em;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 35px;
+        letter-spacing: -0.015em;
+        color: #454743;
     }
 
     .custom-select{
@@ -1664,6 +1668,11 @@ footer a h5 {
         display: flex;
         flex-direction: column
     }
+
+    .navbar-brand{
+        padding-bottom: 0px;
+    }
+    
     .home_rigth{
         margin-top: 8px;
     }
@@ -1831,7 +1840,9 @@ footer a h5 {
     margin-bottom: 1px;
 }
 
-
+.navbar-collapse{
+    padding-bottom: 7px;
+}
 .search_navbar{
     display: flex;
     flex-direction:row;

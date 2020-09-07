@@ -49,12 +49,15 @@
           <li> <%= producto.description %> </li>
         </ul>
 
+        <% if(producto.color.length != 0) { %>
+
         <h3 class="type_titledescription">Colores</h3>
         <ul class="coloresdisponibles">
           <% for (let i = 0 ; i < producto.color.length ; i ++) { %>
           <li class="coloresdetail" style="background-color: <%= producto.color[i].name %>" ></li>
           <% } %>
         </ul>
+        <% } %>
 
         <!-- <li class="coloresdetail" style=`background-color: ${producto.color[i].name}`;></li>--> 
       
@@ -64,6 +67,9 @@
           <li> <%= producto.stock %> </li>
         </ul>
 
+
+        <% if(producto.material.length != 0) { %>
+
         <h3 class="type_titledescription"> Materiales </h3>
         <ul class="type_description">
 
@@ -71,6 +77,8 @@
           <li style="text-transform: capitalize;"> <%= producto.material[i].name %> </li>
           <% } %>
         </ul>
+
+        <% } %>
 
         <h3 class="type_titledescription">Detalles</h3>
         <ul class="type_description">
